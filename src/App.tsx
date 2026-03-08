@@ -888,11 +888,11 @@ const Reviews = () => {
                 >
                   <div className="flex gap-2 mb-6 justify-center">
                     {Array.from({ length: review.stars }).map((_, i) => (
-                      <Star key={i} size={32} className="fill-yellow-400 text-yellow-400" />
+                      <Star key={i} size={28} className="fill-yellow-400 text-yellow-400" />
                     ))}
                   </div>
-                  <p className="text-2xl md:text-3xl text-slate-700 leading-relaxed mb-8">{review.text}</p>
-                  <div className="font-bold text-2xl text-slate-900">{review.name}</div>
+                  <p className="text-xl md:text-2xl text-slate-700 leading-relaxed mb-8">{review.text}</p>
+                  <div className="font-bold text-xl text-slate-900">{review.name}</div>
                 </div>
               ))}
             </motion.div>
@@ -942,7 +942,7 @@ const Footer = () => {
               e.currentTarget.src = 'https://placehold.co/150x50/ffffff/1d4ed8?text=Dekel+Digital';
             }} />
             <p className="text-slate-400 text-2xl leading-relaxed mb-6">
-              שיווק דיגיטלי שמביא תוצאות אמיתיות. ניהול קמפיינים ממומנים בגישה מקצועית ושקופה.
+              שיווק דיגיטלי שמביא תוצאות אמיתיות.
             </p>
             <div className="flex gap-4">
               <a href="https://www.facebook.com/dekeldigital" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-blue-600 transition-colors">
