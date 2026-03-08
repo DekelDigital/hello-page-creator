@@ -373,7 +373,6 @@ const Services = () => {
     const animEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
     const runAnimation = async () => {
-      // All three animate simultaneously
       await Promise.all([
         rookControls.start({
           x: '-300%',
@@ -387,10 +386,6 @@ const Services = () => {
           opacity: 0.8,
           scale: 1,
           rotate: 3,
-          transition: { duration: animDuration, ease: animEase },
-        }),
-        maskControls.start({
-          clipPath: 'inset(0 0% 0 0%)',
           transition: { duration: animDuration, ease: animEase },
         }),
       ]);
