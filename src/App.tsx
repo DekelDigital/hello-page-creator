@@ -21,6 +21,7 @@ import {
   Facebook
 } from 'lucide-react';
 import ChessHero from './components/ChessHero';
+import chessHeroBg from './assets/chess-hero-bg.png';
 
 const Logo = () => (
   <div className="flex items-center gap-2 -my-2 md:-my-3">
