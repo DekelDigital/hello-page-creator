@@ -1,52 +1,8 @@
 @import "tailwindcss";
 
-@theme {
-  --font-sans: "Heebo", ui-sans-serif, system-ui, sans-serif;
-  --color-brand-blue: #1d4ed8;
-  --color-brand-light: #eff6ff;
-  --color-brand-dark: #1e3a8a;
-}
-
-@layer utilities {
-  .animate-scroll-right {
-    animation: scrollRight 30s linear infinite;
-  }
-  
-  .animate-scroll-left {
-    animation: scrollLeft 30s linear infinite;
-  }
-  
-  .pause-animation {
-    animation-play-state: paused;
-  }
-  
-  @media (prefers-reduced-motion: reduce) {
-    .animate-scroll-right,
-    .animate-scroll-left {
-      animation: none;
-    }
-  }
-}
-
-@keyframes scrollRight {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
-}
-
-@keyframes scrollLeft {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
 }
 
 body {
@@ -54,13 +10,4 @@ body {
   background-color: #fafafa;
   color: #0f172a;
   overflow-x: hidden;
-}
-
-/* Hide scrollbar for the infinite scroll container */
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
 }
