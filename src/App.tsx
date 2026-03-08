@@ -184,7 +184,7 @@ const About = () => {
               <img 
                 src="/next_move.png" 
                 alt="Next Move Chess" 
-                className="relative z-10 w-full max-w-[900px] h-auto drop-shadow-[0_20px_40px_rgba(37,99,235,0.2)]"
+                className="relative z-10 w-full max-w-[1200px] h-auto drop-shadow-[0_20px_40px_rgba(37,99,235,0.2)]"
               />
             </div>
           </motion.div>
