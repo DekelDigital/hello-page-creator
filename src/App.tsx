@@ -321,7 +321,7 @@ const Services = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [hasAnimated, setHasAnimated] = useState(false);
   const [prefersReducedMotionLocal, setPrefersReducedMotionLocal] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < 768);
   const rookControls = useAnimationControls();
   const queenControls = useAnimationControls();
   const maskControls = useAnimationControls();
