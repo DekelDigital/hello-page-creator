@@ -90,8 +90,8 @@ const ChessHero = () => {
         ))}
       </div>
 
-      {/* Chess pieces overlay */}
-      <div className="absolute inset-0 pointer-events-none z-[8]">
+      {/* Chess pieces overlay with scroll parallax */}
+      <motion.div className="absolute inset-0 pointer-events-none z-[8]" style={{ y: piecesY, opacity: piecesOpacity }}>
         {/* Knight - left side */}
         <motion.img
           src={chessKnight}
