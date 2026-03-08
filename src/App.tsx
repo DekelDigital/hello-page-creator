@@ -426,19 +426,18 @@ const AdsCarousel = () => {
   const row2 = adImages.slice(7, 14);
 
   return (
-    <section id="ads" className="py-24 bg-slate-900 overflow-hidden relative" tabIndex={-1}>
+    <section id="ads" className="py-24 bg-[#e8f0fe] overflow-hidden relative" tabIndex={-1}>
       {/* Chess board pattern background */}
-      <div className="absolute inset-0 opacity-[0.04]" style={{
+      <div className="absolute inset-0 opacity-[0.06]" style={{
         backgroundImage: `repeating-conic-gradient(#3b82f6 0% 25%, transparent 0% 50%)`,
         backgroundSize: '60px 60px'
       }}></div>
-      {/* Soft blue glow */}
-      <div className="absolute top-0 left-1/4 w-[800px] h-[800px] bg-blue-500/10 rounded-full blur-[150px] pointer-events-none"></div>
-      <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-blue-400/10 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="absolute top-0 left-1/4 w-[800px] h-[800px] bg-blue-300/20 rounded-full blur-[150px] pointer-events-none"></div>
+      <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-blue-200/20 rounded-full blur-[120px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 text-center relative z-10">
-        <h2 className="text-4xl md:text-5xl font-black text-white mb-4">מודעות שעיצבנו לכם</h2>
-        <p className="text-2xl md:text-3xl text-blue-400 font-medium">קריאייטיבים שנבנו כדי לעצור גלילה</p>
+        <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">מודעות שעיצבנו לכם</h2>
+        <p className="text-2xl md:text-3xl text-blue-600 font-medium">קריאייטיבים שנבנו כדי לעצור גלילה</p>
       </div>
 
       <div className="relative flex flex-col gap-6 w-full" dir="ltr">
