@@ -44,7 +44,7 @@ const ChessHero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-32 pb-24 lg:pt-40 lg:pb-32">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 pb-24 lg:pt-32 lg:pb-32">
         <motion.h1
           className="text-5xl sm:text-6xl lg:text-[5rem] font-black leading-[1.1] mb-8 tracking-tight"
           style={{
