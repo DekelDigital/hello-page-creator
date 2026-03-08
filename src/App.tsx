@@ -254,11 +254,10 @@ const About2 = () => {
           className="text-center max-w-4xl mx-auto mb-24"
         >
           <h2 className="text-5xl md:text-6xl font-black text-slate-900 mb-8 tracking-tight">
-            הדרך שלנו <span className="text-blue-600">להצלחה שלך</span>
+            האסטרטגיה שלנו <span className="text-blue-600">לניצחון שלך</span>
           </h2>
           <p className="text-2xl md:text-3xl text-slate-600 leading-relaxed font-medium">
-            עם ניסיון של שנים בניהול קמפיינים, אנחנו מביאים מקצועיות ושקיפות מלאה לכל תהליך. 
-            <strong className="text-blue-700 font-bold block mt-4 text-3xl md:text-4xl"> המטרה שלנו היא לא רק להביא לידים, אלא לייצר צמיחה ורווח. </strong>
+            קמפיין נכון מתחיל בתכנון מהלך - וממשיך בשיפור מתמיד לפי נתונים. ככה מייצרים תוצאות לאורך זמן.
           </p>
         </motion.div>
 
@@ -274,20 +273,20 @@ const About2 = () => {
               {
                 num: '01',
                 icon: <BarChart3 className="w-12 h-12 text-blue-600" />,
-                title: 'מדידה',
-                desc: 'אנחנו לא מנחשים. כל שקל שנכנס לקמפיין נמדד ומנותח כדי להביא את התוצאה המקסימלית.'
+                title: 'שיחת אפיון',
+                desc: 'מבינים את העסק, המסר וקהל היעד - ובונים תוכנית קמפיינים ברורה לפני שמוציאים שקל.'
               },
               {
                 num: '02',
                 icon: <Target className="w-12 h-12 text-blue-600" />,
-                title: 'מיקוד',
-                desc: 'לידים זה נחמד, אבל מכירות זה מה שחשוב. אנחנו בונים משפכים שמכוונים ללקוחות משלמים.'
+                title: 'אופטימיזציה שוטפת',
+                desc: 'בודקים, משפרים ומדייקים קהלים וקריאייטיב כדי להוציא יותר תוצאה מכל תקציב.'
               },
               {
                 num: '03',
                 icon: <TrendingUp className="w-12 h-12 text-blue-600" />,
-                title: 'שקיפות',
-                desc: 'דוחות ברורים, גישה מלאה לנתונים, ופגישות סטטוס קבועות. אתה תמיד יודע מה קורה.'
+                title: 'דוחות ותמונה מלאה',
+                desc: 'דוח שבועי ברור, תובנות מה עבד ומה לא, והחלטות להמשך כדי שתמיד תדעו איפה עומדים ולאן מתקדמים.'
               }
             ].map((item, idx) => (
               <motion.div 
@@ -321,7 +320,7 @@ const Services = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">מה אנחנו עושים</h2>
-          <p className="text-2xl md:text-3xl text-slate-600 mb-2">הפלטפורמות המובילות בעולם, עם האסטרטגיה המנצחת שלנו.</p>
+          <p className="text-2xl md:text-3xl text-slate-600 mb-2">אנחנו משחקים בשלוש זירות מרכזיות - ומחברים את כולן לתוצאה אחת: צמיחה לעסק.</p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8 items-stretch" dir="ltr">
@@ -427,7 +426,7 @@ const AdsCarousel = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 text-center relative z-10">
         <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">מודעות שעיצבנו לכם</h2>
-        <p className="text-2xl md:text-3xl text-blue-600 font-medium">קריאייטיבים שנבנו כדי לעצור גלילה</p>
+        <p className="text-2xl md:text-3xl text-blue-600 font-medium">קריאייטיבים שנועדו לעצור גלילה ולהניע לפעולה.</p>
       </div>
 
       <div className="relative flex flex-col gap-6 w-full" dir="ltr">
@@ -521,10 +520,10 @@ const LeadForm = ({ id }: { id: string }) => {
       <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12">
           <h3 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-4 leading-tight tracking-tight drop-shadow-sm">
-            מוכנים להפוך שיווק לתוצאות?
+            מוכנים למהלך הבא?
           </h3>
           <p className="text-2xl md:text-3xl text-white/90 font-medium drop-shadow-sm max-w-4xl mx-auto">
-            משאירים פרטים ועושים את הצעד הראשון לשיווק מנצח
+            משאירים פרטים - ואנחנו חוזרים עם כיוון ברור למהלך הבא.
           </p>
         </div>
         
@@ -579,7 +578,7 @@ const LeadForm = ({ id }: { id: string }) => {
                 <span className="animate-pulse">שולח...</span>
               ) : (
                 <>
-                  אני רוצה יותר תוצאות
+                  בואו נעשה את המהלך הבא
                   <div className="bg-white/20 rounded-full p-1.5 group-hover:bg-white/30 transition-colors">
                     <ArrowLeft size={24} />
                   </div>
