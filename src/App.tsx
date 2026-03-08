@@ -748,32 +748,32 @@ const Reviews = () => {
   ];
 
   return (
-    <section id="reviews" className="py-32 bg-slate-900 text-white relative overflow-hidden" tabIndex={-1}>
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-blue-900/30 rounded-full blur-[150px] pointer-events-none"></div>
+    <section id="reviews" className="py-32 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden" tabIndex={-1}>
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-blue-100/40 rounded-full blur-[150px] pointer-events-none"></div>
       
       <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-6xl font-black mb-6">תשמעו מה הלקוחות שלנו אומרים</h2>
-          <p className="text-2xl md:text-3xl text-slate-400">אנחנו מאמינים בשקיפות, עבודה קשה ותוצאות שמדברות בעד עצמן.</p>
+          <h2 className="text-5xl md:text-6xl font-black mb-6 text-slate-900">תשמעו מה הלקוחות שלנו אומרים</h2>
+          <p className="text-2xl md:text-3xl text-slate-500">אנחנו מאמינים בשקיפות, עבודה קשה ותוצאות שמדברות בעד עצמן.</p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-6 md:gap-8">
           {reviews.map((review, idx) => (
-            <div key={idx} className="bg-slate-800/80 backdrop-blur-sm rounded-[2rem] p-8 md:p-10 border border-slate-700/50 flex flex-col items-center text-center relative overflow-hidden group hover:bg-slate-800 transition-colors duration-300">
+            <div key={idx} className="bg-white rounded-[2rem] p-8 md:p-10 border border-slate-200 shadow-sm flex flex-col items-center text-center relative overflow-hidden group hover:shadow-xl hover:border-blue-200 transition-all duration-300">
               {/* Large transparent quote mark */}
-              <div className="absolute -top-4 -right-2 text-[120px] font-serif text-slate-700/30 leading-none pointer-events-none select-none">"</div>
+              <div className="absolute -top-4 -right-2 text-[120px] font-serif text-slate-200/60 leading-none pointer-events-none select-none">"</div>
               
               <div className="flex justify-center gap-1 mb-6 text-yellow-400 relative z-10">
                 {[...Array(5)].map((_, i) => <Star key={i} size={24} fill="currentColor" />)}
               </div>
-              <p className="text-xl md:text-[22px] text-slate-200 mb-8 leading-relaxed relative z-10 font-medium">"{review.text}"</p>
+              <p className="text-xl md:text-[22px] text-slate-600 mb-8 leading-relaxed relative z-10 font-medium">"{review.text}"</p>
               <div className="flex items-center gap-4 mt-auto relative z-10 w-full justify-center">
-                <div className="w-14 h-14 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full flex items-center justify-center text-xl font-bold text-white shadow-inner shrink-0">
+                <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center text-xl font-bold text-white shadow-inner shrink-0">
                   {review.name.charAt(0)}
                 </div>
                 <div className="text-right">
-                  <div className="font-bold text-white text-xl">{review.name}</div>
-                  <div className="text-base text-slate-400">{review.business}</div>
+                  <div className="font-bold text-slate-900 text-xl">{review.name}</div>
+                  <div className="text-base text-slate-500">{review.business}</div>
                 </div>
               </div>
             </div>
