@@ -553,8 +553,8 @@ const AdsCarousel = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/50 to-white/70 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 text-center relative z-10">
-        <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">מודעות שעיצבנו לכם</h2>
-        <p className="text-2xl md:text-3xl text-blue-600 font-medium">קריאייטיבים שנועדו לעצור גלילה ולהניע לפעולה.</p>
+        <h2 className="font-black text-slate-900 mb-4" style={{ fontSize: 'clamp(30px, 3vw, 40px)', lineHeight: '1.2' }}>מודעות שעיצבנו לכם</h2>
+        <p className="text-blue-600 font-medium" style={{ fontSize: 'clamp(16px, 1.6vw, 20px)', lineHeight: '1.7' }}>קריאייטיבים שנועדו לעצור גלילה ולהניע לפעולה.</p>
       </div>
 
       <div className="relative flex flex-col gap-6 w-full" dir="ltr">
