@@ -363,17 +363,19 @@ const Services = () => {
   }, [prefersReducedMotionLocal, hasAnimated, isMobile]);
 
   // Synchronized: pieces move out + mask opens together, then floating
-  // Set initial clip-path state on mount
+  // Set initial clip-path - desktop gets hidden, mobile stays visible
   useEffect(() => {
-    if (isMobile || prefersReducedMotionLocal) {
+    const mobile = window.innerWidth < 768;
+    if (mobile) {
       maskControls.set({ clipPath: 'inset(0 0% 0 0%)' });
-    } else {
+    } else if (!hasAnimated) {
       maskControls.set({ clipPath: 'inset(0 50% 0 50%)' });
     }
-  }, [isMobile, prefersReducedMotionLocal, maskControls]);
+  }, [maskControls, hasAnimated]);
 
   useEffect(() => {
-    if (!hasAnimated || prefersReducedMotionLocal || isMobile) {
+    const mobile = window.innerWidth < 768;
+    if (!hasAnimated || prefersReducedMotionLocal || mobile) {
       return;
     }
 
