@@ -669,7 +669,7 @@ const Results = () => {
                     }}
                   />
                 </div>
-                <div className="bg-[#0B1B3D] text-white p-5 text-center border-t border-blue-900/50">
+                <div className="bg-[#2563eb] text-white p-5 text-center border-t border-blue-400/50">
                   <h4 className="font-bold text-xl md:text-2xl mb-1">{resultsData[currentIndex].title}</h4>
                   <p className="text-blue-100 text-lg">{resultsData[currentIndex].text}</p>
                 </div>
