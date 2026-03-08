@@ -578,7 +578,7 @@ const LeadForm = ({ id }: { id: string }) => {
                 <span className="animate-pulse">שולח...</span>
               ) : (
                 <>
-                  אני רוצה יותר תוצאות
+                  בואו נעשה את המהלך הבא
                   <div className="bg-white/20 rounded-full p-1.5 group-hover:bg-white/30 transition-colors">
                     <ArrowLeft size={24} />
                   </div>
