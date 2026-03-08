@@ -319,10 +319,10 @@ const About2 = () => {
 const Services = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [hasAnimated, setHasAnimated] = useState(false);
-  const [piecesSettled, setPiecesSettled] = useState(false);
   const [prefersReducedMotionLocal, setPrefersReducedMotionLocal] = useState(false);
   const rookControls = useAnimationControls();
   const queenControls = useAnimationControls();
+  const maskControls = useAnimationControls();
 
   useEffect(() => {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -335,7 +335,6 @@ const Services = () => {
   useEffect(() => {
     if (prefersReducedMotionLocal) {
       setHasAnimated(true);
-      setPiecesSettled(true);
       return;
     }
     const el = sectionRef.current;
@@ -353,32 +352,37 @@ const Services = () => {
     return () => obs.disconnect();
   }, [prefersReducedMotionLocal, hasAnimated]);
 
-  // Chain: curtain open → floating loop
+  // Synchronized: pieces move out + mask opens together, then floating
   useEffect(() => {
     if (!hasAnimated || prefersReducedMotionLocal) return;
 
+    const animDuration = 1.1;
+    const animEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
     const runAnimation = async () => {
-      // Phase A: curtain open
+      // All three animate simultaneously
       await Promise.all([
         rookControls.start({
           x: '-280%',
           opacity: 0.85,
           scale: 1,
           rotate: -2,
-          transition: { duration: 1.1, ease: [0.22, 1, 0.36, 1] },
+          transition: { duration: animDuration, ease: animEase },
         }),
         queenControls.start({
           x: '180%',
           opacity: 0.8,
           scale: 1,
           rotate: 3,
-          transition: { duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.05 },
+          transition: { duration: animDuration, ease: animEase },
+        }),
+        maskControls.start({
+          clipPath: 'inset(0 0% 0 0%)',
+          transition: { duration: animDuration, ease: animEase },
         }),
       ]);
 
-      setPiecesSettled(true);
-
-      // Phase C: floating loop
+      // Floating loop
       rookControls.start({
         y: [0, -12, 0],
         transition: { duration: 6, repeat: Infinity, ease: 'easeInOut' },
@@ -390,15 +394,50 @@ const Services = () => {
     };
 
     runAnimation();
-  }, [hasAnimated, prefersReducedMotionLocal, rookControls, queenControls]);
+  }, [hasAnimated, prefersReducedMotionLocal, rookControls, queenControls, maskControls]);
 
   const skipMotion = prefersReducedMotionLocal;
 
+  const cards = [
+    {
+      logo: '/tiktok_logo.png',
+      logoAlt: 'TikTok Ads',
+      fallback: 'https://placehold.co/100x100/000000/ffffff?text=TikTok',
+      title: 'TikTok Ads',
+      desc: 'פרסום וידאו שמבליט את העסק בפיד - קמפיינים שבנויים נכון מההתחלה ויכולים לייצר מודעות, לידים או מכירות לפי המטרה.',
+      gradientFrom: 'from-black/5',
+      barColor: 'bg-black',
+      borderClass: 'border border-slate-200',
+      shadowClass: 'shadow-sm',
+    },
+    {
+      logo: '/meta_logo.png',
+      logoAlt: 'Meta Ads',
+      fallback: 'https://placehold.co/100x100/1877f2/ffffff?text=Meta',
+      title: 'Meta Ads',
+      desc: 'מגיעים לקהל המדויק בפייסבוק ואינסטגרם, עם קריאייטיב נכון ואופטימיזציה שמייצרת פניות איכותיות בזמן קצר.',
+      gradientFrom: 'from-blue-50',
+      barColor: 'bg-blue-600',
+      borderClass: 'border-2 border-blue-100',
+      shadowClass: 'shadow-lg shadow-blue-900/5',
+    },
+    {
+      logo: '/google ads logo.png',
+      logoAlt: 'Google Ads',
+      fallback: 'https://placehold.co/100x100/ea4335/ffffff?text=Google',
+      title: 'Google Ads',
+      desc: 'תופסים את הלקוח בדיוק כשהוא מחפש אותך - פרסום ממוקד בחיפוש ובערוצים של גוגל כדי להביא לקוחות חמים ולהגדיל פניות ומכירות.',
+      gradientFrom: 'from-red-50',
+      barColor: 'bg-green-500',
+      borderClass: 'border border-slate-200',
+      shadowClass: 'shadow-sm',
+    },
+  ];
+
   return (
     <section ref={sectionRef} id="services" className="py-24 bg-sky-50 relative overflow-hidden" tabIndex={-1}>
-      {/* Chess pieces layer */}
+      {/* Chess pieces layer - above content */}
       <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 20 }}>
-        {/* Rook (blue) - center → LEFT */}
         <motion.img
           src={chessRookBlue}
           alt=""
@@ -412,8 +451,6 @@ const Services = () => {
           initial={skipMotion ? { x: '-280%', opacity: 0.85, scale: 1, rotate: -2 } : { x: '-60%', opacity: 0.9, scale: 1.15, rotate: 0 }}
           animate={rookControls}
         />
-
-        {/* Queen (white) - center → RIGHT */}
         <motion.img
           src={chessQueenWhite}
           alt=""
@@ -429,65 +466,25 @@ const Services = () => {
         />
       </div>
 
-      {/* Content layer */}
-      <div className="relative" style={{ zIndex: 10 }}>
+      {/* Content layer with clip-path mask reveal */}
+      <motion.div
+        className="relative"
+        style={{ zIndex: 10 }}
+        initial={skipMotion ? { clipPath: 'inset(0 0% 0 0%)' } : { clipPath: 'inset(0 50% 0 50%)' }}
+        animate={maskControls}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            className="text-center mb-16"
-            initial={skipMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            animate={piecesSettled || skipMotion ? { opacity: 1, y: 0 } : undefined}
-            transition={{ duration: 0.55, delay: skipMotion ? 0 : 0.15, ease: [0.22, 1, 0.36, 1] }}
-          >
+          <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">שלוש זירות</h2>
             <p className="text-2xl md:text-3xl text-slate-600 mb-2">הפלטפורמות המובילות בעולם, עם האסטרטגיה המנצחת שלנו</p>
-          </motion.div>
+          </div>
 
           <div className="grid lg:grid-cols-3 gap-8 items-stretch" dir="ltr">
-            {[
-              {
-                logo: '/tiktok_logo.png',
-                logoAlt: 'TikTok Ads',
-                fallback: 'https://placehold.co/100x100/000000/ffffff?text=TikTok',
-                title: 'TikTok Ads',
-                desc: 'פרסום וידאו שמבליט את העסק בפיד - קמפיינים שבנויים נכון מההתחלה ויכולים לייצר מודעות, לידים או מכירות לפי המטרה.',
-                gradientFrom: 'from-black/5',
-                barColor: 'bg-black',
-                borderClass: 'border border-slate-200',
-                shadowClass: 'shadow-sm',
-                delay: 0.25,
-              },
-              {
-                logo: '/meta_logo.png',
-                logoAlt: 'Meta Ads',
-                fallback: 'https://placehold.co/100x100/1877f2/ffffff?text=Meta',
-                title: 'Meta Ads',
-                desc: 'מגיעים לקהל המדויק בפייסבוק ואינסטגרם, עם קריאייטיב נכון ואופטימיזציה שמייצרת פניות איכותיות בזמן קצר.',
-                gradientFrom: 'from-blue-50',
-                barColor: 'bg-blue-600',
-                borderClass: 'border-2 border-blue-100',
-                shadowClass: 'shadow-lg shadow-blue-900/5',
-                delay: 0.35,
-              },
-              {
-                logo: '/google ads logo.png',
-                logoAlt: 'Google Ads',
-                fallback: 'https://placehold.co/100x100/ea4335/ffffff?text=Google',
-                title: 'Google Ads',
-                desc: 'תופסים את הלקוח בדיוק כשהוא מחפש אותך - פרסום ממוקד בחיפוש ובערוצים של גוגל כדי להביא לקוחות חמים ולהגדיל פניות ומכירות.',
-                gradientFrom: 'from-red-50',
-                barColor: 'bg-green-500',
-                borderClass: 'border border-slate-200',
-                shadowClass: 'shadow-sm',
-                delay: 0.45,
-              },
-            ].map((card, i) => (
-              <motion.div
+            {cards.map((card, i) => (
+              <div
                 key={i}
                 className={`bg-white rounded-[2rem] p-10 ${card.shadowClass} ${card.borderClass} hover:shadow-xl hover:border-blue-200 transition-all relative overflow-hidden group text-center flex flex-col items-center h-full`}
                 dir="rtl"
-                initial={skipMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                animate={piecesSettled || skipMotion ? { opacity: 1, y: 0 } : undefined}
-                transition={{ duration: 0.55, delay: skipMotion ? 0 : card.delay, ease: [0.22, 1, 0.36, 1] }}
               >
                 <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${card.gradientFrom} to-transparent rounded-bl-full -z-10`}></div>
                 <div className="mb-8 flex justify-center w-full">
@@ -496,11 +493,11 @@ const Services = () => {
                 <h3 className="text-4xl font-black text-slate-900 mb-4 text-center">{card.title}</h3>
                 <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-medium text-center flex-grow">{card.desc}</p>
                 <div className={`mt-8 h-1 w-12 ${card.barColor} rounded-full group-hover:w-[80%] transition-all duration-500 mx-auto`}></div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
