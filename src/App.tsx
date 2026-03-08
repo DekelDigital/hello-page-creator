@@ -364,7 +364,12 @@ const Services = () => {
 
   // Synchronized: pieces move out + mask opens together, then floating
   useEffect(() => {
-    if (!hasAnimated || prefersReducedMotionLocal) return;
+    if (!hasAnimated || prefersReducedMotionLocal || isMobile) {
+      if (isMobile) {
+        maskControls.set({ clipPath: 'inset(0 0% 0 0%)' });
+      }
+      return;
+    }
 
     const animDuration = 1.1;
     const animEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
