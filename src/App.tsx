@@ -745,47 +745,23 @@ const Results = () => {
   const caseStudies = [
     {
       image: '/וובינר השקעות.png',
-      title: 'וובינר השקעות',
-      description: 'קמפיין לידים ממוקד להרשמה לוובינר השקעות נדל"ן, עם טירגוט מדויק וקריאייטיב שמניע לפעולה.',
-      category: 'השקעות',
-      kpis: [
-        { label: 'לידים', value: '500+', color: 'text-blue-600' },
-        { label: 'עלות לליד', value: '₪12', color: 'text-emerald-600' },
-        { label: 'ROAS', value: '380%', color: 'text-indigo-600' },
-      ],
+      title: 'השקעות',
+      leads: '150+',
     },
     {
       image: '/מימון עסקי.png',
       title: 'מימון עסקי',
-      description: 'קמפיין לידים לחברת מימון עסקי - מיקוד בבעלי עסקים קטנים ובינוניים עם צורך אמיתי.',
-      category: 'לידים',
-      kpis: [
-        { label: 'לידים', value: '300+', color: 'text-blue-600' },
-        { label: 'עלות לליד', value: '₪18', color: 'text-emerald-600' },
-        { label: 'המרה', value: '24%', color: 'text-indigo-600' },
-      ],
+      leads: '500+',
     },
     {
       image: '/סייבר.png',
       title: 'סייבר',
-      description: 'קמפיין גיוס משתתפים לקורס סייבר מקצועי, עם דגש על קהל טכנולוגי ומוכוון קריירה.',
-      category: 'לידים',
-      kpis: [
-        { label: 'לידים', value: '450+', color: 'text-blue-600' },
-        { label: 'עלות לליד', value: '₪15', color: 'text-emerald-600' },
-        { label: 'ROAS', value: '520%', color: 'text-indigo-600' },
-      ],
+      leads: '750+',
     },
     {
       image: '/ספורט.png',
-      title: 'ספורט',
-      description: 'קמפיין מכירות לחנות ספורט אונליין - שילוב בין מודעות דינמיות לרימרקטינג אגרסיבי.',
-      category: 'מכירות',
-      kpis: [
-        { label: 'לידים', value: '600+', color: 'text-blue-600' },
-        { label: 'עלות לליד', value: '₪9', color: 'text-emerald-600' },
-        { label: 'ROAS', value: '610%', color: 'text-indigo-600' },
-      ],
+      title: 'טיולי ספורט',
+      leads: '1,300+',
     },
   ];
 
@@ -802,7 +778,7 @@ const Results = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7 }}
-          className="text-center mb-20"
+          className="text-center mb-16 md:mb-20"
         >
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 tracking-tight">התוצאות שלנו</h2>
           <p className="text-xl md:text-2xl text-blue-300/90 max-w-3xl mx-auto leading-relaxed">
@@ -810,7 +786,7 @@ const Results = () => {
           </p>
         </motion.div>
 
-        <div className="flex flex-col gap-10 md:gap-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
           {caseStudies.map((study, idx) => (
             <motion.div
               key={idx}
@@ -821,48 +797,30 @@ const Results = () => {
               className="relative group"
             >
               {/* Card */}
-              <div className="relative bg-white rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.3)] border border-white/10 hover:shadow-[0_25px_70px_rgba(37,99,235,0.2)] transition-shadow duration-500">
+              <div className="relative bg-white rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.3)] border border-white/10 hover:shadow-[0_25px_70px_rgba(37,99,235,0.2)] transition-shadow duration-500 h-full flex flex-col">
                 {/* Top gradient accent bar */}
                 <div className="h-1.5 bg-gradient-to-l from-blue-400 via-blue-600 to-indigo-600"></div>
                 
-                <div className="flex flex-col md:flex-row-reverse" dir="rtl">
-                  {/* Screenshot side - RIGHT on desktop */}
-                  <div className="md:w-[55%] relative bg-slate-50">
-                    {/* Category tag */}
-                    <div className="absolute top-4 right-4 z-10 px-4 py-1.5 bg-blue-600 text-white text-sm font-bold rounded-full shadow-lg">
-                      {study.category}
-                    </div>
-                    <div className="p-4 md:p-6 flex items-center justify-center min-h-[250px] md:min-h-[350px]">
-                      <img
-                        src={study.image}
-                        alt={study.title}
-                        className="w-full h-auto max-h-[400px] object-contain rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-slate-200/50"
-                        loading="lazy"
-                        onError={(e) => {
-                          e.currentTarget.src = `https://placehold.co/700x500/f1f5f9/94a3b8?text=Screenshot+${idx + 1}`;
-                        }}
-                      />
-                    </div>
+                {/* Title + KPI header */}
+                <div className="flex items-center justify-between px-5 md:px-7 pt-5 md:pt-6 pb-3" dir="rtl">
+                  <h3 className="text-2xl md:text-3xl font-black text-slate-900">{study.title}</h3>
+                  <div className="flex items-baseline gap-1.5 bg-blue-50 rounded-2xl px-4 py-2 border border-blue-100">
+                    <span className="text-2xl md:text-3xl font-black text-blue-600">{study.leads}</span>
+                    <span className="text-sm md:text-base font-bold text-blue-500">לידים</span>
                   </div>
+                </div>
 
-                  {/* Content side - LEFT on desktop */}
-                  <div className="md:w-[45%] p-6 md:p-10 flex flex-col justify-center">
-                    <h3 className="text-3xl md:text-4xl font-black text-slate-900 mb-3">{study.title}</h3>
-                    <p className="text-lg md:text-xl text-slate-600 leading-relaxed mb-8">{study.description}</p>
-
-                    {/* KPI Cards */}
-                    <div className="grid grid-cols-3 gap-3 md:gap-4">
-                      {study.kpis.map((kpi, kIdx) => (
-                        <div
-                          key={kIdx}
-                          className="bg-slate-50 rounded-2xl p-4 md:p-5 text-center border border-slate-100 shadow-sm hover:shadow-md transition-shadow"
-                        >
-                          <div className={`text-2xl md:text-3xl font-black ${kpi.color} mb-1`}>{kpi.value}</div>
-                          <div className="text-xs md:text-sm text-slate-500 font-semibold">{kpi.label}</div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+                {/* Screenshot */}
+                <div className="flex-1 bg-slate-50 p-4 md:p-5">
+                  <img
+                    src={study.image}
+                    alt={study.title}
+                    className="w-full h-auto object-contain rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-slate-200/50"
+                    loading="lazy"
+                    onError={(e) => {
+                      e.currentTarget.src = `https://placehold.co/700x500/f1f5f9/94a3b8?text=Screenshot+${idx + 1}`;
+                    }}
+                  />
                 </div>
               </div>
             </motion.div>
