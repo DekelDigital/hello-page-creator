@@ -409,7 +409,7 @@ const Services = () => {
     };
 
     runAnimation();
-  }, [hasAnimated, prefersReducedMotionLocal, rookControls, queenControls, maskControls]);
+  }, [hasAnimated, prefersReducedMotionLocal, isMobile, rookControls, queenControls, maskControls]);
 
   const skipMotion = prefersReducedMotionLocal || isMobile;
 
