@@ -363,7 +363,7 @@ const Services = () => {
       // All three animate simultaneously
       await Promise.all([
         rookControls.start({
-          x: '-280%',
+          x: '-310%',
           opacity: 0.85,
           scale: 1,
           rotate: -2,
