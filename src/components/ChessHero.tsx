@@ -6,6 +6,41 @@ import chessKnight from '../assets/chess-knight.png';
 import chessKing from '../assets/chess-king.png';
 
 const ChessHero = () => {
+  const knightControls = useAnimationControls();
+  const kingControls = useAnimationControls();
+
+  useEffect(() => {
+    const runEntry = async () => {
+      // Knight enters first
+      knightControls.start({
+        y: 0,
+        opacity: 1,
+        transition: { duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] },
+      }).then(() => {
+        knightControls.start({
+          y: [0, -22, 0],
+          transition: { duration: 5.5, repeat: Infinity, ease: 'easeInOut' },
+        });
+      });
+
+      // King enters 180ms later
+      setTimeout(() => {
+        kingControls.start({
+          y: 0,
+          opacity: 1,
+          transition: { duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] },
+        }).then(() => {
+          kingControls.start({
+            y: [0, -18, 0],
+            transition: { duration: 6.5, repeat: Infinity, ease: 'easeInOut' },
+          });
+        });
+      }, 180);
+    };
+
+    runEntry();
+  }, [knightControls, kingControls]);
+
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
