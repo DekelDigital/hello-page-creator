@@ -133,7 +133,9 @@ const ChessHero = () => {
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
         >
-          שיווק מנצח לעסקים שרוצים לצמוח
+          <span className="text-6xl sm:text-7xl lg:text-[6rem]">שיווק מנצח</span>
+          <br />
+          לעסקים שרוצים לצמוח
         </motion.h1>
 
         <motion.p
