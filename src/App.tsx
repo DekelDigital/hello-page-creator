@@ -400,7 +400,7 @@ const Services = () => {
       <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 20 }}>
         {/* Rook (blue) - center → LEFT */}
         <motion.img
-          src={new URL('../assets/chess-rook-blue.png', import.meta.url).href}
+          src={chessRookBlue}
           alt=""
           className="chess-piece-rook absolute"
           style={{
