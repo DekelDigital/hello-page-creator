@@ -742,254 +742,135 @@ const LeadForm = ({ id }: { id: string }) => {
 };
 
 const Results = () => {
-  const resultsData = [
-    { image: '/וובינר השקעות.png', title: 'וובינר השקעות', text: '500 לידים נקודתיים' },
-    { image: '/מימון עסקי.png', title: 'מימון עסקי', text: '300 לידים נקודתיים' },
-    { image: '/סייבר.png', title: 'סייבר', text: '450 לידים נקודתיים' },
-    { image: '/ספורט.png', title: 'ספורט', text: '600 לידים נקודתיים' },
+  const caseStudies = [
+    {
+      image: '/וובינר השקעות.png',
+      title: 'וובינר השקעות',
+      description: 'קמפיין לידים ממוקד להרשמה לוובינר השקעות נדל"ן, עם טירגוט מדויק וקריאייטיב שמניע לפעולה.',
+      category: 'השקעות',
+      kpis: [
+        { label: 'לידים', value: '500+', color: 'text-blue-600' },
+        { label: 'עלות לליד', value: '₪12', color: 'text-emerald-600' },
+        { label: 'ROAS', value: '380%', color: 'text-indigo-600' },
+      ],
+    },
+    {
+      image: '/מימון עסקי.png',
+      title: 'מימון עסקי',
+      description: 'קמפיין לידים לחברת מימון עסקי - מיקוד בבעלי עסקים קטנים ובינוניים עם צורך אמיתי.',
+      category: 'לידים',
+      kpis: [
+        { label: 'לידים', value: '300+', color: 'text-blue-600' },
+        { label: 'עלות לליד', value: '₪18', color: 'text-emerald-600' },
+        { label: 'המרה', value: '24%', color: 'text-indigo-600' },
+      ],
+    },
+    {
+      image: '/סייבר.png',
+      title: 'סייבר',
+      description: 'קמפיין גיוס משתתפים לקורס סייבר מקצועי, עם דגש על קהל טכנולוגי ומוכוון קריירה.',
+      category: 'לידים',
+      kpis: [
+        { label: 'לידים', value: '450+', color: 'text-blue-600' },
+        { label: 'עלות לליד', value: '₪15', color: 'text-emerald-600' },
+        { label: 'ROAS', value: '520%', color: 'text-indigo-600' },
+      ],
+    },
+    {
+      image: '/ספורט.png',
+      title: 'ספורט',
+      description: 'קמפיין מכירות לחנות ספורט אונליין - שילוב בין מודעות דינמיות לרימרקטינג אגרסיבי.',
+      category: 'מכירות',
+      kpis: [
+        { label: 'לידים', value: '600+', color: 'text-blue-600' },
+        { label: 'עלות לליד', value: '₪9', color: 'text-emerald-600' },
+        { label: 'ROAS', value: '610%', color: 'text-indigo-600' },
+      ],
+    },
   ];
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % resultsData.length);
-    }, 3000);
-    return () => clearInterval(timer);
-  }, [resultsData.length]);
-
-  const next = () => setCurrentIndex((prev) => (prev + 1) % resultsData.length);
-  const prev = () => setCurrentIndex((prev) => (prev - 1 + resultsData.length) % resultsData.length);
 
   return (
-    <section id="results" className="py-24 bg-slate-900 relative overflow-hidden" tabIndex={-1}>
+    <section id="results" className="py-28 md:py-36 bg-slate-900 relative overflow-hidden" tabIndex={-1}>
       {/* Abstract background elements */}
       <div className="absolute inset-0 opacity-[0.02] bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjEiIGZpbGw9IiMzYjgyZjYiIGZpbGwtb3BhY2l0eT0iMSIvPjwvc3ZnPg==')]"></div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/20 rounded-full blur-[150px] pointer-events-none"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-600/15 rounded-full blur-[180px] pointer-events-none"></div>
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-indigo-500/10 rounded-full blur-[120px] pointer-events-none"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-4">התוצאות שלנו</h2>
-          <p className="text-2xl md:text-3xl text-blue-400">מספרים אמיתיים מתוך חשבונות מודעות של לקוחות.</p>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7 }}
+          className="text-center mb-20"
+        >
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 tracking-tight">התוצאות שלנו</h2>
+          <p className="text-xl md:text-2xl text-blue-300/90 max-w-3xl mx-auto leading-relaxed">
+            צילומי מסך אמיתיים מחשבונות מודעות — יחד עם תקציר קצר לכל מקרה.
+          </p>
+        </motion.div>
 
-        <div className="grid lg:grid-cols-12 gap-12 items-center">
-          {/* Screenshots Grid (Desktop) / Slider (Mobile) */}
-          <div className="lg:col-span-8">
-            {/* Mobile Slider */}
-            <div className="sm:hidden relative">
-              <div className="overflow-hidden rounded-2xl shadow-xl border border-slate-100 bg-white flex flex-col">
-                <div className="aspect-[16/9] sm:aspect-[2/1] relative bg-slate-50 flex items-center justify-center p-2">
-                  <motion.img 
-                    key={currentIndex}
-                    initial={{ opacity: 0, x: 50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -50 }}
-                    transition={{ duration: 0.5 }}
-                    src={resultsData[currentIndex].image} 
-                    alt={resultsData[currentIndex].title} 
-                    className="w-full h-full object-contain drop-shadow-sm"
-                    onError={(e) => {
-                      e.currentTarget.src = `https://placehold.co/600x450/f1f5f9/94a3b8?text=Screenshot+${currentIndex+1}`;
-                    }}
-                  />
-                </div>
-                <div className="bg-[#2563eb] text-white p-5 text-center border-t border-blue-400/50">
-                  <h4 className="font-bold text-xl md:text-2xl mb-1">{resultsData[currentIndex].title}</h4>
-                  <p className="text-blue-100 text-lg">{resultsData[currentIndex].text}</p>
-                </div>
-              </div>
-              
-              {/* Navigation Arrows */}
-              <button 
-                onClick={prev}
-                className="absolute top-1/2 -left-4 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center text-slate-800 z-20 border border-slate-100"
-                aria-label="הקודם"
-              >
-                <ChevronLeft size={24} />
-              </button>
-              <button 
-                onClick={next}
-                className="absolute top-1/2 -right-4 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center text-slate-800 z-20 border border-slate-100"
-                aria-label="הבא"
-              >
-                <ChevronRight size={24} />
-              </button>
-
-              {/* Dots */}
-              <div className="flex justify-center gap-2 mt-4">
-                {resultsData.map((_, idx) => (
-                  <div 
-                    key={idx} 
-                    className={`h-2 rounded-full transition-all duration-300 ${idx === currentIndex ? 'w-6 bg-blue-600' : 'w-2 bg-slate-300'}`}
-                  />
-                ))}
-              </div>
-            </div>
-
-            {/* Desktop Grid */}
-            <div className="hidden sm:grid sm:grid-cols-2 gap-6">
-              {resultsData.map((item, idx) => (
-                <div key={idx} className="flex flex-col bg-white rounded-2xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.08)] border border-slate-100 transform hover:-translate-y-1 transition-transform duration-300 h-full">
-                  <div className="aspect-[16/9] sm:aspect-[2/1] relative bg-slate-50 flex items-center justify-center p-4">
-                    <img 
-                      src={item.image} 
-                      alt={item.title} 
-                      className="w-full h-full object-contain drop-shadow-sm"
-                      loading="lazy"
-                      onError={(e) => {
-                        e.currentTarget.src = `https://placehold.co/600x450/f1f5f9/94a3b8?text=Screenshot+${idx+1}`;
-                      }}
-                    />
+        <div className="flex flex-col gap-10 md:gap-14">
+          {caseStudies.map((study, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.7, delay: idx * 0.1 }}
+              className="relative group"
+            >
+              {/* Card */}
+              <div className="relative bg-white rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.3)] border border-white/10 hover:shadow-[0_25px_70px_rgba(37,99,235,0.2)] transition-shadow duration-500">
+                {/* Top gradient accent bar */}
+                <div className="h-1.5 bg-gradient-to-l from-blue-400 via-blue-600 to-indigo-600"></div>
+                
+                <div className="flex flex-col md:flex-row-reverse" dir="rtl">
+                  {/* Screenshot side - RIGHT on desktop */}
+                  <div className="md:w-[55%] relative bg-slate-50">
+                    {/* Category tag */}
+                    <div className="absolute top-4 right-4 z-10 px-4 py-1.5 bg-blue-600 text-white text-sm font-bold rounded-full shadow-lg">
+                      {study.category}
+                    </div>
+                    <div className="p-4 md:p-6 flex items-center justify-center min-h-[250px] md:min-h-[350px]">
+                      <img
+                        src={study.image}
+                        alt={study.title}
+                        className="w-full h-auto max-h-[400px] object-contain rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-slate-200/50"
+                        loading="lazy"
+                        onError={(e) => {
+                          e.currentTarget.src = `https://placehold.co/700x500/f1f5f9/94a3b8?text=Screenshot+${idx + 1}`;
+                        }}
+                      />
+                    </div>
                   </div>
-                  <div className="bg-[#2563eb] text-white p-5 text-center border-t border-blue-400/50 mt-auto">
-                    <h4 className="font-bold text-xl mb-1">{item.title}</h4>
-                    <p className="text-blue-100 text-lg">{item.text}</p>
+
+                  {/* Content side - LEFT on desktop */}
+                  <div className="md:w-[45%] p-6 md:p-10 flex flex-col justify-center">
+                    <h3 className="text-3xl md:text-4xl font-black text-slate-900 mb-3">{study.title}</h3>
+                    <p className="text-lg md:text-xl text-slate-600 leading-relaxed mb-8">{study.description}</p>
+
+                    {/* KPI Cards */}
+                    <div className="grid grid-cols-3 gap-3 md:gap-4">
+                      {study.kpis.map((kpi, kIdx) => (
+                        <div
+                          key={kIdx}
+                          className="bg-slate-50 rounded-2xl p-4 md:p-5 text-center border border-slate-100 shadow-sm hover:shadow-md transition-shadow"
+                        >
+                          <div className={`text-2xl md:text-3xl font-black ${kpi.color} mb-1`}>{kpi.value}</div>
+                          <div className="text-xs md:text-sm text-slate-500 font-semibold">{kpi.label}</div>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
-
-          {/* KPIs */}
-          <div className="lg:col-span-4 space-y-6">
-            
-            {[
-              { label: 'החזר השקעה ממוצע (ROI)', value: '420%', color: 'text-emerald-600', bg: 'bg-emerald-50' },
-              { label: 'לידים בחודש האחרון', value: '12,450+', color: 'text-blue-600', bg: 'bg-blue-50' },
-              { label: 'ירידה בעלות לליד', value: '-35%', color: 'text-indigo-600', bg: 'bg-indigo-50' }
-            ].map((kpi, idx) => (
-              <div key={idx} className={`${kpi.bg} rounded-3xl p-8 border border-white/50 shadow-sm`}>
-                <div className="text-lg text-slate-700 font-bold mb-2">{kpi.label}</div>
-                <div className={`text-5xl font-black ${kpi.color}`}>{kpi.value}</div>
               </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const FinalLeadSection = () => {
-  return (
-    <LeadForm id="contact" />
-  );
-};
-
-const Reviews = () => {
-  const reviews = [
-    { name: 'שם הלקוח', business: 'שם העסק בע״מ', text: 'מאז שהתחלנו לעבוד יחד, כמות הלידים קפצה פי 3 והעלות ירדה משמעותית. צוות מקצועי שבאמת אכפת לו מההצלחה שלנו.' },
-    { name: 'שם הלקוח', business: 'שם העסק בע״מ', text: 'שקיפות מלאה מהרגע הראשון. סוף סוף סוכנות שמדברת איתי במספרים של רווח ולא רק בקליקים וחשיפות.' },
-    { name: 'שם הלקוח', business: 'שם העסק בע״מ', text: 'הקריאייטיב שלהם פשוט עובד. הם הבינו בדיוק את קהל היעד שלנו והצליחו להביא תוצאות מדהימות תוך חודש אחד בלבד.' },
-  ];
-
-  return (
-    <section id="reviews" className="py-32 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden" tabIndex={-1}>
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-blue-100/40 rounded-full blur-[150px] pointer-events-none"></div>
-      
-      <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-6xl font-black mb-6 text-slate-900">תשמעו מה הלקוחות שלנו אומרים</h2>
-          <p className="text-2xl md:text-3xl text-slate-500">אנחנו מאמינים בשקיפות, עבודה קשה ותוצאות שמדברות בעד עצמן.</p>
-        </div>
-
-        <div className="grid lg:grid-cols-3 gap-6 md:gap-8">
-          {reviews.map((review, idx) => (
-            <div key={idx} className="bg-white rounded-[2rem] p-8 md:p-10 border border-slate-200 shadow-sm flex flex-col items-center text-center relative overflow-hidden group hover:shadow-xl hover:border-blue-200 transition-all duration-300">
-              {/* Large transparent quote mark */}
-              <div className="absolute -top-4 -right-2 text-[120px] font-serif text-slate-200/60 leading-none pointer-events-none select-none">"</div>
-              
-              <div className="flex justify-center gap-1 mb-6 text-yellow-400 relative z-10">
-                {[...Array(5)].map((_, i) => <Star key={i} size={24} fill="currentColor" />)}
-              </div>
-              <p className="text-xl md:text-[22px] text-slate-600 mb-8 leading-relaxed relative z-10 font-medium">"{review.text}"</p>
-              <div className="flex items-center gap-4 mt-auto relative z-10 w-full justify-center">
-                <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center text-xl font-bold text-white shadow-inner shrink-0">
-                  {review.name.charAt(0)}
-                </div>
-                <div className="text-right">
-                  <div className="font-bold text-slate-900 text-xl">{review.name}</div>
-                  <div className="text-base text-slate-500">{review.business}</div>
-                </div>
-              </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
     </section>
   );
-};
-
-const Footer = () => (
-  <footer className="bg-[#0B1B3D] text-white py-16 border-t border-blue-900/50" dir="rtl">
-    <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
-        
-        {/* Navigation Menu */}
-        <div className="space-y-6">
-          <h4 className="text-2xl font-bold text-white mb-6">תפריט ניווט</h4>
-          <ul className="space-y-4">
-            <li><a href="#" className="text-blue-100 hover:text-white transition-colors text-lg">דף הבית</a></li>
-            <li><a href="#about" className="text-blue-100 hover:text-white transition-colors text-lg">אודות</a></li>
-            <li><a href="#services" className="text-blue-100 hover:text-white transition-colors text-lg">השירותים שלנו</a></li>
-            <li><a href="#contact" className="text-blue-100 hover:text-white transition-colors text-lg">צור קשר</a></li>
-          </ul>
-        </div>
-
-        {/* Terms and Policy */}
-        <div className="space-y-6">
-          <h4 className="text-2xl font-bold text-white mb-6">תנאים ומדיניות</h4>
-          <ul className="space-y-4">
-            <li><a href="#" className="text-blue-100 hover:text-white transition-colors text-lg">מדיניות פרטיות</a></li>
-            <li><a href="#" className="text-blue-100 hover:text-white transition-colors text-lg">הצהרת נגישות</a></li>
-          </ul>
-        </div>
-
-        {/* Contact Details */}
-        <div className="space-y-6">
-          <h4 className="text-2xl font-bold text-white mb-6">פרטי התקשורת</h4>
-          <ul className="space-y-5">
-            <li className="flex items-center gap-3 text-blue-100 text-lg">
-              <Mail size={20} className="text-yellow-400 flex-shrink-0" />
-              <a href="mailto:deceldigital@gmail.com" className="hover:text-white transition-colors" dir="ltr">deceldigital@gmail.com</a>
-            </li>
-            <li className="flex items-center gap-3 text-blue-100 text-lg">
-              <Phone size={20} className="text-yellow-400 flex-shrink-0" />
-              <a href="tel:0540000000" className="hover:text-white transition-colors" dir="ltr">054-000-0000</a>
-            </li>
-            <li className="flex items-center gap-3 text-blue-100 text-lg">
-              <Clock size={20} className="text-yellow-400 flex-shrink-0" />
-              <span>א'-ה' 09:00 עד 17:00</span>
-            </li>
-          </ul>
-        </div>
-
-        {/* Logo and Socials */}
-        <div className="space-y-8 lg:text-left flex flex-col items-start lg:items-end">
-          <div className="flex items-center gap-2">
-            <img src="/logo.png" alt="Dekel Digital Logo" className="h-12 md:h-16 object-contain brightness-0 invert" onError={(e) => {
-              e.currentTarget.src = 'https://placehold.co/120x40/ffffff/000000?text=Dekel+Digital';
-            }} />
-          </div>
-          <div className="flex items-center gap-4">
-            <a href="#" className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-[#0B1B3D] hover:bg-blue-100 transition-colors" aria-label="Instagram">
-              <Instagram size={20} />
-            </a>
-            <a href="#" className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-[#0B1B3D] hover:bg-blue-100 transition-colors" aria-label="Facebook">
-              <Facebook size={20} />
-            </a>
-          </div>
-        </div>
-
-      </div>
-      
-      <div className="mt-16 pt-8 border-t border-blue-900/50 text-center text-blue-200/60 text-sm">
-        © {new Date().getFullYear()} Dekel Digital. כל הזכויות שמורות.
-      </div>
-    </div>
-  </footer>
-);
-
 const FloatingCTA = () => {
   const [isVisible, setIsVisible] = useState(false);
 
