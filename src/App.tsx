@@ -200,15 +200,15 @@ const About = () => {
           >
             <div className="text-2xl md:text-3xl text-slate-700 leading-relaxed mb-8 space-y-6">
               <p>
-                <strong className="text-slate-900 text-3xl md:text-4xl block mb-4">אנחנו דואגים לשיווק, כדי שתוכל להתמקד במה שבאמת חשוב - העסק שלך</strong>
+                <strong className="text-slate-900 text-3xl md:text-4xl block mb-4">ברוכים הבאים ל- Dekel Digital</strong>
                 עם ניסיון של שנים בעריכת וידאו, עיצוב גרפי וניהול קמפיינים ממומנים, אנחנו מביאים מקצועיות שיווקית שמביאה תוצאות לאורך זמן.
               </p>
               <p>
-                <strong className="text-slate-900 block mb-2">הגישה שלי פשוטה: <span className="text-blue-600">איכות לפני כמות.</span></strong>
-                לידים מדויקים שמובילים למכירות אמיתיות - לא מספרים ריקים. שילוב חכם של מדידה ואופטימיזציה יחד עם קריאייטיב שמבטא את הערכים והמסר של העסק.
+                <strong className="text-slate-900 block mb-2">הגישה שלנו פשוטה: <span className="text-blue-600">איכות לפני כמות.</span></strong>
+                לידים מדויקים שמובילים למכירות אמיתיות - לא סתם מספרים. שילוב חכם של מדידה ואופטימיזציה יחד עם קריאייטיב שמבטא את הערכים והמסר של העסק.
               </p>
               <p className="font-bold text-slate-900 text-3xl md:text-4xl mt-6">
-                אני דואג לשיווק שלך, כדי שתוכל להתמקד במה שבאמת חשוב - <span className="text-blue-600">העסק שלך</span>
+                אנחנו דואגים לשיווק, כדי שתוכל להתמקד במה שבאמת חשוב - <span className="text-blue-600">העסק שלך</span>
               </p>
             </div>
 
