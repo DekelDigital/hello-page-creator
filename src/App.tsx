@@ -321,6 +321,7 @@ const Services = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [hasAnimated, setHasAnimated] = useState(false);
   const [prefersReducedMotionLocal, setPrefersReducedMotionLocal] = useState(false);
+  const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < 768);
   const rookControls = useAnimationControls();
   const queenControls = useAnimationControls();
   const maskControls = useAnimationControls();
@@ -330,11 +331,19 @@ const Services = () => {
     setPrefersReducedMotionLocal(mq.matches);
     const handler = (e: MediaQueryListEvent) => setPrefersReducedMotionLocal(e.matches);
     mq.addEventListener('change', handler);
-    return () => mq.removeEventListener('change', handler);
+
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => {
+      mq.removeEventListener('change', handler);
+      window.removeEventListener('resize', checkMobile);
+    };
   }, []);
 
   useEffect(() => {
-    if (prefersReducedMotionLocal) {
+    if (prefersReducedMotionLocal || isMobile) {
       setHasAnimated(true);
       return;
     }
@@ -347,21 +356,23 @@ const Services = () => {
           obs.disconnect();
         }
       },
-      { threshold: 0.75, rootMargin: '0px 0px -15% 0px' }
+      { threshold: 0.15 }
     );
     obs.observe(el);
     return () => obs.disconnect();
   }, [prefersReducedMotionLocal, hasAnimated]);
 
   // Synchronized: pieces move out + mask opens together, then floating
+
   useEffect(() => {
-    if (!hasAnimated || prefersReducedMotionLocal) return;
+    if (!hasAnimated || prefersReducedMotionLocal) {
+      return;
+    }
 
     const animDuration = 1.1;
     const animEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
     const runAnimation = async () => {
-      // All three animate simultaneously
       await Promise.all([
         rookControls.start({
           x: '-300%',
@@ -375,10 +386,6 @@ const Services = () => {
           opacity: 0.8,
           scale: 1,
           rotate: 3,
-          transition: { duration: animDuration, ease: animEase },
-        }),
-        maskControls.start({
-          clipPath: 'inset(0 0% 0 0%)',
           transition: { duration: animDuration, ease: animEase },
         }),
       ]);
@@ -395,9 +402,9 @@ const Services = () => {
     };
 
     runAnimation();
-  }, [hasAnimated, prefersReducedMotionLocal, rookControls, queenControls, maskControls]);
+  }, [hasAnimated, prefersReducedMotionLocal, isMobile, rookControls, queenControls, maskControls]);
 
-  const skipMotion = prefersReducedMotionLocal;
+  const skipMotion = prefersReducedMotionLocal || isMobile;
 
   const cards = [
     {
@@ -438,7 +445,7 @@ const Services = () => {
   return (
     <section ref={sectionRef} id="services" className="py-24 bg-sky-50 relative overflow-hidden" tabIndex={-1}>
       {/* Chess pieces layer - above content */}
-      <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 20 }}>
+      <div className="absolute inset-0 pointer-events-none hidden md:block" style={{ zIndex: 20 }}>
         <motion.img
           src={chessRookBlue}
           alt=""
@@ -467,12 +474,10 @@ const Services = () => {
         />
       </div>
 
-      {/* Content layer with clip-path mask reveal */}
-      <motion.div
+      {/* Content layer */}
+      <div
         className="relative"
         style={{ zIndex: 10 }}
-        initial={skipMotion ? { clipPath: 'inset(0 0% 0 0%)' } : { clipPath: 'inset(0 50% 0 50%)' }}
-        animate={maskControls}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -498,7 +503,7 @@ const Services = () => {
             ))}
           </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 };
