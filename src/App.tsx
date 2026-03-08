@@ -484,8 +484,8 @@ const Services = () => {
       {/* Content layer with clip-path mask reveal */}
       <motion.div
         className="relative"
-        style={{ zIndex: 10 }}
-        initial={skipMotion ? { clipPath: 'inset(0 0% 0 0%)' } : { clipPath: 'inset(0 50% 0 50%)' }}
+        style={{ zIndex: 10, clipPath: skipMotion ? 'inset(0 0% 0 0%)' : undefined }}
+        initial={skipMotion ? false : { clipPath: 'inset(0 50% 0 50%)' }}
         animate={maskControls}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
