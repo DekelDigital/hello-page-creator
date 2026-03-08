@@ -174,17 +174,17 @@ const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
-            className="hidden lg:flex w-full lg:w-5/12 relative justify-center items-center mt-12 lg:mt-0"
+            className="hidden lg:flex w-full lg:w-6/12 relative justify-center items-center mt-12 lg:mt-0 lg:-ml-16"
           >
-            <div className="relative w-full flex justify-center">
+            <div className="relative w-[140%] flex justify-center">
               {/* Blue glow behind the head */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] bg-blue-400/40 rounded-full blur-[90px] animate-pulse-slow z-0"></div>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-400/40 rounded-full blur-[90px] animate-pulse-slow z-0"></div>
               
               {/* Simple Image */}
               <img 
                 src="/next_move.png" 
                 alt="Next Move Chess" 
-                className="relative z-10 w-full max-w-[1200px] h-auto drop-shadow-[0_20px_40px_rgba(37,99,235,0.2)]"
+                className="relative z-10 w-full h-auto drop-shadow-[0_20px_40px_rgba(37,99,235,0.2)]"
               />
             </div>
           </motion.div>
