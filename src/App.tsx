@@ -186,8 +186,8 @@ const About = () => {
               
               {/* Simple Image */}
               <img 
-                src="/dekel open head2.png" 
-                alt="Dekel" 
+                src="/next_move.png" 
+                alt="Next Move Chess" 
                 className="relative z-10 w-[180%] max-w-none h-auto drop-shadow-[0_20px_40px_rgba(37,99,235,0.2)] transform -translate-x-[25%]"
               />
             </div>
