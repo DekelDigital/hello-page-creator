@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { motion, useAnimationControls } from 'motion/react';
+import React, { useEffect, useRef } from 'react';
+import { motion, useAnimationControls, useScroll, useTransform } from 'motion/react';
 import { ArrowLeft } from 'lucide-react';
 import chessHeroBg from '../assets/chess-hero-bg.png';
 import chessKnight from '../assets/chess-knight.png';
