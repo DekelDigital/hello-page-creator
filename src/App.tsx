@@ -150,8 +150,8 @@ const About = () => {
         >
           <h2 className="text-5xl md:text-6xl font-black mb-4 tracking-tight">
             <span className="relative inline-block">
-              <span className="bg-gradient-to-l from-blue-600 to-blue-400 bg-clip-text text-transparent">מי אנחנו?</span>
-              <span className="absolute -bottom-2 right-0 w-full h-1 bg-gradient-to-l from-blue-600 to-blue-400 rounded-full"></span>
+              <span style={{ color: '#2563eb' }}>מי אנחנו?</span>
+              <span className="absolute -bottom-2 right-0 w-full h-1 rounded-full" style={{ backgroundColor: '#2563eb' }}></span>
             </span>
           </h2>
         </motion.div>
