@@ -22,6 +22,7 @@ import {
 } from 'lucide-react';
 import ChessHero from './components/ChessHero';
 import chessHeroBg from './assets/chess-hero-bg.png';
+import adsBg from './assets/ads-bg.png';
 import chessRookBlue from './assets/chess-rook-blue.png';
 import chessQueenWhite from './assets/chess-queen.png';
 
@@ -547,7 +548,7 @@ const AdsCarousel = () => {
       {/* Hero-style chess background */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${chessHeroBg})` }}
+        style={{ backgroundImage: `url(${adsBg})` }}
       />
       {/* Overlay for readability */}
       <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/50 to-white/70 pointer-events-none" />
