@@ -872,6 +872,84 @@ const Results = () => {
     </section>
   );
 };
+const FinalLeadSection = () => (
+  <LeadForm id="contact" />
+);
+
+const Reviews = () => {
+  const reviews = [
+    { name: 'יוסי כהן', text: 'תוך חודש כבר ראינו תוצאות משמעותיות. מקצועיות ברמה אחרת.', stars: 5 },
+    { name: 'מיכל לוי', text: 'הצוות של דקל דיגיטל שינה לנו את העסק. לידים איכותיים בעלות נמוכה.', stars: 5 },
+    { name: 'אבי ישראלי', text: 'שקיפות מלאה, דוחות שבועיים ותוצאות שמדברות בעד עצמן.', stars: 5 },
+  ];
+
+  return (
+    <section id="reviews" className="py-24 bg-gradient-to-b from-[#F0F5FF] to-white relative overflow-hidden" tabIndex={-1}>
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-200/20 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">מה הלקוחות אומרים</h2>
+          <p className="text-xl md:text-2xl text-slate-600">ביקורות אמיתיות מלקוחות מרוצים</p>
+        </div>
+        <div className="grid md:grid-cols-3 gap-8">
+          {reviews.map((review, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: idx * 0.15 }}
+              className="bg-white rounded-3xl p-8 shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-slate-100"
+            >
+              <div className="flex gap-1 mb-4">
+                {Array.from({ length: review.stars }).map((_, i) => (
+                  <Star key={i} size={20} className="fill-yellow-400 text-yellow-400" />
+                ))}
+              </div>
+              <p className="text-lg text-slate-700 leading-relaxed mb-6 text-right">{review.text}</p>
+              <div className="text-right font-bold text-slate-900">{review.name}</div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const Footer = () => {
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  return (
+    <footer className="bg-slate-900 text-white py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+          <div className="text-center md:text-right">
+            <img src="/logo.png" alt="Dekel Digital" className="h-16 mb-4 mx-auto md:mx-0 brightness-0 invert" onError={(e) => {
+              e.currentTarget.src = 'https://placehold.co/150x50/ffffff/1d4ed8?text=Dekel+Digital';
+            }} />
+            <p className="text-slate-400 text-lg">שיווק דיגיטלי שמביא תוצאות</p>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-6 items-center text-slate-400">
+            <a href="mailto:info@dekeldigital.co.il" className="flex items-center gap-2 hover:text-white transition-colors">
+              <Mail size={18} />
+              info@dekeldigital.co.il
+            </a>
+            <a href="tel:+972500000000" className="flex items-center gap-2 hover:text-white transition-colors">
+              <Phone size={18} />
+              050-000-0000
+            </a>
+          </div>
+        </div>
+        <div className="border-t border-slate-800 mt-10 pt-8 text-center text-slate-500">
+          <p>© {new Date().getFullYear()} Dekel Digital. כל הזכויות שמורות.</p>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
 const FloatingCTA = () => {
   const [isVisible, setIsVisible] = useState(false);
 
