@@ -475,8 +475,8 @@ const Services = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">שלוש זירות</h2>
-            <p className="text-2xl md:text-3xl text-slate-600 mb-2">הפלטפורמות המובילות בעולם, עם האסטרטגיה המנצחת שלנו</p>
+            <h2 className="font-black text-slate-900 mb-4" style={{ fontSize: 'clamp(30px, 3vw, 40px)', lineHeight: '1.2' }}>שלוש זירות</h2>
+            <p className="text-slate-600 mb-2" style={{ fontSize: 'clamp(16px, 1.6vw, 20px)', lineHeight: '1.7' }}>הפלטפורמות המובילות בעולם, עם האסטרטגיה המנצחת שלנו</p>
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8 items-stretch" dir="ltr">
