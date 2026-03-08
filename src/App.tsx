@@ -305,7 +305,7 @@ const About2 = () => {
                 </div>
                 <div>
                   <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">{item.title}</h3>
-                  <p className="text-xl md:text-2xl text-slate-600 leading-relaxed">{item.desc}</p>
+                  <p className="text-slate-600" style={{ fontSize: 'clamp(16px, 1.4vw, 18px)', lineHeight: '1.8' }}>{item.desc}</p>
                 </div>
               </motion.div>
             ))}
