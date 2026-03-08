@@ -415,7 +415,7 @@ const Services = () => {
 
         {/* Queen (white) - center → RIGHT */}
         <motion.img
-          src={new URL('../assets/chess-queen.png', import.meta.url).href}
+          src={chessQueenWhite}
           alt=""
           className="chess-piece-queen absolute"
           style={{
