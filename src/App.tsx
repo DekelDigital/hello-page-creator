@@ -255,10 +255,10 @@ const About2 = () => {
           transition={{ duration: 0.7 }}
           className="text-center max-w-4xl mx-auto mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-black text-slate-900 mb-8 tracking-tight">
+          <h2 className="font-black text-slate-900 mb-8 tracking-tight" style={{ fontSize: 'clamp(30px, 3vw, 40px)', lineHeight: '1.2' }}>
             האסטרטגיה שלנו <span className="text-blue-600">לניצחון שלך</span>
           </h2>
-          <p className="text-2xl md:text-3xl text-slate-600 leading-relaxed font-medium mb-0">
+          <p className="text-slate-600 font-medium mb-0" style={{ fontSize: 'clamp(16px, 1.6vw, 20px)', lineHeight: '1.7' }}>
             קמפיין נכון מתחיל בתכנון מהלך - וממשיך בשיפור מתמיד לפי נתונים.
           </p>
         </motion.div>
@@ -304,8 +304,8 @@ const About2 = () => {
                   <div className="absolute -top-4 -right-4 text-5xl font-black text-blue-100/60 select-none pointer-events-none">{item.num}</div>
                 </div>
                 <div>
-                  <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">{item.title}</h3>
-                  <p className="text-xl md:text-2xl text-slate-600 leading-relaxed">{item.desc}</p>
+                  <h3 className="font-bold text-slate-900 mb-4" style={{ fontSize: 'clamp(22px, 2.2vw, 26px)', lineHeight: '1.2' }}>{item.title}</h3>
+                  <p className="text-slate-600" style={{ fontSize: 'clamp(16px, 1.4vw, 18px)', lineHeight: '1.8' }}>{item.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -475,8 +475,8 @@ const Services = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">שלוש זירות</h2>
-            <p className="text-2xl md:text-3xl text-slate-600 mb-2">הפלטפורמות המובילות בעולם, עם האסטרטגיה המנצחת שלנו</p>
+            <h2 className="font-black text-slate-900 mb-4" style={{ fontSize: 'clamp(30px, 3vw, 40px)', lineHeight: '1.2' }}>שלוש זירות</h2>
+            <p className="text-slate-600 mb-2" style={{ fontSize: 'clamp(16px, 1.6vw, 20px)', lineHeight: '1.7' }}>הפלטפורמות המובילות בעולם, עם האסטרטגיה המנצחת שלנו</p>
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8 items-stretch" dir="ltr">
@@ -491,7 +491,7 @@ const Services = () => {
                   <img src={card.logo} alt={card.logoAlt} className="h-20 object-contain" onError={(e) => { e.currentTarget.src = card.fallback; }} />
                 </div>
                 <h3 className="text-4xl font-black text-slate-900 mb-4 text-center">{card.title}</h3>
-                <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-medium text-center flex-grow">{card.desc}</p>
+                <p className="text-slate-600 font-medium text-center flex-grow" style={{ fontSize: 'clamp(16px, 1.4vw, 18px)', lineHeight: '1.8' }}>{card.desc}</p>
                 <div className={`mt-8 h-1 w-12 ${card.barColor} rounded-full group-hover:w-[80%] transition-all duration-500 mx-auto`}></div>
               </div>
             ))}
@@ -553,8 +553,8 @@ const AdsCarousel = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/50 to-white/70 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 text-center relative z-10">
-        <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">מודעות שעיצבנו לכם</h2>
-        <p className="text-2xl md:text-3xl text-blue-600 font-medium">קריאייטיבים שנועדו לעצור גלילה ולהניע לפעולה.</p>
+        <h2 className="font-black text-slate-900 mb-4" style={{ fontSize: 'clamp(30px, 3vw, 40px)', lineHeight: '1.2' }}>מודעות שעיצבנו לכם</h2>
+        <p className="text-blue-600 font-medium" style={{ fontSize: 'clamp(16px, 1.6vw, 20px)', lineHeight: '1.7' }}>קריאייטיבים שנועדו לעצור גלילה ולהניע לפעולה.</p>
       </div>
 
       <div className="relative flex flex-col gap-6 w-full" dir="ltr">
@@ -767,8 +767,8 @@ const Results = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-16 md:mb-20"
         >
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 tracking-tight">התוצאות שלנו</h2>
-          <p className="text-xl md:text-2xl text-blue-300/90 max-w-3xl mx-auto leading-relaxed">
+          <h2 className="font-black text-white mb-6 tracking-tight" style={{ fontSize: 'clamp(30px, 4vw, 42px)', lineHeight: '1.15' }}>התוצאות שלנו</h2>
+          <p className="text-blue-300/90 max-w-3xl mx-auto" style={{ fontSize: 'clamp(16px, 1.6vw, 20px)', lineHeight: '1.8' }}>
             צילומי מסך אמיתיים מחשבונות מודעות — יחד עם תקציר קצר לכל מקרה.
           </p>
         </motion.div>
@@ -790,10 +790,10 @@ const Results = () => {
                 
                 {/* Title + KPI header */}
                 <div className="flex items-center justify-between px-5 md:px-7 pt-5 md:pt-6 pb-3" dir="rtl">
-                  <h3 className="text-2xl md:text-3xl font-black text-slate-900">{study.title}</h3>
+                  <h3 className="font-black text-slate-900" style={{ fontSize: 'clamp(22px, 2vw, 26px)' }}>{study.title}</h3>
                   <div className="flex items-baseline gap-1.5 bg-blue-50 rounded-2xl px-4 py-2 border border-blue-100">
-                    <span className="text-2xl md:text-3xl font-black text-blue-600">{study.leads}</span>
-                    <span className="text-sm md:text-base font-bold text-blue-500">לידים</span>
+                    <span className="font-black text-blue-600" style={{ fontSize: 'clamp(20px, 2vw, 24px)' }}>{study.leads}</span>
+                    <span className="font-bold text-blue-500" style={{ fontSize: 'clamp(14px, 1.2vw, 16px)' }}>לידים</span>
                   </div>
                 </div>
 
@@ -891,8 +891,8 @@ const Reviews = () => {
                       <Star key={i} size={20} className="fill-yellow-400 text-yellow-400" />
                     ))}
                   </div>
-                  <p className="text-lg text-slate-700 leading-relaxed mb-6">{review.text}</p>
-                  <div className="font-bold text-slate-900">{review.name}</div>
+                  <p className="text-slate-700 mb-6" style={{ fontSize: 'clamp(16px, 1.4vw, 18px)', lineHeight: '1.8' }}>{review.text}</p>
+                  <div className="font-bold text-slate-900" style={{ fontSize: 'clamp(14px, 1.2vw, 16px)' }}>{review.name}</div>
                 </div>
               ))}
             </motion.div>

@@ -1,5 +1,17 @@
 @import "tailwindcss";
 
+:root {
+  /* Typography Scale with clamp for responsive */
+  --text-section-title: clamp(30px, 3vw, 40px);
+  --text-subtitle: clamp(20px, 2.2vw, 30px);
+  --text-body: clamp(16px, 1.4vw, 18px);
+  --text-small: clamp(14px, 1.2vw, 16px);
+
+  /* Line Heights */
+  --leading-heading: 1.2;
+  --leading-body: 1.8;
+}
+
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
@@ -10,4 +22,25 @@ body {
   background-color: #fafafa;
   color: #0f172a;
   overflow-x: hidden;
+}
+
+/* Typography utility classes */
+.text-section-title {
+  font-size: var(--text-section-title);
+  line-height: var(--leading-heading);
+}
+
+.text-subtitle {
+  font-size: var(--text-subtitle);
+  line-height: var(--leading-heading);
+}
+
+.text-body-lg {
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+}
+
+.text-body-sm {
+  font-size: var(--text-small);
+  line-height: var(--leading-body);
 }
