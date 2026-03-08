@@ -199,7 +199,7 @@ const About = () => {
           >
             <div className="text-2xl md:text-3xl text-slate-700 leading-relaxed mb-8 space-y-6">
               <p>
-                <strong className="text-slate-900 text-3xl md:text-4xl block mb-4">אני דקל, הבעלים של Dekel Digital.</strong>
+                <strong className="text-slate-900 text-3xl md:text-4xl block mb-4">אנחנו דואגים לשיווק, כדי שתוכל להתמקד במה שבאמת חשוב - העסק שלך</strong>
                 עם ניסיון של שנים בעריכת וידאו, עיצוב גרפי וניהול קמפיינים ממומנים, אנחנו מביאים מקצועיות שיווקית שמביאה תוצאות לאורך זמן.
               </p>
               <p>
