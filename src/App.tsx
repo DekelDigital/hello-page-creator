@@ -523,7 +523,7 @@ const LeadForm = ({ id }: { id: string }) => {
             מוכנים למהלך הבא?
           </h3>
           <p className="text-2xl md:text-3xl text-white/90 font-medium drop-shadow-sm max-w-4xl mx-auto">
-            משאירים פרטים ועושים את הצעד הראשון לשיווק מנצח
+            משאירים פרטים - ואנחנו חוזרים עם כיוון ברור למהלך הבא.
           </p>
         </div>
         
