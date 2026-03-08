@@ -17,7 +17,7 @@ import {
   Mail,
   Phone,
   Clock,
-  Instagram,
+  
   Facebook
 } from 'lucide-react';
 import ChessHero from './components/ChessHero';
