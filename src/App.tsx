@@ -321,6 +321,7 @@ const Services = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [hasAnimated, setHasAnimated] = useState(false);
   const [prefersReducedMotionLocal, setPrefersReducedMotionLocal] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const rookControls = useAnimationControls();
   const queenControls = useAnimationControls();
   const maskControls = useAnimationControls();
@@ -330,11 +331,19 @@ const Services = () => {
     setPrefersReducedMotionLocal(mq.matches);
     const handler = (e: MediaQueryListEvent) => setPrefersReducedMotionLocal(e.matches);
     mq.addEventListener('change', handler);
-    return () => mq.removeEventListener('change', handler);
+
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => {
+      mq.removeEventListener('change', handler);
+      window.removeEventListener('resize', checkMobile);
+    };
   }, []);
 
   useEffect(() => {
-    if (prefersReducedMotionLocal) {
+    if (prefersReducedMotionLocal || isMobile) {
       setHasAnimated(true);
       return;
     }
@@ -351,7 +360,7 @@ const Services = () => {
     );
     obs.observe(el);
     return () => obs.disconnect();
-  }, [prefersReducedMotionLocal, hasAnimated]);
+  }, [prefersReducedMotionLocal, hasAnimated, isMobile]);
 
   // Synchronized: pieces move out + mask opens together, then floating
   useEffect(() => {
