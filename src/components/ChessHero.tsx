@@ -1,13 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import { motion, useAnimationControls } from 'motion/react';
+import React, { useEffect, useRef } from 'react';
+import { motion, useAnimationControls, useScroll, useTransform } from 'motion/react';
 import { ArrowLeft } from 'lucide-react';
 import chessHeroBg from '../assets/chess-hero-bg.png';
 import chessKnight from '../assets/chess-knight.png';
 import chessKing from '../assets/chess-king.png';
 
 const ChessHero = () => {
+  const sectionRef = useRef<HTMLElement>(null);
   const knightControls = useAnimationControls();
   const kingControls = useAnimationControls();
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start start', 'end start'],
+  });
+
+  // Pieces fly upward as user scrolls past hero
+  const piecesY = useTransform(scrollYProgress, [0.3, 1], [0, -400]);
+  const piecesOpacity = useTransform(scrollYProgress, [0.3, 0.8], [1, 0]);
 
   useEffect(() => {
     const runEntry = async () => {
@@ -46,7 +56,7 @@ const ChessHero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden" dir="rtl">
+    <section ref={sectionRef} className="relative min-h-screen flex items-center justify-center overflow-hidden" dir="rtl">
       {/* Background image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -80,8 +90,8 @@ const ChessHero = () => {
         ))}
       </div>
 
-      {/* Chess pieces overlay */}
-      <div className="absolute inset-0 pointer-events-none z-[8]">
+      {/* Chess pieces overlay with scroll parallax */}
+      <motion.div className="absolute inset-0 pointer-events-none z-[8]" style={{ y: piecesY, opacity: piecesOpacity }}>
         {/* Knight - left side */}
         <motion.img
           src={chessKnight}
@@ -107,7 +117,7 @@ const ChessHero = () => {
           initial={{ y: 200, opacity: 0 }}
           animate={kingControls}
         />
-      </div>
+      </motion.div>
 
       {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 pb-24 lg:pt-32 lg:pb-32">
