@@ -871,6 +871,7 @@ const Results = () => {
       </div>
     </section>
   );
+};
 const FloatingCTA = () => {
   const [isVisible, setIsVisible] = useState(false);
 
