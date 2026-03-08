@@ -721,7 +721,7 @@ const Results = () => {
 
           {/* KPIs */}
           <div className="lg:col-span-4 space-y-6">
-            <h3 className="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-blue-100 pb-2 inline-block">תקצירים מהירים</h3>
+            
             {[
               { label: 'החזר השקעה ממוצע (ROI)', value: '420%', color: 'text-emerald-600', bg: 'bg-emerald-50' },
               { label: 'לידים בחודש האחרון', value: '12,450+', color: 'text-blue-600', bg: 'bg-blue-50' },
