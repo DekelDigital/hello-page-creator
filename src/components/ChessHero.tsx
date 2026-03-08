@@ -56,7 +56,7 @@ const ChessHero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden" dir="rtl">
+    <section ref={sectionRef} className="relative min-h-screen flex items-center justify-center overflow-hidden" dir="rtl">
       {/* Background image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
