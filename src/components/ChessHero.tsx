@@ -12,8 +12,8 @@ const ChessHero = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden" dir="rtl">
       {/* Background image */}
       <div
-        className="absolute inset-0 bg-contain bg-center bg-no-repeat sm:bg-cover"
-        style={{ backgroundImage: `url(${chessHeroBg})` }}
+        className="absolute inset-0 bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${chessHeroBg})`, backgroundSize: '120%' }}
       />
 
       {/* Light overlay for text readability */}
