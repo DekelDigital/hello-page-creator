@@ -884,15 +884,15 @@ const Reviews = () => {
               {currentReviews.map((review, idx) => (
                 <div
                   key={idx}
-                  className="bg-white rounded-3xl p-8 shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-slate-100 text-center"
+                  className="bg-white rounded-3xl p-12 shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-slate-100 text-center"
                 >
-                  <div className="flex gap-1 mb-4 justify-center">
+                  <div className="flex gap-2 mb-6 justify-center">
                     {Array.from({ length: review.stars }).map((_, i) => (
-                      <Star key={i} size={20} className="fill-yellow-400 text-yellow-400" />
+                      <Star key={i} size={32} className="fill-yellow-400 text-yellow-400" />
                     ))}
                   </div>
-                  <p className="text-lg text-slate-700 leading-relaxed mb-6">{review.text}</p>
-                  <div className="font-bold text-slate-900">{review.name}</div>
+                  <p className="text-2xl md:text-3xl text-slate-700 leading-relaxed mb-8">{review.text}</p>
+                  <div className="font-bold text-2xl text-slate-900">{review.name}</div>
                 </div>
               ))}
             </motion.div>
