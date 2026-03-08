@@ -46,7 +46,7 @@ const ChessHero = () => {
       {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 pb-24 lg:pt-32 lg:pb-32">
         <motion.h1
-          className="text-5xl sm:text-6xl lg:text-[5rem] font-black leading-[1.1] mb-8 tracking-tight"
+          className="text-5xl sm:text-6xl lg:text-[5rem] font-black leading-[1.1] mb-4 tracking-tight"
           style={{
             color: '#0f2e5e',
             textShadow: '0 2px 20px rgba(255,255,255,0.5)',
