@@ -475,7 +475,7 @@ const Services = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">שלוש זירות</h2>
+            <h2 className="text-5xl md:text-6xl font-black text-slate-900 mb-4">שלוש זירות</h2>
             <p className="text-2xl md:text-3xl text-slate-600 mb-2">הפלטפורמות המובילות בעולם, עם האסטרטגיה המנצחת שלנו</p>
           </div>
 
@@ -553,7 +553,7 @@ const AdsCarousel = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/50 to-white/70 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 text-center relative z-10">
-        <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">מודעות שעיצבנו לכם</h2>
+        <h2 className="text-5xl md:text-6xl font-black text-slate-900 mb-4">מודעות שעיצבנו לכם</h2>
         <p className="text-2xl md:text-3xl text-blue-600 font-medium">קריאייטיבים שנועדו לעצור גלילה ולהניע לפעולה.</p>
       </div>
 
