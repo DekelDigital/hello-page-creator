@@ -356,11 +356,11 @@ const Services = () => {
           obs.disconnect();
         }
       },
-      { threshold: 0.75, rootMargin: '0px 0px -15% 0px' }
+      { threshold: 0.15 }
     );
     obs.observe(el);
     return () => obs.disconnect();
-  }, [prefersReducedMotionLocal, hasAnimated, isMobile]);
+  }, [prefersReducedMotionLocal, hasAnimated]);
 
   // Synchronized: pieces move out + mask opens together, then floating
   useEffect(() => {
