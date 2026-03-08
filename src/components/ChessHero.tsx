@@ -56,11 +56,8 @@ const ChessHero = () => {
             filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.3)) drop-shadow(0 0 30px rgba(59,130,246,0.15))',
             transform: 'rotate(5deg)',
           }}
-          initial={{ y: 180, opacity: 0 }}
-          animate={{
-            y: [0, -22, 0],
-            opacity: 1,
-          }}
+          initial={{ y: 180 }}
+          animate={{ y: [0, -22, 0] }}
           transition={{
             y: {
               duration: 5.5,
@@ -69,11 +66,7 @@ const ChessHero = () => {
               repeatType: 'reverse',
               ease: 'easeInOut',
             },
-            opacity: { duration: 0 },
           }}
-          onMount={(controls: any) => {
-          }}
-          whileInView={{}}
         />
 
         {/* King - right side */}
