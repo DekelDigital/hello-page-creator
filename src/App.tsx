@@ -317,7 +317,10 @@ const About2 = () => {
 const Services = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [hasAnimated, setHasAnimated] = useState(false);
+  const [piecesSettled, setPiecesSettled] = useState(false);
   const [prefersReducedMotionLocal, setPrefersReducedMotionLocal] = useState(false);
+  const rookControls = useAnimationControls();
+  const queenControls = useAnimationControls();
 
   useEffect(() => {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -330,6 +333,7 @@ const Services = () => {
   useEffect(() => {
     if (prefersReducedMotionLocal) {
       setHasAnimated(true);
+      setPiecesSettled(true);
       return;
     }
     const el = sectionRef.current;
@@ -347,13 +351,52 @@ const Services = () => {
     return () => obs.disconnect();
   }, [prefersReducedMotionLocal, hasAnimated]);
 
+  // Chain: curtain open → floating loop
+  useEffect(() => {
+    if (!hasAnimated || prefersReducedMotionLocal) return;
+
+    const runAnimation = async () => {
+      // Phase A: curtain open
+      await Promise.all([
+        rookControls.start({
+          x: '-280%',
+          opacity: 0.85,
+          scale: 1,
+          rotate: -2,
+          transition: { duration: 1.1, ease: [0.22, 1, 0.36, 1] },
+        }),
+        queenControls.start({
+          x: '180%',
+          opacity: 0.8,
+          scale: 1,
+          rotate: 3,
+          transition: { duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.05 },
+        }),
+      ]);
+
+      setPiecesSettled(true);
+
+      // Phase C: floating loop
+      rookControls.start({
+        y: [0, -12, 0],
+        transition: { duration: 6, repeat: Infinity, ease: 'easeInOut' },
+      });
+      queenControls.start({
+        y: [0, -10, 0],
+        transition: { duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 0.5 },
+      });
+    };
+
+    runAnimation();
+  }, [hasAnimated, prefersReducedMotionLocal, rookControls, queenControls]);
+
   const skipMotion = prefersReducedMotionLocal;
 
   return (
     <section ref={sectionRef} id="services" className="py-24 bg-sky-50 relative overflow-hidden" tabIndex={-1}>
       {/* Chess pieces layer */}
       <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 20 }}>
-        {/* Rook (blue) - moves from center to LEFT */}
+        {/* Rook (blue) - center → LEFT */}
         <motion.img
           src={new URL('../assets/chess-rook-blue.png', import.meta.url).href}
           alt=""
@@ -365,47 +408,10 @@ const Services = () => {
             filter: 'drop-shadow(0 12px 24px rgba(0,0,0,0.15))',
           }}
           initial={skipMotion ? { x: '-280%', opacity: 0.85, scale: 1, rotate: -2 } : { x: '-60%', opacity: 0.9, scale: 1.15, rotate: 0 }}
-          animate={
-            hasAnimated
-              ? {
-                  x: '-280%',
-                  opacity: 0.85,
-                  scale: 1,
-                  rotate: -2,
-                  transition: { duration: 1.1, ease: [0.22, 1, 0.36, 1] },
-                }
-              : undefined
-          }
+          animate={rookControls}
         />
-        {/* Rook floating loop */}
-        {hasAnimated && !skipMotion && (
-          <motion.div
-            className="absolute"
-            style={{
-              width: 'clamp(120px, 18vw, 280px)',
-              bottom: '5%',
-              left: '50%',
-              pointerEvents: 'none',
-            }}
-            initial={{ x: '-280%', y: 0 }}
-            animate={{ y: [0, -12, 0] }}
-            transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-          >
-            <img
-              src={new URL('../assets/chess-rook-blue.png', import.meta.url).href}
-              alt=""
-              className="chess-piece-rook w-full"
-              style={{
-                filter: 'drop-shadow(0 12px 24px rgba(0,0,0,0.15))',
-                transform: 'rotate(-2deg)',
-                opacity: 0.85,
-              }}
-            />
-          </motion.div>
-        )}
-        {/* Hide the static rook once floating starts */}
 
-        {/* Queen (white) - moves from center to RIGHT */}
+        {/* Queen (white) - center → RIGHT */}
         <motion.img
           src={new URL('../assets/chess-queen.png', import.meta.url).href}
           alt=""
@@ -417,44 +423,8 @@ const Services = () => {
             filter: 'drop-shadow(0 12px 24px rgba(0,0,0,0.12))',
           }}
           initial={skipMotion ? { x: '180%', opacity: 0.8, scale: 1, rotate: 3 } : { x: '-40%', opacity: 0.9, scale: 1.15, rotate: 0 }}
-          animate={
-            hasAnimated
-              ? {
-                  x: '180%',
-                  opacity: 0.8,
-                  scale: 1,
-                  rotate: 3,
-                  transition: { duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.05 },
-                }
-              : undefined
-          }
+          animate={queenControls}
         />
-        {/* Queen floating loop */}
-        {hasAnimated && !skipMotion && (
-          <motion.div
-            className="absolute"
-            style={{
-              width: 'clamp(110px, 16vw, 260px)',
-              bottom: '12%',
-              left: '50%',
-              pointerEvents: 'none',
-            }}
-            initial={{ x: '180%', y: 0 }}
-            animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-          >
-            <img
-              src={new URL('../assets/chess-queen.png', import.meta.url).href}
-              alt=""
-              className="chess-piece-queen w-full"
-              style={{
-                filter: 'drop-shadow(0 12px 24px rgba(0,0,0,0.12))',
-                transform: 'rotate(3deg)',
-                opacity: 0.8,
-              }}
-            />
-          </motion.div>
-        )}
       </div>
 
       {/* Content layer */}
@@ -463,8 +433,8 @@ const Services = () => {
           <motion.div
             className="text-center mb-16"
             initial={skipMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            animate={hasAnimated ? { opacity: 1, y: 0 } : undefined}
-            transition={{ duration: 0.55, delay: skipMotion ? 0 : 1.3, ease: [0.22, 1, 0.36, 1] }}
+            animate={piecesSettled || skipMotion ? { opacity: 1, y: 0 } : undefined}
+            transition={{ duration: 0.55, delay: skipMotion ? 0 : 0.15, ease: [0.22, 1, 0.36, 1] }}
           >
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">שלוש זירות</h2>
             <p className="text-2xl md:text-3xl text-slate-600 mb-2">הפלטפורמות המובילות בעולם, עם האסטרטגיה המנצחת שלנו</p>
@@ -482,7 +452,7 @@ const Services = () => {
                 barColor: 'bg-black',
                 borderClass: 'border border-slate-200',
                 shadowClass: 'shadow-sm',
-                delay: 1.45,
+                delay: 0.25,
               },
               {
                 logo: '/meta_logo.png',
@@ -494,7 +464,7 @@ const Services = () => {
                 barColor: 'bg-blue-600',
                 borderClass: 'border-2 border-blue-100',
                 shadowClass: 'shadow-lg shadow-blue-900/5',
-                delay: 1.55,
+                delay: 0.35,
               },
               {
                 logo: '/google ads logo.png',
@@ -506,7 +476,7 @@ const Services = () => {
                 barColor: 'bg-green-500',
                 borderClass: 'border border-slate-200',
                 shadowClass: 'shadow-sm',
-                delay: 1.65,
+                delay: 0.45,
               },
             ].map((card, i) => (
               <motion.div
@@ -514,7 +484,7 @@ const Services = () => {
                 className={`bg-white rounded-[2rem] p-10 ${card.shadowClass} ${card.borderClass} hover:shadow-xl hover:border-blue-200 transition-all relative overflow-hidden group text-center flex flex-col items-center h-full`}
                 dir="rtl"
                 initial={skipMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                animate={hasAnimated ? { opacity: 1, y: 0 } : undefined}
+                animate={piecesSettled || skipMotion ? { opacity: 1, y: 0 } : undefined}
                 transition={{ duration: 0.55, delay: skipMotion ? 0 : card.delay, ease: [0.22, 1, 0.36, 1] }}
               >
                 <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${card.gradientFrom} to-transparent rounded-bl-full -z-10`}></div>
