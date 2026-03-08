@@ -900,7 +900,7 @@ export default function App() {
     <div className="min-h-screen bg-slate-50 selection:bg-blue-200 selection:text-blue-900" style={{ fontFamily: '"Heebo", sans-serif' }}>
       <Header />
       <main>
-        <Hero />
+        <ChessHero />
         <About />
         <Services />
         <About2 />
