@@ -722,19 +722,6 @@ const LeadForm = ({ id }: { id: string }) => {
               )}
             </button>
           </div>
-          
-          {/* Checkbox */}
-          <div className="flex items-center justify-center gap-3 mt-8 px-2">
-            <input 
-              type="checkbox" 
-              id={`${id}-privacy`} 
-              required 
-              className="w-6 h-6 rounded-none border-2 border-white/60 bg-white/10 text-blue-600 focus:ring-white focus:ring-offset-[#3b82f6] cursor-pointer transition-all"
-            />
-            <label htmlFor={`${id}-privacy`} className="text-lg md:text-xl text-white cursor-pointer select-none">
-              אני מאשר/ת קבלת דיוור והודעות SMS מ-Dekel Digital, בהתאם <a href="#" className="underline hover:text-blue-100 transition-colors">למדיניות הפרטיות</a>.
-            </label>
-          </div>
         </form>
       </div>
     </motion.section>
