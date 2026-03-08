@@ -148,7 +148,7 @@ const About = () => {
           transition={{ duration: 0.7 }}
           className="text-right max-w-7xl mx-auto mb-8" dir="rtl"
         >
-          <h2 className="text-5xl md:text-6xl font-black mb-4 tracking-tight">
+          <h2 className="text-6xl md:text-8xl font-black mb-4 tracking-tight">
             <span className="relative inline-block">
               <span style={{ color: '#2563eb' }}>מי אנחנו?</span>
               <span className="absolute -bottom-2 right-0 w-full h-1 rounded-full" style={{ backgroundColor: '#2563eb' }}></span>
