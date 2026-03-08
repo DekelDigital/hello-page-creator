@@ -364,7 +364,7 @@ const Services = () => {
             </div>
             <h3 className="text-4xl font-black text-slate-900 mb-4 text-center">Google Ads</h3>
             <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-medium text-center flex-grow">
-              חיפוש שמביא לקוחות חמים, מיקוד כוונה גבוה ושיפור איכות שמוריד עלויות.
+              תופסים את הלקוח בדיוק כשהוא מחפש אותך - פרסום ממוקד בחיפוש ובערוצים של גוגל כדי להביא לקוחות חמים ולהגדיל פניות ומכירות.
             </p>
             <div className="mt-8 h-1 w-12 bg-green-500 rounded-full group-hover:w-[80%] transition-all duration-500 mx-auto"></div>
           </div>
