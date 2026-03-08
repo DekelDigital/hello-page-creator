@@ -61,7 +61,7 @@ const ChessHero = () => {
         </motion.h1>
 
         <motion.p
-          className="text-xl sm:text-2xl lg:text-3xl font-medium mb-12 leading-snug max-w-4xl mx-auto"
+          className="text-xl sm:text-2xl lg:text-3xl font-medium mb-6 leading-snug max-w-4xl mx-auto"
           style={{
             color: '#1a3a6b',
             textShadow: '0 1px 10px rgba(255,255,255,0.6)',
