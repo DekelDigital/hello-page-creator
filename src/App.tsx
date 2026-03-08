@@ -790,10 +790,10 @@ const Results = () => {
                 
                 {/* Title + KPI header */}
                 <div className="flex items-center justify-between px-5 md:px-7 pt-5 md:pt-6 pb-3" dir="rtl">
-                  <h3 className="text-2xl md:text-3xl font-black text-slate-900">{study.title}</h3>
+                  <h3 className="font-black text-slate-900" style={{ fontSize: 'clamp(22px, 2vw, 26px)' }}>{study.title}</h3>
                   <div className="flex items-baseline gap-1.5 bg-blue-50 rounded-2xl px-4 py-2 border border-blue-100">
-                    <span className="text-2xl md:text-3xl font-black text-blue-600">{study.leads}</span>
-                    <span className="text-sm md:text-base font-bold text-blue-500">לידים</span>
+                    <span className="font-black text-blue-600" style={{ fontSize: 'clamp(20px, 2vw, 24px)' }}>{study.leads}</span>
+                    <span className="font-bold text-blue-500" style={{ fontSize: 'clamp(14px, 1.2vw, 16px)' }}>לידים</span>
                   </div>
                 </div>
 
