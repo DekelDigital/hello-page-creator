@@ -416,7 +416,7 @@ const Services = () => {
       logoAlt: 'Meta Ads',
       fallback: 'https://placehold.co/100x100/1877f2/ffffff?text=Meta',
       title: 'Meta Ads',
-      desc: 'מגיעים לקהל המדויק בפייסבוק ואינסטגרם, עם קריאייטיב נכון ואופטימיזציה שמייצרת פניות איכותיות בזמן קצר.',
+      desc: 'מגיעים לקהל המדויק בפייסבוק ואינסטגרם, עם קריאייטיב נכון, קהלים ואופטימיזציה שמייצרת פניות איכותיות.',
       gradientFrom: 'from-blue-50',
       barColor: 'bg-blue-600',
       borderClass: 'border-2 border-blue-100',
