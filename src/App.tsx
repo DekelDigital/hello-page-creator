@@ -933,29 +933,82 @@ const Footer = () => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const navLinks = [
+    { name: 'אודות', id: 'about' },
+    { name: 'מה אנחנו עושים', id: 'services' },
+    { name: 'מודעות', id: 'ads' },
+    { name: 'תוצאות', id: 'results' },
+    { name: 'ביקורות', id: 'reviews' },
+    { name: 'דברו איתנו', id: 'contact' },
+  ];
+
   return (
-    <footer className="bg-slate-900 text-white py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="text-center md:text-right">
-            <img src="/logo.png" alt="Dekel Digital" className="h-16 mb-4 mx-auto md:mx-0 brightness-0 invert" onError={(e) => {
+    <footer className="bg-slate-900 text-white relative overflow-hidden">
+      {/* Background glow */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[150px] pointer-events-none"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Main Footer Content */}
+        <div className="py-16 grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 text-right" dir="rtl">
+          
+          {/* Brand Column */}
+          <div>
+            <img src="/logo.png" alt="Dekel Digital" className="h-16 mb-6 brightness-0 invert" onError={(e) => {
               e.currentTarget.src = 'https://placehold.co/150x50/ffffff/1d4ed8?text=Dekel+Digital';
             }} />
-            <p className="text-slate-400 text-lg">שיווק דיגיטלי שמביא תוצאות</p>
+            <p className="text-slate-400 text-lg leading-relaxed mb-6">
+              שיווק דיגיטלי שמביא תוצאות אמיתיות. ניהול קמפיינים ממומנים בגישה מקצועית ושקופה.
+            </p>
+            <div className="flex gap-4">
+              <a href="https://www.instagram.com/dekeldigital" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-blue-600 transition-colors">
+                <Instagram size={18} />
+              </a>
+              <a href="https://www.facebook.com/dekeldigital" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-blue-600 transition-colors">
+                <Facebook size={18} />
+              </a>
+            </div>
           </div>
-          <div className="flex flex-col sm:flex-row gap-6 items-center text-slate-400">
-            <a href="mailto:info@dekeldigital.co.il" className="flex items-center gap-2 hover:text-white transition-colors">
-              <Mail size={18} />
-              info@dekeldigital.co.il
-            </a>
-            <a href="tel:+972500000000" className="flex items-center gap-2 hover:text-white transition-colors">
-              <Phone size={18} />
-              050-000-0000
-            </a>
+
+          {/* Navigation Column */}
+          <div>
+            <h4 className="text-lg font-bold text-white mb-6">ניווט מהיר</h4>
+            <nav className="flex flex-col gap-3">
+              {navLinks.map((link) => (
+                <button
+                  key={link.id}
+                  onClick={() => scrollTo(link.id)}
+                  className="text-slate-400 hover:text-white transition-colors text-right text-base"
+                >
+                  {link.name}
+                </button>
+              ))}
+            </nav>
+          </div>
+
+          {/* Contact Column */}
+          <div>
+            <h4 className="text-lg font-bold text-white mb-6">צרו קשר</h4>
+            <div className="flex flex-col gap-4">
+              <a href="mailto:info@dekeldigital.co.il" className="flex items-center gap-3 text-slate-400 hover:text-white transition-colors">
+                <Mail size={18} className="flex-shrink-0" />
+                info@dekeldigital.co.il
+              </a>
+              <a href="tel:+972500000000" className="flex items-center gap-3 text-slate-400 hover:text-white transition-colors">
+                <Phone size={18} className="flex-shrink-0" />
+                050-000-0000
+              </a>
+              <div className="flex items-center gap-3 text-slate-400">
+                <Clock size={18} className="flex-shrink-0" />
+                א׳–ה׳ 9:00–18:00
+              </div>
+            </div>
           </div>
         </div>
-        <div className="border-t border-slate-800 mt-10 pt-8 text-center text-slate-500">
-          <p>© {new Date().getFullYear()} Dekel Digital. כל הזכויות שמורות.</p>
+
+        {/* Bottom Bar */}
+        <div className="border-t border-slate-800 py-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-slate-500 text-sm">© {new Date().getFullYear()} Dekel Digital. כל הזכויות שמורות.</p>
+          <p className="text-slate-600 text-sm">עוצב ופותח עם ❤️</p>
         </div>
       </div>
     </footer>
