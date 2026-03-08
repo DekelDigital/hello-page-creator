@@ -254,7 +254,7 @@ const About2 = () => {
           className="text-center max-w-4xl mx-auto mb-24"
         >
           <h2 className="text-5xl md:text-6xl font-black text-slate-900 mb-8 tracking-tight">
-            הדרך שלנו <span className="text-blue-600">להצלחה שלך</span>
+            האסטרטגיה שלנו <span className="text-blue-600">לניצחון שלך</span>
           </h2>
           <p className="text-2xl md:text-3xl text-slate-600 leading-relaxed font-medium">
             עם ניסיון של שנים בניהול קמפיינים, אנחנו מביאים מקצועיות ושקיפות מלאה לכל תהליך. 
