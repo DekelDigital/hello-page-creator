@@ -491,7 +491,7 @@ const Services = () => {
                   <img src={card.logo} alt={card.logoAlt} className="h-20 object-contain" onError={(e) => { e.currentTarget.src = card.fallback; }} />
                 </div>
                 <h3 className="text-4xl font-black text-slate-900 mb-4 text-center">{card.title}</h3>
-                <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-medium text-center flex-grow">{card.desc}</p>
+                <p className="text-slate-600 font-medium text-center flex-grow" style={{ fontSize: 'clamp(16px, 1.4vw, 18px)', lineHeight: '1.8' }}>{card.desc}</p>
                 <div className={`mt-8 h-1 w-12 ${card.barColor} rounded-full group-hover:w-[80%] transition-all duration-500 mx-auto`}></div>
               </div>
             ))}
