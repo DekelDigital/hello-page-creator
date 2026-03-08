@@ -56,17 +56,11 @@ const ChessHero = () => {
             filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.3)) drop-shadow(0 0 30px rgba(59,130,246,0.15))',
             transform: 'rotate(5deg)',
           }}
-          initial={{ opacity: 0, y: 50, scale: 0.98 }}
-          animate={{
-            opacity: 1,
-            y: [0, -12, 0],
-            scale: 1,
-          }}
+          initial={{ y: 180 }}
+          animate={{ y: [0, -22, 0] }}
           transition={{
-            opacity: { duration: 0.9, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] },
-            scale: { duration: 0.9, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] },
             y: {
-              duration: 6,
+              duration: 5.5,
               delay: 1.2,
               repeat: Infinity,
               repeatType: 'reverse',
@@ -84,17 +78,11 @@ const ChessHero = () => {
             filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.25)) drop-shadow(0 0 25px rgba(255,255,255,0.2))',
             transform: 'rotate(-6deg)',
           }}
-          initial={{ opacity: 0, y: 45, scale: 0.98 }}
-          animate={{
-            opacity: 1,
-            y: [0, -10, 0],
-            scale: 1,
-          }}
+          initial={{ y: 200 }}
+          animate={{ y: [0, -18, 0] }}
           transition={{
-            opacity: { duration: 0.9, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] },
-            scale: { duration: 0.9, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] },
             y: {
-              duration: 7,
+              duration: 6.5,
               delay: 1.6,
               repeat: Infinity,
               repeatType: 'reverse',
