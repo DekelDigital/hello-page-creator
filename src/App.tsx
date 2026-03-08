@@ -346,7 +346,7 @@ const Services = () => {
           obs.disconnect();
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.75, rootMargin: '0px 0px -15% 0px' }
     );
     obs.observe(el);
     return () => obs.disconnect();
