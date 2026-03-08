@@ -426,7 +426,7 @@ const AdsCarousel = () => {
   const row2 = adImages.slice(7, 14);
 
   return (
-    <section id="ads" className="py-24 bg-slate-900 overflow-hidden relative" tabIndex={-1}>
+    <section id="ads" className="py-24 bg-[#e8f0fe] overflow-hidden relative" tabIndex={-1}>
       {/* Chess board pattern background */}
       <div className="absolute inset-0 opacity-[0.04]" style={{
         backgroundImage: `repeating-conic-gradient(#3b82f6 0% 25%, transparent 0% 50%)`,
