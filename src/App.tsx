@@ -201,7 +201,7 @@ const About = () => {
             <div className="text-2xl md:text-3xl text-slate-700 leading-relaxed mb-8 space-y-6">
               <p>
                 <strong className="text-slate-900 text-3xl md:text-4xl block mb-4">ברוכים הבאים ל- Dekel Digital</strong>
-                עם ניסיון של שנים בעריכת וידאו, עיצוב גרפי וניהול קמפיינים ממומנים, אנחנו מביאים מקצועיות שיווקית שמביאה תוצאות לאורך זמן.
+                עם ניסיון של שנים בניהול קמפיינים ממומנים, אנחנו מביאים מקצועיות שיווקית שמביאה תוצאות לאורך זמן.
               </p>
               <p>
                 <strong className="text-slate-900 block mb-2">הגישה שלנו פשוטה: <span className="text-blue-600">איכות לפני כמות.</span></strong>
