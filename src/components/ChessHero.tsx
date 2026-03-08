@@ -28,8 +28,9 @@ const ChessHero = () => {
         transition: { duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] },
       }).then(() => {
         knightControls.start({
-          y: [0, -22, 0],
-          transition: { duration: 5.5, repeat: Infinity, ease: 'easeInOut' },
+          y: [0, -38, 0],
+          rotate: [5, 8, 5],
+          transition: { duration: 4, repeat: Infinity, ease: 'easeInOut' },
         });
       });
 
@@ -41,8 +42,9 @@ const ChessHero = () => {
           transition: { duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] },
         }).then(() => {
           kingControls.start({
-            y: [0, -18, 0],
-            transition: { duration: 6.5, repeat: Infinity, ease: 'easeInOut' },
+            y: [0, -32, 0],
+            rotate: [-6, -10, -6],
+            transition: { duration: 4.5, repeat: Infinity, ease: 'easeInOut' },
           });
         });
       }, 180);
