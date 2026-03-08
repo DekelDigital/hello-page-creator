@@ -29,7 +29,6 @@ const ChessHero = () => {
       }).then(() => {
         knightControls.start({
           y: [0, -38, 0],
-          rotate: [5, 8, 5],
           transition: { duration: 4, repeat: Infinity, ease: 'easeInOut' },
         });
       });
@@ -43,7 +42,6 @@ const ChessHero = () => {
         }).then(() => {
           kingControls.start({
             y: [0, -32, 0],
-            rotate: [-6, -10, -6],
             transition: { duration: 4.5, repeat: Infinity, ease: 'easeInOut' },
           });
         });
