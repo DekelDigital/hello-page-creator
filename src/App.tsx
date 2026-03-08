@@ -767,7 +767,7 @@ const Results = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-16 md:mb-20"
         >
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 tracking-tight">התוצאות שלנו</h2>
+          <h2 className="font-black text-white mb-6 tracking-tight" style={{ fontSize: 'clamp(30px, 4vw, 42px)', lineHeight: '1.15' }}>התוצאות שלנו</h2>
           <p className="text-blue-300/90 max-w-3xl mx-auto" style={{ fontSize: 'clamp(16px, 1.6vw, 20px)', lineHeight: '1.8' }}>
             צילומי מסך אמיתיים מחשבונות מודעות — יחד עם תקציר קצר לכל מקרה.
           </p>
