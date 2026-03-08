@@ -503,7 +503,7 @@ const Services = () => {
             ))}
           </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 };
