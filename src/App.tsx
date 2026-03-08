@@ -942,7 +942,7 @@ const Footer = () => {
               e.currentTarget.src = 'https://placehold.co/150x50/ffffff/1d4ed8?text=Dekel+Digital';
             }} />
             <p className="text-slate-400 text-2xl leading-relaxed mb-6">
-              שיווק דיגיטלי שמביא תוצאות אמיתיות. ניהול קמפיינים ממומנים בגישה מקצועית ושקופה.
+              שיווק דיגיטלי שמביא תוצאות אמיתיות.
             </p>
             <div className="flex gap-4">
               <a href="https://www.facebook.com/dekeldigital" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-blue-600 transition-colors">
