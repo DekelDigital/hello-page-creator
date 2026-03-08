@@ -422,7 +422,7 @@ const AdsCarousel = () => {
         style={{ backgroundImage: `url(${chessHeroBg})` }}
       />
       {/* Overlay for readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-white/70 to-white/30 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/50 to-white/70 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 text-center relative z-10">
         <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">מודעות שעיצבנו לכם</h2>
