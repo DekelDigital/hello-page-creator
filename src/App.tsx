@@ -722,7 +722,6 @@ const LeadForm = ({ id }: { id: string }) => {
               )}
             </button>
           </div>
-          </div>
         </form>
       </div>
     </motion.section>
