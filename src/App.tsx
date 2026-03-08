@@ -364,6 +364,12 @@ const Services = () => {
 
   // Synchronized: pieces move out + mask opens together, then floating
   useEffect(() => {
+    if (!hasAnimated) {
+      maskControls.set({ clipPath: 'inset(0 50% 0 50%)' });
+    }
+  }, [maskControls, hasAnimated]);
+
+  useEffect(() => {
     if (!hasAnimated || prefersReducedMotionLocal) {
       return;
     }
