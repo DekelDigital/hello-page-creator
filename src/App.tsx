@@ -166,7 +166,7 @@ const About = () => {
           </h2>
         </motion.div>
 
-        <div className="flex flex-col lg:flex-row-reverse items-center justify-center gap-4 lg:gap-8 max-w-6xl mx-auto lg:translate-x-48">
+        <div className="flex flex-col lg:flex-row-reverse items-center justify-center gap-4 lg:gap-8 max-w-6xl mx-auto lg:translate-x-16">
           
           {/* Desktop Image Column (Hidden on mobile) */}
           <motion.div 
