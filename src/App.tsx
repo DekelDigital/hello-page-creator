@@ -447,7 +447,7 @@ const Services = () => {
   return (
     <section ref={sectionRef} id="services" className="py-24 bg-sky-50 relative overflow-hidden" tabIndex={-1}>
       {/* Chess pieces layer - above content */}
-      <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 20 }}>
+      <div className="absolute inset-0 pointer-events-none hidden md:block" style={{ zIndex: 20 }}>
         <motion.img
           src={chessRookBlue}
           alt=""
