@@ -406,7 +406,7 @@ const Services = () => {
     runAnimation();
   }, [hasAnimated, prefersReducedMotionLocal, rookControls, queenControls, maskControls]);
 
-  const skipMotion = prefersReducedMotionLocal;
+  const skipMotion = prefersReducedMotionLocal || isMobile;
 
   const cards = [
     {
