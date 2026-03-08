@@ -2,6 +2,8 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowLeft } from 'lucide-react';
 import chessHeroBg from '../assets/chess-hero-bg.png';
+import chessKnight from '../assets/chess-knight.png';
+import chessKing from '../assets/chess-king.png';
 
 const ChessHero = () => {
   const scrollTo = (id: string) => {
@@ -41,6 +43,65 @@ const ChessHero = () => {
             }}
           />
         ))}
+      </div>
+
+      {/* Chess pieces overlay */}
+      <div className="absolute inset-0 pointer-events-none z-[8]">
+        {/* Knight - left side */}
+        <motion.img
+          src={chessKnight}
+          alt=""
+          className="absolute left-[8%] bottom-[12%] w-[400px] lg:w-[420px] md:w-[300px] sm:w-[180px] max-sm:w-[140px] max-sm:opacity-70 md:opacity-90"
+          style={{
+            filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.3)) drop-shadow(0 0 30px rgba(59,130,246,0.15))',
+            transform: 'rotate(5deg)',
+          }}
+          initial={{ opacity: 0, y: 50, scale: 0.98 }}
+          animate={{
+            opacity: 1,
+            y: [0, -12, 0],
+            scale: 1,
+          }}
+          transition={{
+            opacity: { duration: 0.9, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] },
+            scale: { duration: 0.9, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] },
+            y: {
+              duration: 6,
+              delay: 1.2,
+              repeat: Infinity,
+              repeatType: 'reverse',
+              ease: 'easeInOut',
+            },
+          }}
+        />
+
+        {/* King - right side */}
+        <motion.img
+          src={chessKing}
+          alt=""
+          className="absolute right-[8%] bottom-[10%] w-[320px] lg:w-[340px] md:w-[240px] sm:w-[150px] max-sm:w-[120px] max-sm:opacity-65 md:opacity-90"
+          style={{
+            filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.25)) drop-shadow(0 0 25px rgba(255,255,255,0.2))',
+            transform: 'rotate(-6deg)',
+          }}
+          initial={{ opacity: 0, y: 45, scale: 0.98 }}
+          animate={{
+            opacity: 1,
+            y: [0, -10, 0],
+            scale: 1,
+          }}
+          transition={{
+            opacity: { duration: 0.9, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] },
+            scale: { duration: 0.9, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] },
+            y: {
+              duration: 7,
+              delay: 1.6,
+              repeat: Infinity,
+              repeatType: 'reverse',
+              ease: 'easeInOut',
+            },
+          }}
+        />
       </div>
 
       {/* Content */}
@@ -91,7 +152,6 @@ const ChessHero = () => {
             אני רוצה שיווק
             <ArrowLeft size={26} />
           </button>
-
         </motion.div>
 
         <motion.p
