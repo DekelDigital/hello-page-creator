@@ -96,7 +96,7 @@ const ChessHero = () => {
         <motion.img
           src={chessKnight}
           alt=""
-          className="absolute left-[12%] bottom-[12%] w-[400px] lg:w-[420px] md:w-[300px] sm:w-[180px] max-sm:w-[140px] max-sm:opacity-70 md:opacity-90"
+          className="absolute left-[18%] bottom-[12%] w-[400px] lg:w-[420px] md:w-[300px] sm:w-[180px] max-sm:w-[140px] max-sm:opacity-70 md:opacity-90"
           style={{
             filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.3)) drop-shadow(0 0 30px rgba(59,130,246,0.15))',
             transform: 'rotate(5deg)',
