@@ -938,28 +938,28 @@ const Footer = () => {
           
           {/* Brand Column */}
           <div>
-            <img src="/logo.png" alt="Dekel Digital" className="h-20 mb-6 brightness-0 invert" onError={(e) => {
+            <img src="/logo.png" alt="Dekel Digital" className="h-28 mb-6 brightness-0 invert" onError={(e) => {
               e.currentTarget.src = 'https://placehold.co/150x50/ffffff/1d4ed8?text=Dekel+Digital';
             }} />
-            <p className="text-slate-400 text-xl leading-relaxed mb-6">
+            <p className="text-slate-400 text-2xl leading-relaxed mb-6">
               שיווק דיגיטלי שמביא תוצאות אמיתיות. ניהול קמפיינים ממומנים בגישה מקצועית ושקופה.
             </p>
             <div className="flex gap-4">
-              <a href="https://www.facebook.com/dekeldigital" target="_blank" rel="noopener noreferrer" className="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center hover:bg-blue-600 transition-colors">
-                <Facebook size={20} />
+              <a href="https://www.facebook.com/dekeldigital" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-blue-600 transition-colors">
+                <Facebook size={24} />
               </a>
             </div>
           </div>
 
           {/* Navigation Column */}
           <div>
-            <h4 className="text-xl font-bold text-white mb-6">ניווט מהיר</h4>
+            <h4 className="text-2xl font-bold text-white mb-6">ניווט מהיר</h4>
             <nav className="flex flex-col gap-3">
               {navLinks.map((link) => (
                 <button
                   key={link.id}
                   onClick={() => scrollTo(link.id)}
-                  className="text-slate-400 hover:text-white transition-colors text-right text-lg"
+                  className="text-slate-400 hover:text-white transition-colors text-right text-xl"
                 >
                   {link.name}
                 </button>
@@ -969,27 +969,27 @@ const Footer = () => {
 
           {/* Terms & Policy Column */}
           <div>
-            <h4 className="text-xl font-bold text-white mb-6">תנאים ומדיניות</h4>
+            <h4 className="text-2xl font-bold text-white mb-6">תנאים ומדיניות</h4>
             <div className="flex flex-col gap-3">
-              <a href="#" className="text-slate-400 hover:text-white transition-colors text-lg">מדיניות פרטיות</a>
-              <a href="#" className="text-slate-400 hover:text-white transition-colors text-lg">הצהרת נגישות</a>
+              <a href="#" className="text-slate-400 hover:text-white transition-colors text-xl">מדיניות פרטיות</a>
+              <a href="#" className="text-slate-400 hover:text-white transition-colors text-xl">הצהרת נגישות</a>
             </div>
           </div>
 
           {/* Contact Column */}
           <div>
-            <h4 className="text-xl font-bold text-white mb-6">פרטי התקשורת</h4>
+            <h4 className="text-2xl font-bold text-white mb-6">פרטי התקשורת</h4>
             <div className="flex flex-col gap-4">
-              <a href="mailto:info@dekeldigital.co.il" className="flex items-center gap-3 text-slate-400 hover:text-white transition-colors text-lg">
-                <Mail size={20} className="flex-shrink-0" />
+              <a href="mailto:info@dekeldigital.co.il" className="flex items-center gap-3 text-slate-400 hover:text-white transition-colors text-xl">
+                <Mail size={22} className="flex-shrink-0" />
                 info@dekeldigital.co.il
               </a>
-              <a href="tel:+972500000000" className="flex items-center gap-3 text-slate-400 hover:text-white transition-colors text-lg">
-                <Phone size={20} className="flex-shrink-0" />
+              <a href="tel:+972500000000" className="flex items-center gap-3 text-slate-400 hover:text-white transition-colors text-xl">
+                <Phone size={22} className="flex-shrink-0" />
                 050-000-0000
               </a>
-              <div className="flex items-center gap-3 text-slate-400 text-lg">
-                <Clock size={20} className="flex-shrink-0" />
+              <div className="flex items-center gap-3 text-slate-400 text-xl">
+                <Clock size={22} className="flex-shrink-0" />
                 א׳–ה׳ 9:00–18:00
               </div>
             </div>
@@ -998,7 +998,7 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-slate-800 py-8 text-center">
-          <p className="text-slate-500 text-base">© {new Date().getFullYear()} Dekel Digital. כל הזכויות שמורות.</p>
+          <p className="text-slate-500 text-lg">© {new Date().getFullYear()} Dekel Digital. כל הזכויות שמורות.</p>
         </div>
       </div>
     </footer>
