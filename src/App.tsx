@@ -319,8 +319,7 @@ const Services = () => {
     <section id="services" className="py-24 bg-sky-50" tabIndex={-1}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">מה אנחנו עושים</h2>
-          <h3 className="text-3xl md:text-4xl font-bold text-slate-800 mb-2">שלוש זירות</h3>
+          <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">שלוש זירות</h2>
           <p className="text-2xl md:text-3xl text-slate-600 mb-2">הפלטפורמות המובילות בעולם, עם האסטרטגיה המנצחת שלנו</p>
         </div>
 
