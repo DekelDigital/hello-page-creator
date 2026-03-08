@@ -426,7 +426,7 @@ const AdsCarousel = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 text-center relative z-10">
         <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">מודעות שעיצבנו לכם</h2>
-        <p className="text-2xl md:text-3xl text-blue-600 font-medium">קריאייטיבים שנבנו כדי לעצור גלילה</p>
+        <p className="text-2xl md:text-3xl text-blue-600 font-medium">קריאייטיבים שנועדו לעצור גלילה ולהניע לפעולה.</p>
       </div>
 
       <div className="relative flex flex-col gap-6 w-full" dir="ltr">
