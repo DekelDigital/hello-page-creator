@@ -166,7 +166,7 @@ const About = () => {
           </h2>
         </motion.div>
 
-        <div className="flex flex-col lg:flex-row-reverse items-center justify-center gap-4 lg:gap-8 max-w-6xl mx-auto lg:translate-x-48">
+        <div className="flex flex-col lg:flex-row-reverse items-center justify-center gap-4 lg:gap-8 max-w-6xl mx-auto lg:translate-x-16">
           
           {/* Desktop Image Column (Hidden on mobile) */}
           <motion.div 
@@ -174,7 +174,7 @@ const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
-            className="hidden lg:flex w-full lg:w-5/12 relative justify-center mt-12 lg:mt-0 lg:translate-x-24"
+            className="hidden lg:flex w-full lg:w-5/12 relative justify-center mt-12 lg:mt-0"
           >
             <div className="relative w-full max-w-[600px]">
               {/* Blue glow behind the head */}
