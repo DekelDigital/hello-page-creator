@@ -22,6 +22,7 @@ import {
 } from 'lucide-react';
 import ChessHero from './components/ChessHero';
 import chessHeroBg from './assets/chess-hero-bg.png';
+import adsBg from './assets/ads-bg.png';
 import chessRookBlue from './assets/chess-rook-blue.png';
 import chessQueenWhite from './assets/chess-queen.png';
 
