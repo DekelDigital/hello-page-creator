@@ -166,7 +166,7 @@ const About = () => {
           </h2>
         </motion.div>
 
-        <div className="flex flex-col lg:flex-row-reverse items-center justify-center gap-4 lg:gap-0 max-w-6xl mx-auto">
+        <div className="flex flex-col lg:flex-row-reverse items-center justify-center gap-4 lg:gap-4 max-w-7xl mx-auto">
           
           {/* Desktop Image Column (Hidden on mobile) */}
           <motion.div 
@@ -174,17 +174,17 @@ const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
-            className="hidden lg:flex w-full lg:w-5/12 relative justify-center mt-12 lg:mt-0"
+            className="hidden lg:flex w-full lg:w-5/12 relative justify-center items-center mt-12 lg:mt-0"
           >
-            <div className="relative w-full max-w-[600px]">
+            <div className="relative w-full flex justify-center">
               {/* Blue glow behind the head */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-blue-400/40 rounded-full blur-[90px] animate-pulse-slow z-0"></div>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] bg-blue-400/40 rounded-full blur-[90px] animate-pulse-slow z-0"></div>
               
               {/* Simple Image */}
               <img 
                 src="/next_move.png" 
                 alt="Next Move Chess" 
-                className="relative z-10 w-[180%] max-w-none h-auto drop-shadow-[0_20px_40px_rgba(37,99,235,0.2)] transform -translate-x-[25%]"
+                className="relative z-10 w-full max-w-[500px] h-auto drop-shadow-[0_20px_40px_rgba(37,99,235,0.2)]"
               />
             </div>
           </motion.div>
