@@ -363,11 +363,17 @@ const Services = () => {
   }, [prefersReducedMotionLocal, hasAnimated, isMobile]);
 
   // Synchronized: pieces move out + mask opens together, then floating
+  // Set initial clip-path state on mount
+  useEffect(() => {
+    if (isMobile || prefersReducedMotionLocal) {
+      maskControls.set({ clipPath: 'inset(0 0% 0 0%)' });
+    } else {
+      maskControls.set({ clipPath: 'inset(0 50% 0 50%)' });
+    }
+  }, [isMobile, prefersReducedMotionLocal, maskControls]);
+
   useEffect(() => {
     if (!hasAnimated || prefersReducedMotionLocal || isMobile) {
-      if (isMobile) {
-        maskControls.set({ clipPath: 'inset(0 0% 0 0%)' });
-      }
       return;
     }
 
