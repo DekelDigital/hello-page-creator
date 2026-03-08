@@ -6,8 +6,18 @@ import chessKnight from '../assets/chess-knight.png';
 import chessKing from '../assets/chess-king.png';
 
 const ChessHero = () => {
+  const sectionRef = useRef<HTMLElement>(null);
   const knightControls = useAnimationControls();
   const kingControls = useAnimationControls();
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start start', 'end start'],
+  });
+
+  // Pieces fly upward as user scrolls past hero
+  const piecesY = useTransform(scrollYProgress, [0.3, 1], [0, -400]);
+  const piecesOpacity = useTransform(scrollYProgress, [0.3, 0.8], [1, 0]);
 
   useEffect(() => {
     const runEntry = async () => {
