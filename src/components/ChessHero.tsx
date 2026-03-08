@@ -133,9 +133,7 @@ const ChessHero = () => {
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
         >
-          המהלך שמנצח בשיווק
-          <br />
-          לעסקים שרוצים לצמוח
+          שיווק מנצח לעסקים שרוצים לצמוח
         </motion.h1>
 
         <motion.p
@@ -148,7 +146,7 @@ const ChessHero = () => {
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
         >
-          קמפיינים ממומנים עם אסטרטגיה חדה, מהלכים מדויקים ותוצאות שמתרגמות ללידים ומכירות.
+          קמפיינים ממומנים עם אסטרטגיה חדה, מהלכים מדויקים ותוצאות
         </motion.p>
 
         <motion.div
@@ -175,7 +173,7 @@ const ChessHero = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 1.1 }}
         >
-          מהלך ראשון בשיחה קצרה - בלי התחייבות - כיוון ברור תוך 24 שעות
+          שיחה קצרה - ללא התחייבות
         </motion.p>
       </div>
 

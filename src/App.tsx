@@ -285,7 +285,7 @@ const About2 = () => {
               {
                 num: '03',
                 icon: <TrendingUp className="w-12 h-12 text-blue-600" />,
-                title: 'דוחות ותמונה מלאה',
+                title: 'שקיפות מלאה',
                 desc: 'דוח שבועי ברור, תובנות מה עבד ומה לא, והחלטות להמשך כדי שתמיד תדעו איפה עומדים ולאן מתקדמים.'
               }
             ].map((item, idx) => (
@@ -320,7 +320,8 @@ const Services = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">מה אנחנו עושים</h2>
-          <p className="text-2xl md:text-3xl text-slate-600 mb-2">אנחנו משחקים בשלוש זירות מרכזיות - ומחברים את כולן לתוצאה אחת: צמיחה לעסק.</p>
+          <h3 className="text-3xl md:text-4xl font-bold text-slate-800 mb-2">שלוש זירות</h3>
+          <p className="text-2xl md:text-3xl text-slate-600 mb-2">הפלטפורמות המובילות בעולם, עם האסטרטגיה המנצחת שלנו</p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8 items-stretch" dir="ltr">
