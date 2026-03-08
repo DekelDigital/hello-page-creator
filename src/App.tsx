@@ -150,21 +150,17 @@ const About = () => {
           <h2 className="text-5xl md:text-6xl font-black text-white mb-4 tracking-tight">
             <span className="relative inline-block text-white px-8 py-2">
               <span className="relative z-10">מי אנחנו?</span>
-              <svg className="absolute inset-0 w-[115%] h-[140%] -right-[8%] -top-[32%] -z-10" preserveAspectRatio="none" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+              <svg className="absolute inset-0 w-[120%] h-[160%] -right-[10%] -top-[30%] -z-10" preserveAspectRatio="none" viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                   <linearGradient id="marker-gradient-about" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop offset="0%" stopColor="#38bdf8" />
                     <stop offset="100%" stopColor="#2563eb" />
                   </linearGradient>
                 </defs>
-                {/* Top streak */}
-                <path d="M30,8 L150,8" stroke="url(#marker-gradient-about)" strokeWidth="8" strokeLinecap="round" />
-                {/* Main body */}
-                <path d="M15,15 L185,15 L190,30 L185,45 L192,55 L20,55 L10,40 L15,25 Z" fill="url(#marker-gradient-about)" />
-                {/* Bottom streak */}
-                <path d="M70,58 L175,58" stroke="url(#marker-gradient-about)" strokeWidth="6" strokeLinecap="round" />
-                {/* Edge details */}
-                <path d="M185,20 L195,21 M188,45 L196,44 M10,22 L20,22 M12,48 L22,47" stroke="url(#marker-gradient-about)" strokeWidth="5" strokeLinecap="round" />
+                {/* Main marker stroke - organic hand-drawn feel */}
+                <path d="M8,28 Q4,22 12,18 Q20,13 50,14 Q100,12 160,14 Q185,15 194,20 Q198,24 196,30 Q194,36 185,38 Q160,40 100,39 Q50,40 20,38 Q8,36 6,32 Z" fill="url(#marker-gradient-about)" opacity="0.95" />
+                {/* Slight overlap pass for realism */}
+                <path d="M12,26 Q8,20 18,16 Q35,12 100,13 Q170,12 190,18 Q196,22 194,28 Q190,35 170,37 Q100,39 35,37 Q14,35 10,30 Z" fill="url(#marker-gradient-about)" opacity="0.6" />
               </svg>
             </span>
           </h2>
