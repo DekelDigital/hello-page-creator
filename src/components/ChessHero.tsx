@@ -92,15 +92,6 @@ const ChessHero = () => {
             <ArrowLeft size={26} />
           </button>
 
-          <button
-            onClick={() => scrollTo('about')}
-            className="inline-flex items-center justify-center gap-3 px-10 py-5 text-xl sm:text-2xl font-bold rounded-full text-blue-800 bg-white/70 backdrop-blur-sm border border-blue-200 hover:bg-white/90 hover:-translate-y-1 transition-all w-full sm:w-auto"
-            style={{
-              boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
-            }}
-          >
-            נשמע מעניין, ספר לי עוד
-          </button>
         </motion.div>
 
         <motion.p
