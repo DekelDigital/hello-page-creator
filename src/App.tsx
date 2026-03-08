@@ -1006,9 +1006,8 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-slate-800 py-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="border-t border-slate-800 py-8 text-center">
           <p className="text-slate-500 text-sm">© {new Date().getFullYear()} Dekel Digital. כל הזכויות שמורות.</p>
-          <p className="text-slate-600 text-sm">עוצב ופותח עם ❤️</p>
         </div>
       </div>
     </footer>
