@@ -104,17 +104,8 @@ const ChessHero = () => {
             filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.25)) drop-shadow(0 0 25px rgba(255,255,255,0.2))',
             transform: 'rotate(-6deg)',
           }}
-          initial={{ y: 200 }}
-          animate={{ y: [0, -18, 0] }}
-          transition={{
-            y: {
-              duration: 6.5,
-              delay: 1.6,
-              repeat: Infinity,
-              repeatType: 'reverse',
-              ease: 'easeInOut',
-            },
-          }}
+          initial={{ y: 200, opacity: 0 }}
+          animate={kingControls}
         />
       </div>
 
