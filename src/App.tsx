@@ -635,15 +635,23 @@ const LeadForm = ({ id }: { id: string }) => {
       className="bg-[#3b82f6] relative py-16 md:py-24 w-full" 
       tabIndex={-1}
     >
-      {/* Decorative background elements */}
+      {/* Decorative background elements - hidden on mobile, visible on desktop */}
       {/* Right Stroke */}
-      <svg className="absolute top-0 right-0 h-full w-64 text-white/20 pointer-events-none transform translate-x-1/4" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <svg className="hidden md:block absolute top-0 right-0 h-full w-64 text-white/20 pointer-events-none transform translate-x-1/4" viewBox="0 0 100 100" preserveAspectRatio="none">
         <path d="M0,0 Q50,50 0,100 L100,100 L100,0 Z" fill="currentColor" />
       </svg>
       {/* Left Stroke */}
-      <svg className="absolute top-0 left-0 h-full w-64 text-white/20 pointer-events-none transform -translate-x-1/4" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <svg className="hidden md:block absolute top-0 left-0 h-full w-64 text-white/20 pointer-events-none transform -translate-x-1/4" viewBox="0 0 100 100" preserveAspectRatio="none">
         <path d="M100,0 Q50,50 100,100 L0,100 L0,0 Z" fill="currentColor" />
       </svg>
+
+      {/* Mobile-only vertical decorative shapes */}
+      <div className="md:hidden absolute inset-0 pointer-events-none overflow-hidden">
+        {/* Top ellipse behind title */}
+        <div className="absolute top-[5%] left-1/2 -translate-x-1/2 w-[120%] h-[45%] rounded-[50%] bg-white/10" />
+        {/* Bottom ellipse behind form */}
+        <div className="absolute bottom-[5%] left-1/2 -translate-x-1/2 w-[110%] h-[40%] rounded-[50%] bg-white/8" />
+      </div>
       
       <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12">
