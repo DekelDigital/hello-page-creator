@@ -21,6 +21,7 @@ import {
   Facebook
 } from 'lucide-react';
 import ChessHero from './components/ChessHero';
+import markerLine from './assets/marker_line.png';
 
 const Logo = () => (
   <div className="flex items-center gap-2 -my-2 md:-my-3">
@@ -150,18 +151,13 @@ const About = () => {
           <h2 className="text-5xl md:text-6xl font-black text-white mb-4 tracking-tight">
             <span className="relative inline-block text-white px-8 py-2">
               <span className="relative z-10">מי אנחנו?</span>
-              <svg className="absolute inset-0 w-[120%] h-[160%] -right-[10%] -top-[30%] -z-10" preserveAspectRatio="none" viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="marker-gradient-about" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#38bdf8" />
-                    <stop offset="100%" stopColor="#2563eb" />
-                  </linearGradient>
-                </defs>
-                {/* Main marker stroke - organic hand-drawn feel */}
-                <path d="M8,28 Q4,22 12,18 Q20,13 50,14 Q100,12 160,14 Q185,15 194,20 Q198,24 196,30 Q194,36 185,38 Q160,40 100,39 Q50,40 20,38 Q8,36 6,32 Z" fill="url(#marker-gradient-about)" opacity="0.95" />
-                {/* Slight overlap pass for realism */}
-                <path d="M12,26 Q8,20 18,16 Q35,12 100,13 Q170,12 190,18 Q196,22 194,28 Q190,35 170,37 Q100,39 35,37 Q14,35 10,30 Z" fill="url(#marker-gradient-about)" opacity="0.6" />
-              </svg>
+              <img
+                src={markerLine}
+                alt=""
+                className="absolute inset-0 w-[130%] h-[180%] -left-[15%] -top-[40%] -z-10 object-fill"
+                style={{ filter: 'brightness(0) saturate(100%) invert(52%) sepia(78%) saturate(1200%) hue-rotate(190deg) brightness(1.1)' }}
+                aria-hidden="true"
+              />
             </span>
           </h2>
         </motion.div>
