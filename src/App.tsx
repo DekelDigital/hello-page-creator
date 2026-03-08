@@ -255,10 +255,10 @@ const About2 = () => {
           transition={{ duration: 0.7 }}
           className="text-center max-w-4xl mx-auto mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-black text-slate-900 mb-8 tracking-tight">
+          <h2 className="font-black text-slate-900 mb-8 tracking-tight" style={{ fontSize: 'clamp(30px, 3vw, 40px)', lineHeight: '1.2' }}>
             האסטרטגיה שלנו <span className="text-blue-600">לניצחון שלך</span>
           </h2>
-          <p className="text-2xl md:text-3xl text-slate-600 leading-relaxed font-medium mb-0">
+          <p className="text-slate-600 font-medium mb-0" style={{ fontSize: 'clamp(16px, 1.6vw, 20px)', lineHeight: '1.7' }}>
             קמפיין נכון מתחיל בתכנון מהלך - וממשיך בשיפור מתמיד לפי נתונים.
           </p>
         </motion.div>
