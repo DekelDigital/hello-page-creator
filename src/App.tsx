@@ -836,6 +836,7 @@ const FinalLeadSection = () => (
 
 const Reviews = () => {
   const [page, setPage] = useState(0);
+  const [direction, setDirection] = useState(0); // -1 = right, 1 = left
   const reviews = [
     { name: 'יוסי כהן', text: 'תוך חודש כבר ראינו תוצאות משמעותיות. מקצועיות ברמה אחרת.', stars: 5 },
     { name: 'מיכל לוי', text: 'הצוות של דקל דיגיטל שינה לנו את העסק. לידים איכותיים בעלות נמוכה.', stars: 5 },
@@ -851,6 +852,11 @@ const Reviews = () => {
   const totalPages = Math.ceil(reviews.length / 3);
   const currentReviews = reviews.slice(page * 3, page * 3 + 3);
 
+  const goTo = (newPage: number) => {
+    setDirection(newPage > page ? 1 : -1);
+    setPage(newPage);
+  };
+
   return (
     <section id="reviews" className="py-24 bg-gradient-to-b from-[#F0F5FF] to-white relative overflow-hidden" tabIndex={-1}>
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-200/20 rounded-full blur-[120px] pointer-events-none"></div>
@@ -863,7 +869,7 @@ const Reviews = () => {
         <div className="relative">
           {/* Navigation arrows */}
           <button
-            onClick={() => setPage((p) => Math.max(0, p - 1))}
+            onClick={() => goTo(Math.max(0, page - 1))}
             disabled={page === 0}
             className="absolute top-1/2 -translate-y-1/2 -right-2 md:-right-6 z-20 w-12 h-12 rounded-full bg-white shadow-lg border border-slate-200 flex items-center justify-center text-slate-600 hover:text-blue-600 hover:shadow-xl transition-all disabled:opacity-30 disabled:cursor-not-allowed"
             aria-label="ביקורות קודמות"
@@ -871,7 +877,7 @@ const Reviews = () => {
             <ChevronRight size={24} />
           </button>
           <button
-            onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))}
+            onClick={() => goTo(Math.min(totalPages - 1, page + 1))}
             disabled={page === totalPages - 1}
             className="absolute top-1/2 -translate-y-1/2 -left-2 md:-left-6 z-20 w-12 h-12 rounded-full bg-white shadow-lg border border-slate-200 flex items-center justify-center text-slate-600 hover:text-blue-600 hover:shadow-xl transition-all disabled:opacity-30 disabled:cursor-not-allowed"
             aria-label="ביקורות הבאות"
@@ -879,24 +885,30 @@ const Reviews = () => {
             <ChevronLeft size={24} />
           </button>
 
-          <div className="grid md:grid-cols-3 gap-8 px-6 md:px-0">
-            {currentReviews.map((review, idx) => (
-              <motion.div
-                key={page * 3 + idx}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: idx * 0.1 }}
-                className="bg-white rounded-3xl p-8 shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-slate-100 text-center"
-              >
-                <div className="flex gap-1 mb-4 justify-center">
-                  {Array.from({ length: review.stars }).map((_, i) => (
-                    <Star key={i} size={20} className="fill-yellow-400 text-yellow-400" />
-                  ))}
+          <div className="overflow-hidden px-6 md:px-0">
+            <motion.div
+              key={page}
+              initial={{ x: direction * 300, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: direction * -300, opacity: 0 }}
+              transition={{ duration: 0.4, ease: 'easeInOut' }}
+              className="grid md:grid-cols-3 gap-8"
+            >
+              {currentReviews.map((review, idx) => (
+                <div
+                  key={idx}
+                  className="bg-white rounded-3xl p-8 shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-slate-100 text-center"
+                >
+                  <div className="flex gap-1 mb-4 justify-center">
+                    {Array.from({ length: review.stars }).map((_, i) => (
+                      <Star key={i} size={20} className="fill-yellow-400 text-yellow-400" />
+                    ))}
+                  </div>
+                  <p className="text-lg text-slate-700 leading-relaxed mb-6">{review.text}</p>
+                  <div className="font-bold text-slate-900">{review.name}</div>
                 </div>
-                <p className="text-lg text-slate-700 leading-relaxed mb-6">{review.text}</p>
-                <div className="font-bold text-slate-900">{review.name}</div>
-              </motion.div>
-            ))}
+              ))}
+            </motion.div>
           </div>
 
           {/* Dots indicator */}
@@ -904,7 +916,7 @@ const Reviews = () => {
             {Array.from({ length: totalPages }).map((_, i) => (
               <button
                 key={i}
-                onClick={() => setPage(i)}
+                onClick={() => goTo(i)}
                 className={`w-3 h-3 rounded-full transition-all ${i === page ? 'bg-blue-600 scale-110' : 'bg-slate-300 hover:bg-slate-400'}`}
                 aria-label={`עמוד ${i + 1}`}
               />
