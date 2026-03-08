@@ -121,58 +121,7 @@ const Header = () => {
   );
 };
 
-const Hero = () => {
-  const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  return (
-    <section className="relative pt-36 pb-24 lg:pt-56 lg:pb-40 overflow-hidden bg-slate-950" dir="rtl">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/hero_background.png')" }}
-      ></div>
-
-      {/* Soft dark blue gradient blob for text readability */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] md:w-[1200px] md:h-[1200px] bg-blue-900/60 rounded-full blur-[120px] md:blur-[180px] pointer-events-none"></div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex flex-col items-center justify-center text-center max-w-5xl mx-auto relative">
-          
-          <h1 className="text-6xl sm:text-7xl lg:text-[5.5rem] font-black text-white leading-[1.1] mb-8 tracking-tight drop-shadow-2xl">
-            שיווק מנצח <br /> לעסקים שרוצים לצמוח
-          </h1>
-          
-          <p className="text-2xl sm:text-3xl text-white/90 mb-12 font-medium leading-snug max-w-4xl mx-auto drop-shadow-xl">
-            מתמחים בקמפיינים ממומנים, מדידה חכמה ואופטימיזציה שמייצרת צמיחה אמיתית לעסק שלך.
-          </p>
-          
-          <div className="flex flex-col items-center justify-center w-full">
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 w-full">
-              <button 
-                onClick={() => scrollTo('contact')}
-                className="inline-flex items-center justify-center gap-3 px-12 py-6 text-xl sm:text-2xl font-bold rounded-full text-white bg-blue-600 hover:bg-blue-500 transition-all shadow-[0_8px_30px_rgba(37,99,235,0.5)] hover:shadow-[0_12px_40px_rgba(37,99,235,0.7)] hover:-translate-y-1.5 w-full sm:w-auto"
-              >
-                אני רוצה שיווק
-                <ArrowLeft size={28} />
-              </button>
-              <button 
-                onClick={() => scrollTo('about')}
-                className="inline-flex items-center justify-center gap-3 px-12 py-6 text-xl sm:text-2xl font-bold rounded-full text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 transition-all shadow-[0_8px_30px_rgba(0,0,0,0.2)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.3)] hover:-translate-y-1.5 w-full sm:w-auto"
-              >
-                נשמע מעניין, ספר לי עוד
-              </button>
-            </div>
-            <p className="text-white/90 text-lg md:text-xl font-medium mt-8 drop-shadow-md">
-              מענה תוך 24 שעות • בלי התחייבות • שיחה קצרה וממוקדת
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
+// Hero moved to ChessHero component
 
 const About = () => {
   const scrollTo = (id: string) => {
