@@ -304,7 +304,7 @@ const About2 = () => {
                   <div className="absolute -top-4 -right-4 text-5xl font-black text-blue-100/60 select-none pointer-events-none">{item.num}</div>
                 </div>
                 <div>
-                  <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">{item.title}</h3>
+                  <h3 className="font-bold text-slate-900 mb-4" style={{ fontSize: 'clamp(22px, 2.2vw, 26px)', lineHeight: '1.2' }}>{item.title}</h3>
                   <p className="text-slate-600" style={{ fontSize: 'clamp(16px, 1.4vw, 18px)', lineHeight: '1.8' }}>{item.desc}</p>
                 </div>
               </motion.div>
