@@ -257,8 +257,7 @@ const About2 = () => {
             האסטרטגיה שלנו <span className="text-blue-600">לניצחון שלך</span>
           </h2>
           <p className="text-2xl md:text-3xl text-slate-600 leading-relaxed font-medium">
-            עם ניסיון של שנים בניהול קמפיינים, אנחנו מביאים מקצועיות ושקיפות מלאה לכל תהליך. 
-            <strong className="text-blue-700 font-bold block mt-4 text-3xl md:text-4xl"> המטרה שלנו היא לא רק להביא לידים, אלא לייצר צמיחה ורווח. </strong>
+            קמפיין נכון מתחיל בתכנון מהלך - וממשיך בשיפור מתמיד לפי נתונים. ככה מייצרים תוצאות לאורך זמן.
           </p>
         </motion.div>
 
