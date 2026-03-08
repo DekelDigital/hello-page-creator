@@ -189,17 +189,21 @@ const About = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="w-full lg:w-7/12 text-right flex flex-col justify-center"
           >
-            <div className="text-2xl md:text-3xl text-slate-700 leading-relaxed mb-8 space-y-6">
-              <p>
-                <strong className="text-slate-900 text-3xl md:text-4xl block mb-1">ברוכים הבאים ל- Dekel Digital</strong>
+            <div className="space-y-4 md:space-y-4 mb-8">
+              <h3 className="text-[22px] md:text-[28px] font-bold text-[#0F172A] mb-3">
+                ברוכים הבאים ל- Dekel Digital
+              </h3>
+              <p className="text-[16px] md:text-[19px] font-normal text-[#334155] leading-[1.9]">
                 עם ניסיון של שנים בניהול קמפיינים ממומנים, אנחנו מביאים מקצועיות שיווקית שמביאה תוצאות לאורך זמן.
               </p>
-              <p>
-                <strong className="text-slate-900 block mb-2">הגישה שלנו פשוטה: <span className="text-blue-600">איכות לפני כמות.</span></strong>
+              <p className="text-[18px] md:text-[21px] font-semibold text-[#1766E5] mt-5 mb-1">
+                הגישה שלנו פשוטה: איכות לפני כמות.
+              </p>
+              <p className="text-[16px] md:text-[19px] font-normal text-[#334155] leading-[1.9]">
                 לידים מדויקים שמובילים למכירות - לא סתם מספרים. שילוב חכם של מדידה ואופטימיזציה יחד עם קריאייטיב עוצמתי.
               </p>
-              <p className="font-bold text-slate-900 text-3xl md:text-4xl mt-6">
-                אנחנו דואגים לשיווק, כדי שתוכל להתמקד במה שבאמת חשוב - <span className="text-blue-600">העסק שלך</span>
+              <p className="text-[20px] md:text-[24px] font-bold text-[#0F172A] leading-[1.5] mt-6">
+                אנחנו דואגים לשיווק, כדי שתוכל להתמקד במה שבאמת חשוב - <span className="font-semibold text-[#1766E5]">העסק שלך</span>
               </p>
             </div>
 
