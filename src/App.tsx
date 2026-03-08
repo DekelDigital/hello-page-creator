@@ -891,8 +891,8 @@ const Reviews = () => {
                       <Star key={i} size={20} className="fill-yellow-400 text-yellow-400" />
                     ))}
                   </div>
-                  <p className="text-lg text-slate-700 leading-relaxed mb-6">{review.text}</p>
-                  <div className="font-bold text-slate-900">{review.name}</div>
+                  <p className="text-slate-700 mb-6" style={{ fontSize: 'clamp(16px, 1.4vw, 18px)', lineHeight: '1.8' }}>{review.text}</p>
+                  <div className="font-bold text-slate-900" style={{ fontSize: 'clamp(14px, 1.2vw, 16px)' }}>{review.name}</div>
                 </div>
               ))}
             </motion.div>
