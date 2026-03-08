@@ -251,7 +251,7 @@ const About2 = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7 }}
-          className="text-center max-w-4xl mx-auto mb-12"
+          className="text-center max-w-4xl mx-auto mb-16"
         >
           <h2 className="text-5xl md:text-6xl font-black text-slate-900 mb-8 tracking-tight">
             האסטרטגיה שלנו <span className="text-blue-600">לניצחון שלך</span>
