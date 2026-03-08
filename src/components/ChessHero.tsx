@@ -56,7 +56,7 @@ const ChessHero = () => {
   };
 
   return (
-    <section ref={sectionRef} className="relative min-h-[70vh] sm:min-h-screen flex items-start sm:items-center justify-center overflow-hidden" dir="rtl">
+    <section ref={sectionRef} className="relative min-h-screen flex items-center justify-center overflow-hidden" dir="rtl">
       {/* Background image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -120,7 +120,7 @@ const ChessHero = () => {
       </motion.div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-32 pb-24 sm:pt-24 lg:pt-32 lg:pb-32">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 pb-24 sm:pt-24 lg:pt-32 lg:pb-32">
         <motion.h1
           className="text-5xl sm:text-6xl lg:text-[5rem] font-black leading-[1.1] mb-4 tracking-tight"
           style={{
