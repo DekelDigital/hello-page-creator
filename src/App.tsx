@@ -586,15 +586,6 @@ const AdsCarousel = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 text-center">
-        <button 
-          onClick={() => scrollTo('contact')}
-          className="inline-flex items-center justify-center gap-2 px-10 py-5 text-xl font-bold rounded-full text-white bg-blue-600 hover:bg-blue-500 transition-all shadow-[0_8px_30px_rgba(37,99,235,0.3)] hover:shadow-[0_12px_40px_rgba(37,99,235,0.5)] hover:-translate-y-1 relative z-10"
-        >
-          אני רוצה שיווק
-          <ArrowLeft size={24} />
-        </button>
-      </div>
     </section>
   );
 };
