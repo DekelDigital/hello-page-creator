@@ -146,7 +146,7 @@ const ChessHero = () => {
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
         >
-          קמפיינים ממומנים עם אסטרטגיה חדה, מהלכים מדויקים ותוצאות
+          קמפיינים ממומנים עם אסטרטגיה חדה,<br />מהלכים מדויקים ותוצאות
         </motion.p>
 
         <motion.div
