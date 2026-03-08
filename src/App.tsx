@@ -274,7 +274,7 @@ const About2 = () => {
             {[
               {
                 num: '01',
-                icon: <Target className="w-12 h-12 text-blue-600" />,
+                icon: <BarChart3 className="w-12 h-12 text-blue-600" />,
                 title: 'שיחת אפיון',
                 desc: 'מבינים את העסק, המסר וקהל היעד - ובונים תוכנית קמפיינים ברורה לפני שמוציאים שקל.'
               },
