@@ -7,10 +7,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      html { scroll-behavior: smooth; overflow-x: hidden; }
+      body { font-family: "Heebo", sans-serif; background-color: #fafafa; color: #0f172a; overflow-x: hidden; }
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      @keyframes scrollRight { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
+      @keyframes scrollLeft { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+      .animate-scroll-right { animation: scrollRight 30s linear infinite; }
+      .animate-scroll-left { animation: scrollLeft 30s linear infinite; }
+      .pause-animation { animation-play-state: paused; }
+    </style>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-
