@@ -520,7 +520,7 @@ const LeadForm = ({ id }: { id: string }) => {
       <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12">
           <h3 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-4 leading-tight tracking-tight drop-shadow-sm">
-            מוכנים להפוך שיווק לתוצאות?
+            מוכנים למהלך הבא?
           </h3>
           <p className="text-2xl md:text-3xl text-white/90 font-medium drop-shadow-sm max-w-4xl mx-auto">
             משאירים פרטים ועושים את הצעד הראשון לשיווק מנצח
