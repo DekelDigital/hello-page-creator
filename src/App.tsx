@@ -363,14 +363,14 @@ const Services = () => {
       // All three animate simultaneously
       await Promise.all([
         rookControls.start({
-          x: '-280%',
+          x: '-310%',
           opacity: 0.85,
           scale: 1,
           rotate: -2,
           transition: { duration: animDuration, ease: animEase },
         }),
         queenControls.start({
-          x: '180%',
+          x: '240%',
           opacity: 0.8,
           scale: 1,
           rotate: 3,
@@ -448,7 +448,7 @@ const Services = () => {
             left: '50%',
             filter: 'drop-shadow(0 12px 24px rgba(0,0,0,0.15))',
           }}
-          initial={skipMotion ? { x: '-280%', opacity: 0.85, scale: 1, rotate: -2 } : { x: '-60%', opacity: 0.9, scale: 1.15, rotate: 0 }}
+          initial={skipMotion ? { x: '-310%', opacity: 0.85, scale: 1, rotate: -2 } : { x: '-60%', opacity: 0.9, scale: 1.15, rotate: 0 }}
           animate={rookControls}
         />
         <motion.img
@@ -461,7 +461,7 @@ const Services = () => {
             left: '50%',
             filter: 'drop-shadow(0 12px 24px rgba(0,0,0,0.12))',
           }}
-          initial={skipMotion ? { x: '180%', opacity: 0.8, scale: 1, rotate: 3 } : { x: '-40%', opacity: 0.9, scale: 1.15, rotate: 0 }}
+          initial={skipMotion ? { x: '240%', opacity: 0.8, scale: 1, rotate: 3 } : { x: '-40%', opacity: 0.9, scale: 1.15, rotate: 0 }}
           animate={queenControls}
         />
       </div>
