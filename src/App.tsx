@@ -370,7 +370,7 @@ const Services = () => {
           transition: { duration: animDuration, ease: animEase },
         }),
         queenControls.start({
-          x: '240%',
+          x: '210%',
           opacity: 0.8,
           scale: 1,
           rotate: 3,
