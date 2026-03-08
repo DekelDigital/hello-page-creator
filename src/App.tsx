@@ -22,6 +22,8 @@ import {
 } from 'lucide-react';
 import ChessHero from './components/ChessHero';
 import chessHeroBg from './assets/chess-hero-bg.png';
+import chessRookBlue from './assets/chess-rook-blue.png';
+import chessQueenWhite from './assets/chess-queen.png';
 
 const Logo = () => (
   <div className="flex items-center gap-2 -my-2 md:-my-3">
@@ -398,7 +400,7 @@ const Services = () => {
       <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 20 }}>
         {/* Rook (blue) - center → LEFT */}
         <motion.img
-          src={new URL('../assets/chess-rook-blue.png', import.meta.url).href}
+          src={chessRookBlue}
           alt=""
           className="chess-piece-rook absolute"
           style={{
@@ -413,7 +415,7 @@ const Services = () => {
 
         {/* Queen (white) - center → RIGHT */}
         <motion.img
-          src={new URL('../assets/chess-queen.png', import.meta.url).href}
+          src={chessQueenWhite}
           alt=""
           className="chess-piece-queen absolute"
           style={{
