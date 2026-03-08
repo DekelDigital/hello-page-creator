@@ -489,9 +489,8 @@ const Services = () => {
 
       {/* Content layer with clip-path mask reveal */}
       <motion.div
-        className="relative md:[clip-path:inset(0_50%_0_50%)]"
+        className="relative"
         style={{ zIndex: 10 }}
-        initial={false}
         animate={maskControls}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
