@@ -835,11 +835,21 @@ const FinalLeadSection = () => (
 );
 
 const Reviews = () => {
+  const [page, setPage] = useState(0);
   const reviews = [
     { name: 'יוסי כהן', text: 'תוך חודש כבר ראינו תוצאות משמעותיות. מקצועיות ברמה אחרת.', stars: 5 },
     { name: 'מיכל לוי', text: 'הצוות של דקל דיגיטל שינה לנו את העסק. לידים איכותיים בעלות נמוכה.', stars: 5 },
     { name: 'אבי ישראלי', text: 'שקיפות מלאה, דוחות שבועיים ותוצאות שמדברות בעד עצמן.', stars: 5 },
+    { name: 'רונית שמעון', text: 'עבדנו עם כמה חברות שיווק לפני, אבל רק כאן הרגשנו שמישהו באמת מבין את העסק שלנו ומביא תוצאות.', stars: 5 },
+    { name: 'דני אברהם', text: 'הקמפיינים שלהם הביאו לנו לידים חמים שהפכו ללקוחות תוך ימים. ממליץ בחום.', stars: 5 },
+    { name: 'שירה גולדשטיין', text: 'הדוחות השבועיים נתנו לנו שקט נפשי. תמיד ידענו בדיוק מה קורה ולאן הולך התקציב.', stars: 5 },
+    { name: 'עמית רוזן', text: 'מאז שהתחלנו לעבוד עם דקל דיגיטל, המכירות עלו ב-40%. פשוט מדהים.', stars: 5 },
+    { name: 'נועה ברקוביץ', text: 'הגישה האישית והמקצועית עשו את כל ההבדל. הם חלק מהצוות שלנו.', stars: 5 },
+    { name: 'אלון מזרחי', text: 'קיבלנו לידים איכותיים בעלות נמוכה משמעותית ממה שהיה לנו קודם. שירות ברמה הכי גבוהה.', stars: 5 },
   ];
+
+  const totalPages = Math.ceil(reviews.length / 3);
+  const currentReviews = reviews.slice(page * 3, page * 3 + 3);
 
   return (
     <section id="reviews" className="py-24 bg-gradient-to-b from-[#F0F5FF] to-white relative overflow-hidden" tabIndex={-1}>
@@ -849,25 +859,57 @@ const Reviews = () => {
           <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">מה הלקוחות אומרים</h2>
           <p className="text-xl md:text-2xl text-slate-600">ביקורות אמיתיות מלקוחות מרוצים</p>
         </div>
-        <div className="grid md:grid-cols-3 gap-8">
-          {reviews.map((review, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: idx * 0.15 }}
-              className="bg-white rounded-3xl p-8 shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-slate-100"
-            >
-              <div className="flex gap-1 mb-4">
-                {Array.from({ length: review.stars }).map((_, i) => (
-                  <Star key={i} size={20} className="fill-yellow-400 text-yellow-400" />
-                ))}
-              </div>
-              <p className="text-lg text-slate-700 leading-relaxed mb-6 text-right">{review.text}</p>
-              <div className="text-right font-bold text-slate-900">{review.name}</div>
-            </motion.div>
-          ))}
+
+        <div className="relative">
+          {/* Navigation arrows */}
+          <button
+            onClick={() => setPage((p) => Math.max(0, p - 1))}
+            disabled={page === 0}
+            className="absolute top-1/2 -translate-y-1/2 -right-2 md:-right-6 z-20 w-12 h-12 rounded-full bg-white shadow-lg border border-slate-200 flex items-center justify-center text-slate-600 hover:text-blue-600 hover:shadow-xl transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+            aria-label="ביקורות קודמות"
+          >
+            <ChevronRight size={24} />
+          </button>
+          <button
+            onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))}
+            disabled={page === totalPages - 1}
+            className="absolute top-1/2 -translate-y-1/2 -left-2 md:-left-6 z-20 w-12 h-12 rounded-full bg-white shadow-lg border border-slate-200 flex items-center justify-center text-slate-600 hover:text-blue-600 hover:shadow-xl transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+            aria-label="ביקורות הבאות"
+          >
+            <ChevronLeft size={24} />
+          </button>
+
+          <div className="grid md:grid-cols-3 gap-8 px-6 md:px-0">
+            {currentReviews.map((review, idx) => (
+              <motion.div
+                key={page * 3 + idx}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: idx * 0.1 }}
+                className="bg-white rounded-3xl p-8 shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-slate-100 text-center"
+              >
+                <div className="flex gap-1 mb-4 justify-center">
+                  {Array.from({ length: review.stars }).map((_, i) => (
+                    <Star key={i} size={20} className="fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <p className="text-lg text-slate-700 leading-relaxed mb-6">{review.text}</p>
+                <div className="font-bold text-slate-900">{review.name}</div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Dots indicator */}
+          <div className="flex justify-center gap-2 mt-8">
+            {Array.from({ length: totalPages }).map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setPage(i)}
+                className={`w-3 h-3 rounded-full transition-all ${i === page ? 'bg-blue-600 scale-110' : 'bg-slate-300 hover:bg-slate-400'}`}
+                aria-label={`עמוד ${i + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
