@@ -1,11 +1,46 @@
-import React from 'react';
-import { motion } from 'motion/react';
+import React, { useState, useEffect } from 'react';
+import { motion, useAnimationControls } from 'motion/react';
 import { ArrowLeft } from 'lucide-react';
 import chessHeroBg from '../assets/chess-hero-bg.png';
 import chessKnight from '../assets/chess-knight.png';
 import chessKing from '../assets/chess-king.png';
 
 const ChessHero = () => {
+  const knightControls = useAnimationControls();
+  const kingControls = useAnimationControls();
+
+  useEffect(() => {
+    const runEntry = async () => {
+      // Knight enters first
+      knightControls.start({
+        y: 0,
+        opacity: 1,
+        transition: { duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] },
+      }).then(() => {
+        knightControls.start({
+          y: [0, -22, 0],
+          transition: { duration: 5.5, repeat: Infinity, ease: 'easeInOut' },
+        });
+      });
+
+      // King enters 180ms later
+      setTimeout(() => {
+        kingControls.start({
+          y: 0,
+          opacity: 1,
+          transition: { duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] },
+        }).then(() => {
+          kingControls.start({
+            y: [0, -18, 0],
+            transition: { duration: 6.5, repeat: Infinity, ease: 'easeInOut' },
+          });
+        });
+      }, 180);
+    };
+
+    runEntry();
+  }, [knightControls, kingControls]);
+
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -56,17 +91,8 @@ const ChessHero = () => {
             filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.3)) drop-shadow(0 0 30px rgba(59,130,246,0.15))',
             transform: 'rotate(5deg)',
           }}
-          initial={{ y: 180 }}
-          animate={{ y: [0, -22, 0] }}
-          transition={{
-            y: {
-              duration: 5.5,
-              delay: 1.2,
-              repeat: Infinity,
-              repeatType: 'reverse',
-              ease: 'easeInOut',
-            },
-          }}
+          initial={{ y: 200, opacity: 0 }}
+          animate={knightControls}
         />
 
         {/* King - right side */}
@@ -78,17 +104,8 @@ const ChessHero = () => {
             filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.25)) drop-shadow(0 0 25px rgba(255,255,255,0.2))',
             transform: 'rotate(-6deg)',
           }}
-          initial={{ y: 200 }}
-          animate={{ y: [0, -18, 0] }}
-          transition={{
-            y: {
-              duration: 6.5,
-              delay: 1.6,
-              repeat: Infinity,
-              repeatType: 'reverse',
-              ease: 'easeInOut',
-            },
-          }}
+          initial={{ y: 200, opacity: 0 }}
+          animate={kingControls}
         />
       </div>
 
