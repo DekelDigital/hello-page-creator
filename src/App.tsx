@@ -461,7 +461,7 @@ const Services = () => {
             left: '50%',
             filter: 'drop-shadow(0 12px 24px rgba(0,0,0,0.12))',
           }}
-          initial={skipMotion ? { x: '180%', opacity: 0.8, scale: 1, rotate: 3 } : { x: '-40%', opacity: 0.9, scale: 1.15, rotate: 0 }}
+          initial={skipMotion ? { x: '240%', opacity: 0.8, scale: 1, rotate: 3 } : { x: '-40%', opacity: 0.9, scale: 1.15, rotate: 0 }}
           animate={queenControls}
         />
       </div>
