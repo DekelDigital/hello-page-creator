@@ -220,8 +220,8 @@ const About = () => {
               <div className="relative w-full max-w-[400px]">
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-blue-400/30 rounded-full blur-[70px] animate-pulse-slow z-0"></div>
                 <img 
-                  src="/dekel open head2.png" 
-                  alt="Dekel" 
+                  src="/next_move.png" 
+                  alt="Next Move Chess" 
                   className="relative z-10 w-[120%] h-auto drop-shadow-[0_15px_30px_rgba(37,99,235,0.2)] transform translate-x-[-8%]"
                 />
               </div>
