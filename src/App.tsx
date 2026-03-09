@@ -319,19 +319,12 @@ const About2 = () => {
 
 const Services = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const metaCardRef = useRef<HTMLDivElement>(null);
   const [hasAnimated, setHasAnimated] = useState(false);
   const [prefersReducedMotionLocal, setPrefersReducedMotionLocal] = useState(false);
   const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < 768);
   const rookControls = useAnimationControls();
   const queenControls = useAnimationControls();
   const maskControls = useAnimationControls();
-  // Mobile-specific controls
-  const mobileRookControls = useAnimationControls();
-  const mobileQueenControls = useAnimationControls();
-  const mobileMaskControls = useAnimationControls();
-  const mobileOtherCardsControls = useAnimationControls();
-  const mobileHeaderControls = useAnimationControls();
 
   useEffect(() => {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -349,10 +342,9 @@ const Services = () => {
     };
   }, []);
 
-  // Desktop intersection observer
   useEffect(() => {
     if (prefersReducedMotionLocal || isMobile) {
-      if (!isMobile) setHasAnimated(true);
+      setHasAnimated(true);
       return;
     }
     const el = sectionRef.current;
@@ -368,33 +360,14 @@ const Services = () => {
     );
     obs.observe(el);
     return () => obs.disconnect();
-  }, [prefersReducedMotionLocal, hasAnimated, isMobile]);
+  }, [prefersReducedMotionLocal, hasAnimated]);
 
-  // Mobile intersection observer - triggers on section with higher threshold
-  const [mobileHasAnimated, setMobileHasAnimated] = useState(false);
+  // Synchronized: pieces move out + mask opens together, then floating
+
   useEffect(() => {
-    if (!isMobile || prefersReducedMotionLocal) {
-      if (isMobile && prefersReducedMotionLocal) setMobileHasAnimated(true);
+    if (!hasAnimated || prefersReducedMotionLocal) {
       return;
     }
-    const el = sectionRef.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !mobileHasAnimated) {
-          setMobileHasAnimated(true);
-          obs.disconnect();
-        }
-      },
-      { threshold: 0.25 }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, [isMobile, prefersReducedMotionLocal, mobileHasAnimated]);
-
-  // Desktop animation (unchanged)
-  useEffect(() => {
-    if (!hasAnimated || prefersReducedMotionLocal || isMobile) return;
 
     const animDuration = 1.1;
     const animEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -417,6 +390,7 @@ const Services = () => {
         }),
       ]);
 
+      // Floating loop
       rookControls.start({
         y: [0, -12, 0],
         transition: { duration: 6, repeat: Infinity, ease: 'easeInOut' },
@@ -428,74 +402,9 @@ const Services = () => {
     };
 
     runAnimation();
-  }, [hasAnimated, prefersReducedMotionLocal, isMobile, rookControls, queenControls]);
+  }, [hasAnimated, prefersReducedMotionLocal, isMobile, rookControls, queenControls, maskControls]);
 
-  // Mobile animation
-  useEffect(() => {
-    if (!mobileHasAnimated || prefersReducedMotionLocal || !isMobile) return;
-
-    const animDuration = 0.9;
-    const animEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
-
-    const runMobileAnimation = async () => {
-      // Open mask + move pieces simultaneously
-      await Promise.all([
-        mobileRookControls.start({
-          x: '-130%',
-          opacity: 0.85,
-          scale: 1,
-          rotate: -2,
-          transition: { duration: animDuration, ease: animEase },
-        }),
-        mobileQueenControls.start({
-          x: '130%',
-          opacity: 0.8,
-          scale: 1,
-          rotate: 3,
-          transition: { duration: animDuration, ease: animEase },
-        }),
-        mobileMaskControls.start({
-          clipPath: 'inset(0% 0% 0% 0% round 2rem)',
-          transition: { duration: animDuration, ease: animEase },
-        }),
-      ]);
-
-      // Reveal other cards + header right after
-      await Promise.all([
-        mobileHeaderControls.start({
-          opacity: 1,
-          y: 0,
-          transition: { duration: 0.4, ease: 'easeOut' },
-        }),
-        mobileOtherCardsControls.start({
-          opacity: 1,
-          y: 0,
-          transition: { duration: 0.4, ease: 'easeOut', delay: 0.1 },
-        }),
-      ]);
-
-      // Gentle floating on pieces then fade out
-      mobileRookControls.start({
-        y: [0, -8, 0],
-        transition: { duration: 4, repeat: 2, ease: 'easeInOut' },
-      });
-      mobileQueenControls.start({
-        y: [0, -6, 0],
-        transition: { duration: 5, repeat: 2, ease: 'easeInOut', delay: 0.3 },
-      });
-
-      // Fade out pieces after a moment
-      setTimeout(() => {
-        mobileRookControls.start({ opacity: 0, transition: { duration: 0.6 } });
-        mobileQueenControls.start({ opacity: 0, transition: { duration: 0.6 } });
-      }, 2500);
-    };
-
-    runMobileAnimation();
-  }, [mobileHasAnimated, prefersReducedMotionLocal, isMobile, mobileRookControls, mobileQueenControls, mobileMaskControls, mobileOtherCardsControls, mobileHeaderControls]);
-
-  const skipMotionDesktop = prefersReducedMotionLocal;
-  const skipMotionMobile = prefersReducedMotionLocal;
+  const skipMotion = prefersReducedMotionLocal || isMobile;
 
   const cards = [
     {
@@ -533,26 +442,9 @@ const Services = () => {
     },
   ];
 
-  // Card component for reuse
-  const CardInner = ({ card }: { card: typeof cards[0] }) => (
-    <>
-      <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${card.gradientFrom} to-transparent rounded-bl-full -z-10`}></div>
-      <div className="mb-8 flex justify-center w-full">
-        <img src={card.logo} alt={card.logoAlt} className="h-20 object-contain" onError={(e) => { e.currentTarget.src = card.fallback; }} />
-      </div>
-      <h3 className="text-4xl md:text-5xl font-black text-slate-900 mb-4 text-center whitespace-nowrap">{card.title}</h3>
-      <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-medium text-center flex-grow">{card.desc}</p>
-      <div className={`mt-8 h-1 w-12 ${card.barColor} rounded-full group-hover:w-[80%] transition-all duration-500 mx-auto`}></div>
-    </>
-  );
-
-  // Meta card is cards[1], Google is cards[2], TikTok is cards[0]
-  const metaCard = cards[1];
-  const otherCards = [cards[2], cards[0]]; // Google then TikTok on mobile
-
   return (
     <section ref={sectionRef} id="services" className="py-24 bg-sky-50 relative overflow-hidden" tabIndex={-1}>
-      {/* Desktop chess pieces layer */}
+      {/* Chess pieces layer - above content */}
       <div className="absolute inset-0 pointer-events-none hidden md:block" style={{ zIndex: 20 }}>
         <motion.img
           src={chessRookBlue}
@@ -564,7 +456,7 @@ const Services = () => {
             left: '50%',
             filter: 'drop-shadow(0 12px 24px rgba(0,0,0,0.15))',
           }}
-          initial={skipMotionDesktop ? { x: '-300%', opacity: 0.85, scale: 1, rotate: -2 } : { x: '-60%', opacity: 0.9, scale: 1.15, rotate: 0 }}
+          initial={skipMotion ? { x: '-300%', opacity: 0.85, scale: 1, rotate: -2 } : { x: '-60%', opacity: 0.9, scale: 1.15, rotate: 0 }}
           animate={rookControls}
         />
         <motion.img
@@ -577,108 +469,42 @@ const Services = () => {
             left: '50%',
             filter: 'drop-shadow(0 12px 24px rgba(0,0,0,0.12))',
           }}
-          initial={skipMotionDesktop ? { x: '210%', opacity: 0.8, scale: 1, rotate: 3 } : { x: '-40%', opacity: 0.9, scale: 1.15, rotate: 0 }}
+          initial={skipMotion ? { x: '210%', opacity: 0.8, scale: 1, rotate: 3 } : { x: '-40%', opacity: 0.9, scale: 1.15, rotate: 0 }}
           animate={queenControls}
         />
       </div>
 
       {/* Content layer */}
-      <div className="relative" style={{ zIndex: 10 }}>
+      <div
+        className="relative"
+        style={{ zIndex: 10 }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Header - on mobile, starts hidden and fades in */}
-          <motion.div
-            className="text-center mb-16"
-            initial={isMobile && !skipMotionMobile ? { opacity: 0, y: 12 } : false}
-            animate={isMobile && !skipMotionMobile ? mobileHeaderControls : undefined}
-            style={isMobile && skipMotionMobile ? { opacity: 1 } : undefined}
-          >
+          <div className="text-center mb-16">
             <h2 className="text-5xl md:text-6xl font-black text-slate-900 mb-4">שלוש זירות</h2>
             <p className="text-2xl md:text-3xl text-slate-600 mb-2">הפלטפורמות המובילות בעולם, עם האסטרטגיה המנצחת שלנו</p>
-          </motion.div>
-
-          {/* Desktop grid (hidden on mobile) */}
-          <div className="hidden lg:grid lg:grid-cols-3 gap-8 items-stretch" dir="ltr">
-            {cards.map((card, i) => (
-              <div
-                key={i}
-                className={`bg-white rounded-[2rem] p-10 ${card.shadowClass} ${card.borderClass} hover:shadow-xl hover:border-blue-200 transition-all relative overflow-hidden group text-center flex flex-col items-center h-full`}
-                dir="rtl"
-              >
-                <CardInner card={card} />
-              </div>
-            ))}
           </div>
 
-          {/* Mobile layout (hidden on desktop) */}
-          <div className="flex flex-col gap-8 lg:hidden" dir="ltr">
-            {/* Meta card with mask wrapper + chess pieces */}
-            <div ref={metaCardRef} className="relative">
-              {/* Mobile chess pieces - positioned over Meta card */}
-              {!skipMotionMobile && (
-                <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 20 }}>
-                  <motion.img
-                    src={chessRookBlue}
-                    alt=""
-                    className="absolute"
-                    style={{
-                      width: '80px',
-                      top: '50%',
-                      left: '50%',
-                      marginTop: '-50px',
-                      filter: 'drop-shadow(0 8px 16px rgba(0,0,0,0.15))',
-                    }}
-                    initial={{ x: '-50%', opacity: 0.9, scale: 1.1, rotate: 0 }}
-                    animate={mobileRookControls}
-                  />
-                  <motion.img
-                    src={chessQueenWhite}
-                    alt=""
-                    className="absolute"
-                    style={{
-                      width: '70px',
-                      top: '50%',
-                      left: '50%',
-                      marginTop: '-40px',
-                      filter: 'drop-shadow(0 8px 16px rgba(0,0,0,0.12))',
-                    }}
-                    initial={{ x: '-50%', opacity: 0.9, scale: 1.1, rotate: 0 }}
-                    animate={mobileQueenControls}
-                  />
-                </div>
-              )}
-
-              {/* Masked Meta card */}
-              <motion.div
-                initial={!skipMotionMobile ? { clipPath: 'inset(45% 45% 45% 45% round 2rem)' } : false}
-                animate={!skipMotionMobile ? mobileMaskControls : undefined}
-                style={skipMotionMobile ? { clipPath: 'inset(0% 0% 0% 0% round 2rem)' } : undefined}
+          <div className="grid lg:grid-cols-3 gap-8 items-stretch" dir="ltr">
+            {cards.map((card, i) => {
+              // Mobile order: Meta(1)→first, Google(2)→second, TikTok(0)→third
+              const mobileOrder = i === 1 ? 'order-first lg:order-none' : i === 2 ? 'order-2 lg:order-none' : 'order-3 lg:order-none';
+              return (
+              <div
+                key={i}
+                className={`bg-white rounded-[2rem] p-10 ${card.shadowClass} ${card.borderClass} hover:shadow-xl hover:border-blue-200 transition-all relative overflow-hidden group text-center flex flex-col items-center h-full ${mobileOrder}`}
+                dir="rtl"
               >
-                <div
-                  className={`bg-white rounded-[2rem] p-10 ${metaCard.shadowClass} ${metaCard.borderClass} hover:shadow-xl hover:border-blue-200 transition-all relative overflow-hidden group text-center flex flex-col items-center h-full`}
-                  dir="rtl"
-                >
-                  <CardInner card={metaCard} />
+                <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${card.gradientFrom} to-transparent rounded-bl-full -z-10`}></div>
+                <div className="mb-8 flex justify-center w-full">
+                  <img src={card.logo} alt={card.logoAlt} className="h-20 object-contain" onError={(e) => { e.currentTarget.src = card.fallback; }} />
                 </div>
-              </motion.div>
-            </div>
-
-            {/* Other cards - simple fade in */}
-            <motion.div
-              className="flex flex-col gap-8"
-              initial={!skipMotionMobile ? { opacity: 0, y: 12 } : false}
-              animate={!skipMotionMobile ? mobileOtherCardsControls : undefined}
-              style={skipMotionMobile ? { opacity: 1 } : undefined}
-            >
-              {otherCards.map((card, i) => (
-                <div
-                  key={i}
-                  className={`bg-white rounded-[2rem] p-10 ${card.shadowClass} ${card.borderClass} hover:shadow-xl hover:border-blue-200 transition-all relative overflow-hidden group text-center flex flex-col items-center h-full`}
-                  dir="rtl"
-                >
-                  <CardInner card={card} />
-                </div>
-              ))}
-            </motion.div>
+                <h3 className="text-4xl md:text-5xl font-black text-slate-900 mb-4 text-center whitespace-nowrap">{card.title}</h3>
+                <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-medium text-center flex-grow">{card.desc}</p>
+                <div className={`mt-8 h-1 w-12 ${card.barColor} rounded-full group-hover:w-[80%] transition-all duration-500 mx-auto`}></div>
+              </div>
+              );
+            })}
           </div>
         </div>
       </div>
