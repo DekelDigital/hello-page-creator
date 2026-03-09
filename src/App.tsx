@@ -1005,19 +1005,24 @@ const Reviews = () => {
           </button>
 
           <div
-            className="overflow-hidden mx-8"
+            className="overflow-hidden mx-8 relative"
+            style={{ height: '280px' }}
             onTouchStart={onTouchStart}
             onTouchEnd={onTouchEnd}
           >
-            <motion.div
-              key={current}
-              initial={{ x: slideDir === 'left' ? 300 : -300, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              exit={{ x: slideDir === 'left' ? -300 : 300, opacity: 0 }}
-              transition={{ duration: 0.35, ease: 'easeInOut' }}
-            >
-              <ReviewCard review={reviews[current]} mobile />
-            </motion.div>
+            <AnimatePresence initial={false} custom={slideDir}>
+              <motion.div
+                key={current}
+                custom={slideDir}
+                initial={{ x: slideDir === 'left' ? '100%' : '-100%' }}
+                animate={{ x: 0 }}
+                exit={{ x: slideDir === 'left' ? '-100%' : '100%' }}
+                transition={{ duration: 0.35, ease: 'easeInOut' }}
+                style={{ position: 'absolute', top: 0, left: 0, right: 0 }}
+              >
+                <ReviewCard review={reviews[current]} mobile />
+              </motion.div>
+            </AnimatePresence>
           </div>
 
           <div className="flex justify-center gap-2 mt-6">
