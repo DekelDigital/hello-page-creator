@@ -496,11 +496,11 @@ const Services = () => {
                 dir="rtl"
               >
                 <div className={`absolute top-0 right-0 w-16 md:w-32 h-16 md:h-32 bg-gradient-to-br ${card.gradientFrom} to-transparent rounded-bl-full -z-10`}></div>
-                <div className="mb-3 md:mb-8 flex justify-center w-full">
-                  <img src={card.logo} alt={card.logoAlt} className="h-10 md:h-20 object-contain" onError={(e) => { e.currentTarget.src = card.fallback; }} />
+                <div className="mb-2 md:mb-8 flex justify-center w-full">
+                  <img src={card.logo} alt={card.logoAlt} className="h-12 md:h-20 object-contain" onError={(e) => { e.currentTarget.src = card.fallback; }} />
                 </div>
-                <p className="text-xs md:text-3xl font-semibold text-slate-900 mb-1 md:mb-2 text-center">שיווק ממומן</p>
-                <h3 className="text-sm md:text-5xl font-black text-slate-900 mb-2 md:mb-4 text-center whitespace-nowrap">{card.title}</h3>
+                <p className="text-sm md:text-3xl font-semibold text-slate-900 mb-0.5 md:mb-2 text-center">שיווק ממומן</p>
+                <h3 className="text-base md:text-5xl font-black text-slate-900 mb-1 md:mb-4 text-center whitespace-nowrap">{card.title}</h3>
                 <p className="hidden md:block text-lg md:text-xl text-slate-600 leading-relaxed font-medium text-center flex-grow">{card.desc}</p>
                 <div className={`mt-3 md:mt-8 h-1 w-8 md:w-12 ${card.barColor} rounded-full group-hover:w-[80%] transition-all duration-500 mx-auto`}></div>
               </div>
@@ -554,11 +554,11 @@ const AdsCarousel = () => {
   const row2 = adImages.slice(7, 14);
 
   return (
-    <section id="ads" className="py-24 overflow-hidden relative" tabIndex={-1} style={{ background: 'linear-gradient(180deg, #EAF2FF 0%, #EDF6FF 100%)' }}>
+    <section id="ads" className="py-24 overflow-hidden relative" tabIndex={-1} style={{ background: '#0066ff' }}>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 text-center relative z-10">
-        <h2 className="text-5xl md:text-6xl font-black text-slate-900 mb-4">מודעות שעיצבנו לכם</h2>
-        <p className="text-2xl md:text-3xl text-blue-600 font-medium">קריאייטיבים שנועדו לעצור גלילה ולהניע לפעולה.</p>
+        <h2 className="text-5xl md:text-6xl font-black text-white mb-4">מודעות שעיצבנו לכם</h2>
+        <p className="text-2xl md:text-3xl text-white font-medium">קריאייטיבים שנועדו לעצור גלילה ולהניע לפעולה</p>
       </div>
 
       <div className="relative flex flex-col gap-6 w-full" dir="ltr">
