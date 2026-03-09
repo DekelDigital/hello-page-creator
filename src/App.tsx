@@ -848,7 +848,7 @@ const Results = () => {
 
           <div
             className="overflow-hidden mx-8 relative"
-            style={{ height: '420px' }}
+            style={{ height: '260px' }}
             onTouchStart={onTouchStart}
             onTouchEnd={onTouchEnd}
           >
@@ -864,15 +864,15 @@ const Results = () => {
               >
                 <div className="bg-white rounded-[1.5rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.3)] flex flex-col">
                   <div className="h-1.5 bg-gradient-to-l from-blue-400 via-blue-600 to-indigo-600"></div>
-                  <div className="flex items-center justify-between px-5 pt-5 pb-3" dir="rtl">
-                    <h3 className="text-2xl font-black text-slate-900">{caseStudies[current].title}</h3>
-                    <div className="flex items-baseline gap-1.5 bg-blue-50 rounded-2xl px-4 py-2 border border-blue-100">
-                      <span className="text-2xl font-black text-blue-600">{caseStudies[current].leads}</span>
-                      <span className="text-sm font-bold text-blue-500">לידים</span>
+                  <div className="flex items-center justify-between px-5 pt-4 pb-2" dir="rtl">
+                    <h3 className="text-lg font-black text-slate-900">{caseStudies[current].title}</h3>
+                    <div className="flex items-baseline gap-1.5 bg-blue-50 rounded-2xl px-3 py-1.5 border border-blue-100">
+                      <span className="text-lg font-black text-blue-600">{caseStudies[current].leads}</span>
+                      <span className="text-xs font-bold text-blue-500">לידים</span>
                     </div>
                   </div>
-                  <div className="bg-slate-50 p-4">
-                    <img src={caseStudies[current].image} alt={caseStudies[current].title} className="w-full object-contain rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-slate-200/50" style={{ height: '320px' }} loading="lazy" onError={(e) => { e.currentTarget.src = `https://placehold.co/700x500/f1f5f9/94a3b8?text=Screenshot`; }} />
+                  <div className="bg-slate-50 p-3">
+                    <img src={caseStudies[current].image} alt={caseStudies[current].title} className="w-full object-contain rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-slate-200/50" style={{ height: '190px' }} loading="lazy" onError={(e) => { e.currentTarget.src = `https://placehold.co/700x500/f1f5f9/94a3b8?text=Screenshot`; }} />
                   </div>
                 </div>
               </motion.div>
