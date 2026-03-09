@@ -1098,8 +1098,8 @@ const Footer = () => {
           <div>
             <h4 className="text-2xl font-bold text-white mb-6">תנאים ומדיניות</h4>
             <div className="flex flex-col gap-3">
-              <a href="#" className="text-slate-400 hover:text-white transition-colors text-xl">מדיניות פרטיות</a>
-              <a href="#" className="text-slate-400 hover:text-white transition-colors text-xl">הצהרת נגישות</a>
+              <a href="/privacy" className="text-slate-400 hover:text-white transition-colors text-xl">מדיניות פרטיות</a>
+              <a href="/accessibility" className="text-slate-400 hover:text-white transition-colors text-xl">הצהרת נגישות</a>
             </div>
           </div>
 
