@@ -863,7 +863,6 @@ const Results = () => {
                 style={{ position: 'absolute', top: 0, left: 0, right: 0 }}
               >
                 <div className="bg-white rounded-[1.5rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.3)] flex flex-col">
-                  <div className="h-1.5 bg-gradient-to-l from-blue-400 via-blue-600 to-indigo-600"></div>
                   <div className="flex items-center justify-between px-5 pt-4 pb-2" dir="rtl">
                     <h3 className="text-lg font-black text-slate-900">{caseStudies[current].title}</h3>
                     <div className="flex items-baseline gap-1.5 bg-blue-50 rounded-2xl px-3 py-1.5 border border-blue-100">
@@ -871,7 +870,7 @@ const Results = () => {
                       <span className="text-xs font-bold text-blue-500">לידים</span>
                     </div>
                   </div>
-                  <div className="bg-slate-50 p-3">
+                  <div className="bg-slate-50 p-3 rounded-b-[1.5rem]">
                     <img src={caseStudies[current].image} alt={caseStudies[current].title} className="w-full object-contain rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-slate-200/50" style={{ height: '130px' }} loading="lazy" onError={(e) => { e.currentTarget.src = `https://placehold.co/700x500/f1f5f9/94a3b8?text=Screenshot`; }} />
                   </div>
                 </div>
