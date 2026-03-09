@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, useAnimationControls } from 'motion/react';
+import { motion, useAnimationControls, AnimatePresence } from 'motion/react';
 import { 
   ArrowLeft, 
   BarChart3, 
