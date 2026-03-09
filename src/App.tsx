@@ -553,14 +553,7 @@ const AdsCarousel = () => {
   const row2 = adImages.slice(7, 14);
 
   return (
-    <section id="ads" className="py-24 overflow-hidden relative" tabIndex={-1}>
-      {/* Hero-style chess background */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${adsBg})` }}
-      />
-      {/* Overlay for readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/50 to-white/70 pointer-events-none" />
+    <section id="ads" className="py-24 overflow-hidden relative" tabIndex={-1} style={{ background: 'linear-gradient(180deg, #EAF2FF 0%, #EDF6FF 100%)' }}>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 text-center relative z-10">
         <h2 className="text-5xl md:text-6xl font-black text-slate-900 mb-4">מודעות שעיצבנו לכם</h2>
