@@ -149,7 +149,7 @@ const About = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7 }}
-          className="text-right max-w-7xl mx-auto mb-8" dir="rtl"
+          className="text-center md:text-right max-w-7xl mx-auto mb-8" dir="rtl"
         >
           <h2 className="text-6xl md:text-8xl font-black mb-4 tracking-tight">
             <span className="relative inline-block">
@@ -188,7 +188,7 @@ const About = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="w-full lg:w-7/12 text-right flex flex-col justify-center"
+            className="w-full lg:w-7/12 text-center md:text-right flex flex-col justify-center items-center md:items-start"
           >
             <div className="text-2xl md:text-3xl text-slate-700 leading-relaxed mb-8 space-y-6">
               <p>
