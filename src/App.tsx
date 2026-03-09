@@ -486,10 +486,13 @@ const Services = () => {
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8 items-stretch" dir="ltr">
-            {cards.map((card, i) => (
+            {cards.map((card, i) => {
+              // Mobile order: Meta(1)→first, Google(2)→second, TikTok(0)→third
+              const mobileOrder = i === 1 ? 'order-first lg:order-none' : i === 2 ? 'order-2 lg:order-none' : 'order-3 lg:order-none';
+              return (
               <div
                 key={i}
-                className={`bg-white rounded-[2rem] p-10 ${card.shadowClass} ${card.borderClass} hover:shadow-xl hover:border-blue-200 transition-all relative overflow-hidden group text-center flex flex-col items-center h-full`}
+                className={`bg-white rounded-[2rem] p-10 ${card.shadowClass} ${card.borderClass} hover:shadow-xl hover:border-blue-200 transition-all relative overflow-hidden group text-center flex flex-col items-center h-full ${mobileOrder}`}
                 dir="rtl"
               >
                 <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${card.gradientFrom} to-transparent rounded-bl-full -z-10`}></div>
