@@ -503,7 +503,8 @@ const Services = () => {
                 <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-medium text-center flex-grow">{card.desc}</p>
                 <div className={`mt-8 h-1 w-12 ${card.barColor} rounded-full group-hover:w-[80%] transition-all duration-500 mx-auto`}></div>
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
