@@ -196,7 +196,7 @@ const About = () => {
                 עם ניסיון של שנים בניהול קמפיינים ממומנים, אנחנו מביאים מקצועיות שיווקית שמביאה תוצאות לאורך זמן.
               </p>
               <p>
-                <strong className="text-slate-900 block mb-2">הגישה שלנו פשוטה: <span className="text-blue-600">איכות לפני כמות.</span></strong>
+                <strong className="text-slate-900 block mb-2">הגישה שלנו פשוטה:<br className="sm:hidden" /> <span className="text-blue-600">איכות לפני כמות.</span></strong>
                 לידים מדויקים שמובילים למכירות - לא סתם מספרים. שילוב חכם של מדידה ואופטימיזציה יחד עם קריאייטיב עוצמתי.
               </p>
               <p className="font-bold text-slate-900 text-3xl md:text-4xl mt-6">
@@ -486,10 +486,13 @@ const Services = () => {
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8 items-stretch" dir="ltr">
-            {cards.map((card, i) => (
+            {cards.map((card, i) => {
+              // Mobile order: Meta(1)→first, Google(2)→second, TikTok(0)→third
+              const mobileOrder = i === 1 ? 'order-first lg:order-none' : i === 2 ? 'order-2 lg:order-none' : 'order-3 lg:order-none';
+              return (
               <div
                 key={i}
-                className={`bg-white rounded-[2rem] p-10 ${card.shadowClass} ${card.borderClass} hover:shadow-xl hover:border-blue-200 transition-all relative overflow-hidden group text-center flex flex-col items-center h-full`}
+                className={`bg-white rounded-[2rem] p-10 ${card.shadowClass} ${card.borderClass} hover:shadow-xl hover:border-blue-200 transition-all relative overflow-hidden group text-center flex flex-col items-center h-full ${mobileOrder}`}
                 dir="rtl"
               >
                 <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${card.gradientFrom} to-transparent rounded-bl-full -z-10`}></div>
@@ -500,7 +503,8 @@ const Services = () => {
                 <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-medium text-center flex-grow">{card.desc}</p>
                 <div className={`mt-8 h-1 w-12 ${card.barColor} rounded-full group-hover:w-[80%] transition-all duration-500 mx-auto`}></div>
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
