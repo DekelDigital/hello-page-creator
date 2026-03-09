@@ -196,7 +196,7 @@ const About = () => {
                 עם ניסיון של שנים בניהול קמפיינים ממומנים, אנחנו מביאים מקצועיות שיווקית שמביאה תוצאות לאורך זמן.
               </p>
               <p>
-                <strong className="text-slate-900 block mb-2">הגישה שלנו פשוטה: <span className="text-blue-600">איכות לפני כמות.</span></strong>
+                <strong className="text-slate-900 block mb-2">הגישה שלנו פשוטה:<br className="sm:hidden" /> <span className="text-blue-600">איכות לפני כמות.</span></strong>
                 לידים מדויקים שמובילים למכירות - לא סתם מספרים. שילוב חכם של מדידה ואופטימיזציה יחד עם קריאייטיב עוצמתי.
               </p>
               <p className="font-bold text-slate-900 text-3xl md:text-4xl mt-6">
