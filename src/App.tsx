@@ -188,7 +188,7 @@ const About = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="w-full lg:w-7/12 text-right flex flex-col justify-center"
+            className="w-full lg:w-7/12 text-center md:text-right flex flex-col justify-center items-center md:items-start"
           >
             <div className="text-2xl md:text-3xl text-slate-700 leading-relaxed mb-8 space-y-6">
               <p>
