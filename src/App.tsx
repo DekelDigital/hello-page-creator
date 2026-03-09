@@ -554,11 +554,13 @@ const AdsCarousel = () => {
 
   return (
     <section id="ads" className="py-24 overflow-hidden relative" tabIndex={-1}>
-      {/* Light neutral gradient background - distinct from the blue-tinted sections */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-100 via-gray-50 to-slate-100" />
-      {/* Subtle soft glow accents */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-slate-200/50 rounded-full blur-[130px] -translate-y-1/3 translate-x-1/4 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gray-200/40 rounded-full blur-[110px] translate-y-1/3 -translate-x-1/4 pointer-events-none" />
+      {/* Hero-style chess background */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${adsBg})` }}
+      />
+      {/* Overlay for readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/50 to-white/70 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 text-center relative z-10">
         <h2 className="text-5xl md:text-6xl font-black text-slate-900 mb-4">מודעות שעיצבנו לכם</h2>
