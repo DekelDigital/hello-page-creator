@@ -872,7 +872,7 @@ const Results = () => {
                     </div>
                   </div>
                   <div className="bg-slate-50 p-3">
-                    <img src={caseStudies[current].image} alt={caseStudies[current].title} className="w-full object-contain rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-slate-200/50" style={{ height: '190px' }} loading="lazy" onError={(e) => { e.currentTarget.src = `https://placehold.co/700x500/f1f5f9/94a3b8?text=Screenshot`; }} />
+                    <img src={caseStudies[current].image} alt={caseStudies[current].title} className="w-full object-contain rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-slate-200/50" style={{ height: '130px' }} loading="lazy" onError={(e) => { e.currentTarget.src = `https://placehold.co/700x500/f1f5f9/94a3b8?text=Screenshot`; }} />
                   </div>
                 </div>
               </motion.div>
