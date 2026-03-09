@@ -820,7 +820,7 @@ const Results = () => {
               className="relative group"
             >
               <div className="relative bg-white rounded-[2rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.3)] border border-white/10 hover:shadow-[0_25px_70px_rgba(37,99,235,0.2)] transition-shadow duration-500 h-full flex flex-col">
-                <div className="h-1.5 bg-gradient-to-l from-blue-400 via-blue-600 to-indigo-600"></div>
+                
                 <div className="flex items-center justify-between px-7 pt-6 pb-3" dir="rtl">
                   <h3 className="text-3xl font-black text-slate-900">{study.title}</h3>
                   <div className="flex items-baseline gap-1.5 bg-blue-50 rounded-2xl px-4 py-2 border border-blue-100">
