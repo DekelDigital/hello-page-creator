@@ -847,31 +847,36 @@ const Results = () => {
           </button>
 
           <div
-            className="overflow-hidden mx-8"
+            className="overflow-hidden mx-8 relative"
+            style={{ height: '420px' }}
             onTouchStart={onTouchStart}
             onTouchEnd={onTouchEnd}
           >
-            <motion.div
-              key={current}
-              initial={{ x: slideDir === 'left' ? 300 : -300, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              exit={{ x: slideDir === 'left' ? -300 : 300, opacity: 0 }}
-              transition={{ duration: 0.35, ease: 'easeInOut' }}
-            >
-              <div className="bg-white rounded-[1.5rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.3)] flex flex-col">
-                <div className="h-1.5 bg-gradient-to-l from-blue-400 via-blue-600 to-indigo-600"></div>
-                <div className="flex items-center justify-between px-5 pt-5 pb-3" dir="rtl">
-                  <h3 className="text-2xl font-black text-slate-900">{caseStudies[current].title}</h3>
-                  <div className="flex items-baseline gap-1.5 bg-blue-50 rounded-2xl px-4 py-2 border border-blue-100">
-                    <span className="text-2xl font-black text-blue-600">{caseStudies[current].leads}</span>
-                    <span className="text-sm font-bold text-blue-500">לידים</span>
+            <AnimatePresence initial={false} custom={slideDir}>
+              <motion.div
+                key={current}
+                custom={slideDir}
+                initial={{ x: slideDir === 'left' ? '100%' : '-100%' }}
+                animate={{ x: 0 }}
+                exit={{ x: slideDir === 'left' ? '-100%' : '100%' }}
+                transition={{ duration: 0.35, ease: 'easeInOut' }}
+                style={{ position: 'absolute', top: 0, left: 0, right: 0 }}
+              >
+                <div className="bg-white rounded-[1.5rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.3)] flex flex-col">
+                  <div className="h-1.5 bg-gradient-to-l from-blue-400 via-blue-600 to-indigo-600"></div>
+                  <div className="flex items-center justify-between px-5 pt-5 pb-3" dir="rtl">
+                    <h3 className="text-2xl font-black text-slate-900">{caseStudies[current].title}</h3>
+                    <div className="flex items-baseline gap-1.5 bg-blue-50 rounded-2xl px-4 py-2 border border-blue-100">
+                      <span className="text-2xl font-black text-blue-600">{caseStudies[current].leads}</span>
+                      <span className="text-sm font-bold text-blue-500">לידים</span>
+                    </div>
+                  </div>
+                  <div className="bg-slate-50 p-4">
+                    <img src={caseStudies[current].image} alt={caseStudies[current].title} className="w-full object-contain rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-slate-200/50" style={{ height: '320px' }} loading="lazy" onError={(e) => { e.currentTarget.src = `https://placehold.co/700x500/f1f5f9/94a3b8?text=Screenshot`; }} />
                   </div>
                 </div>
-                <div className="bg-slate-50 p-4">
-                  <img src={caseStudies[current].image} alt={caseStudies[current].title} className="w-full h-auto object-contain rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-slate-200/50" loading="lazy" onError={(e) => { e.currentTarget.src = `https://placehold.co/700x500/f1f5f9/94a3b8?text=Screenshot`; }} />
-                </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </AnimatePresence>
           </div>
 
           {/* Dots */}
