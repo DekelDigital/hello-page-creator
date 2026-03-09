@@ -848,7 +848,7 @@ const Results = () => {
 
           <div
             className="overflow-hidden mx-8 relative"
-            style={{ height: '260px' }}
+            style={{ height: '200px' }}
             onTouchStart={onTouchStart}
             onTouchEnd={onTouchEnd}
           >
