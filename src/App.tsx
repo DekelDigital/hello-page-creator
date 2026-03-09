@@ -800,7 +800,7 @@ const Results = () => {
         >
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 tracking-tight">התוצאות שלנו</h2>
           <p className="text-xl md:text-2xl text-blue-300/90 max-w-3xl mx-auto leading-relaxed">
-            צילומי מסך אמיתיים מחשבונות מודעות — יחד עם תקציר קצר לכל מקרה.
+            צילומי מסך אמיתיים מחשבונות מודעות
           </p>
         </motion.div>
 
