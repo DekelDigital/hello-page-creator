@@ -890,8 +890,10 @@ const FinalLeadSection = () => (
 );
 
 const Reviews = () => {
+  // Desktop pagination
   const [page, setPage] = useState(0);
-  const [direction, setDirection] = useState(0); // -1 = right, 1 = left
+  const [direction, setDirection] = useState(0);
+  
   const reviews = [
     { name: 'יוסי כהן', text: 'תוך חודש כבר ראינו תוצאות משמעותיות. מקצועיות ברמה אחרת.', stars: 5 },
     { name: 'מיכל לוי', text: 'הצוות של דקל דיגיטל שינה לנו את העסק. לידים איכותיים בעלות נמוכה.', stars: 5 },
@@ -907,10 +909,25 @@ const Reviews = () => {
   const totalPages = Math.ceil(reviews.length / 3);
   const currentReviews = reviews.slice(page * 3, page * 3 + 3);
 
-  const goTo = (newPage: number) => {
+  const goToPage = (newPage: number) => {
     setDirection(newPage > page ? 1 : -1);
     setPage(newPage);
   };
+
+  // Mobile carousel
+  const { current, goTo, resetTimer, slideDir, onTouchStart, onTouchEnd } = useMobileCarousel(reviews.length);
+
+  const ReviewCard = ({ review, mobile = false }: { review: typeof reviews[0]; mobile?: boolean }) => (
+    <div className={`bg-white rounded-3xl shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-slate-100 text-center ${mobile ? 'p-8' : 'p-12'}`}>
+      <div className="flex gap-2 mb-6 justify-center">
+        {Array.from({ length: review.stars }).map((_, i) => (
+          <Star key={i} size={mobile ? 22 : 28} className="fill-yellow-400 text-yellow-400" />
+        ))}
+      </div>
+      <p className={`text-slate-700 leading-relaxed mb-8 ${mobile ? 'text-lg' : 'text-xl md:text-2xl'}`}>{review.text}</p>
+      <div className={`font-bold text-slate-900 ${mobile ? 'text-lg' : 'text-xl'}`}>{review.name}</div>
+    </div>
+  );
 
   return (
     <section id="reviews" className="py-24 bg-gradient-to-b from-[#F0F5FF] to-white relative overflow-hidden" tabIndex={-1}>
@@ -921,59 +938,90 @@ const Reviews = () => {
           <p className="text-xl md:text-2xl text-slate-600">ביקורות אמיתיות מלקוחות מרוצים</p>
         </div>
 
-        <div className="relative">
-          {/* Navigation arrows */}
+        {/* Desktop layout */}
+        <div className="hidden md:block relative">
           <button
-            onClick={() => goTo(Math.max(0, page - 1))}
+            onClick={() => goToPage(Math.max(0, page - 1))}
             disabled={page === 0}
-            className="absolute top-1/2 -translate-y-1/2 -right-2 md:-right-6 z-20 w-12 h-12 rounded-full bg-white shadow-lg border border-slate-200 flex items-center justify-center text-slate-600 hover:text-blue-600 hover:shadow-xl transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+            className="absolute top-1/2 -translate-y-1/2 -right-6 z-20 w-12 h-12 rounded-full bg-white shadow-lg border border-slate-200 flex items-center justify-center text-slate-600 hover:text-blue-600 hover:shadow-xl transition-all disabled:opacity-30 disabled:cursor-not-allowed"
             aria-label="ביקורות קודמות"
           >
             <ChevronRight size={24} />
           </button>
           <button
-            onClick={() => goTo(Math.min(totalPages - 1, page + 1))}
+            onClick={() => goToPage(Math.min(totalPages - 1, page + 1))}
             disabled={page === totalPages - 1}
-            className="absolute top-1/2 -translate-y-1/2 -left-2 md:-left-6 z-20 w-12 h-12 rounded-full bg-white shadow-lg border border-slate-200 flex items-center justify-center text-slate-600 hover:text-blue-600 hover:shadow-xl transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+            className="absolute top-1/2 -translate-y-1/2 -left-6 z-20 w-12 h-12 rounded-full bg-white shadow-lg border border-slate-200 flex items-center justify-center text-slate-600 hover:text-blue-600 hover:shadow-xl transition-all disabled:opacity-30 disabled:cursor-not-allowed"
             aria-label="ביקורות הבאות"
           >
             <ChevronLeft size={24} />
           </button>
 
-          <div className="overflow-hidden px-6 md:px-0">
-            <motion.div
-              key={page}
-              initial={{ x: direction * 300, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              exit={{ x: direction * -300, opacity: 0 }}
-              transition={{ duration: 0.4, ease: 'easeInOut' }}
-              className="grid md:grid-cols-3 gap-8"
-            >
-              {currentReviews.map((review, idx) => (
-                <div
-                  key={idx}
-                  className="bg-white rounded-3xl p-12 shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-slate-100 text-center"
-                >
-                  <div className="flex gap-2 mb-6 justify-center">
-                    {Array.from({ length: review.stars }).map((_, i) => (
-                      <Star key={i} size={28} className="fill-yellow-400 text-yellow-400" />
-                    ))}
-                  </div>
-                  <p className="text-xl md:text-2xl text-slate-700 leading-relaxed mb-8">{review.text}</p>
-                  <div className="font-bold text-xl text-slate-900">{review.name}</div>
-                </div>
-              ))}
-            </motion.div>
-          </div>
+          <motion.div
+            key={page}
+            initial={{ x: direction * 300, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: direction * -300, opacity: 0 }}
+            transition={{ duration: 0.4, ease: 'easeInOut' }}
+            className="grid grid-cols-3 gap-8"
+          >
+            {currentReviews.map((review, idx) => (
+              <ReviewCard key={idx} review={review} />
+            ))}
+          </motion.div>
 
-          {/* Dots indicator */}
           <div className="flex justify-center gap-2 mt-8">
             {Array.from({ length: totalPages }).map((_, i) => (
               <button
                 key={i}
-                onClick={() => goTo(i)}
+                onClick={() => goToPage(i)}
                 className={`w-3 h-3 rounded-full transition-all ${i === page ? 'bg-blue-600 scale-110' : 'bg-slate-300 hover:bg-slate-400'}`}
                 aria-label={`עמוד ${i + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Mobile carousel */}
+        <div className="md:hidden relative">
+          <button
+            onClick={() => { goTo(current - 1, 'right'); resetTimer(); }}
+            className="absolute top-1/2 -translate-y-1/2 -right-1 z-20 w-10 h-10 rounded-full bg-white shadow-lg border border-slate-200 flex items-center justify-center text-slate-600 hover:text-blue-600 transition-all"
+            aria-label="קודם"
+          >
+            <ChevronRight size={20} />
+          </button>
+          <button
+            onClick={() => { goTo(current + 1, 'left'); resetTimer(); }}
+            className="absolute top-1/2 -translate-y-1/2 -left-1 z-20 w-10 h-10 rounded-full bg-white shadow-lg border border-slate-200 flex items-center justify-center text-slate-600 hover:text-blue-600 transition-all"
+            aria-label="הבא"
+          >
+            <ChevronLeft size={20} />
+          </button>
+
+          <div
+            className="overflow-hidden mx-8"
+            onTouchStart={onTouchStart}
+            onTouchEnd={onTouchEnd}
+          >
+            <motion.div
+              key={current}
+              initial={{ x: slideDir === 'left' ? 300 : -300, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: slideDir === 'left' ? -300 : 300, opacity: 0 }}
+              transition={{ duration: 0.35, ease: 'easeInOut' }}
+            >
+              <ReviewCard review={reviews[current]} mobile />
+            </motion.div>
+          </div>
+
+          <div className="flex justify-center gap-2 mt-6">
+            {reviews.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => { goTo(i); resetTimer(); }}
+                className={`w-2.5 h-2.5 rounded-full transition-all ${i === current ? 'bg-blue-600 scale-110' : 'bg-slate-300 hover:bg-slate-400'}`}
+                aria-label={`ביקורת ${i + 1}`}
               />
             ))}
           </div>
