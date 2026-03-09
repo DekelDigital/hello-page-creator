@@ -667,7 +667,9 @@ const LeadForm = ({ id }: { id: string }) => {
                 type="text" 
                 id={`${id}-name`} 
                 required 
-                className="w-full px-8 py-2.5 md:py-4 bg-white border-0 rounded-full focus:ring-4 focus:ring-blue-300 transition-all text-xl md:text-2xl text-slate-900 placeholder:text-slate-500 text-center outline-none shadow-lg hover:shadow-xl hover:-translate-y-0.5 font-medium h-full"
+                dir="rtl"
+                className="w-full px-8 py-2.5 md:py-4 bg-white border-0 rounded-full focus:ring-4 focus:ring-blue-300 transition-all text-xl md:text-2xl text-slate-900 placeholder:text-slate-500 text-right md:text-center outline-none shadow-lg hover:shadow-xl hover:-translate-y-0.5 font-medium h-full"
+                placeholder="שם מלא"
               />
             </div>
             <div className="flex-1 min-w-[300px] max-w-[800px] w-full mx-auto xl:mx-0">
@@ -675,7 +677,9 @@ const LeadForm = ({ id }: { id: string }) => {
                 type="tel" 
                 id={`${id}-phone`} 
                 required 
-                className="w-full px-8 py-2.5 md:py-4 bg-white border-0 rounded-full focus:ring-4 focus:ring-blue-300 transition-all text-xl md:text-2xl text-slate-900 placeholder:text-slate-500 text-center outline-none shadow-lg hover:shadow-xl hover:-translate-y-0.5 font-medium h-full"
+                dir="rtl"
+                className="w-full px-8 py-2.5 md:py-4 bg-white border-0 rounded-full focus:ring-4 focus:ring-blue-300 transition-all text-xl md:text-2xl text-slate-900 placeholder:text-slate-500 text-right md:text-center outline-none shadow-lg hover:shadow-xl hover:-translate-y-0.5 font-medium h-full"
+                placeholder="מספר טלפון"
               />
             </div>
             <div className="flex-1 min-w-[300px] max-w-[800px] w-full mx-auto xl:mx-0">
@@ -683,7 +687,9 @@ const LeadForm = ({ id }: { id: string }) => {
                 type="email" 
                 id={`${id}-email`} 
                 required 
-                className="w-full px-8 py-2.5 md:py-4 bg-white border-0 rounded-full focus:ring-4 focus:ring-blue-300 transition-all text-xl md:text-2xl text-slate-900 placeholder:text-slate-500 text-center outline-none shadow-lg hover:shadow-xl hover:-translate-y-0.5 font-medium h-full"
+                dir="rtl"
+                className="w-full px-8 py-2.5 md:py-4 bg-white border-0 rounded-full focus:ring-4 focus:ring-blue-300 transition-all text-xl md:text-2xl text-slate-900 placeholder:text-slate-500 text-right md:text-center outline-none shadow-lg hover:shadow-xl hover:-translate-y-0.5 font-medium h-full"
+                placeholder="אימייל"
               />
             </div>
             <div className="flex-1 min-w-[300px] max-w-[800px] w-full mx-auto xl:mx-0">
@@ -691,7 +697,9 @@ const LeadForm = ({ id }: { id: string }) => {
                 type="text" 
                 id={`${id}-business`} 
                 required 
-                className="w-full px-8 py-2.5 md:py-4 bg-white border-0 rounded-full focus:ring-4 focus:ring-blue-300 transition-all text-xl md:text-2xl text-slate-900 placeholder:text-slate-500 text-center outline-none shadow-lg hover:shadow-xl hover:-translate-y-0.5 font-medium h-full"
+                dir="rtl"
+                className="w-full px-8 py-2.5 md:py-4 bg-white border-0 rounded-full focus:ring-4 focus:ring-blue-300 transition-all text-xl md:text-2xl text-slate-900 placeholder:text-slate-500 text-right md:text-center outline-none shadow-lg hover:shadow-xl hover:-translate-y-0.5 font-medium h-full"
+                placeholder="שם העסק"
               />
             </div>
           </div>
