@@ -149,7 +149,7 @@ const About = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7 }}
-          className="text-right max-w-7xl mx-auto mb-8" dir="rtl"
+          className="text-center md:text-right max-w-7xl mx-auto mb-8" dir="rtl"
         >
           <h2 className="text-6xl md:text-8xl font-black mb-4 tracking-tight">
             <span className="relative inline-block">
