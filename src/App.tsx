@@ -485,24 +485,24 @@ const Services = () => {
             <p className="text-2xl md:text-3xl text-slate-600 mb-2">הפלטפורמות המובילות בעולם, עם האסטרטגיה המנצחת שלנו</p>
           </div>
 
-          <div className="grid grid-cols-3 lg:grid-cols-3 gap-3 md:gap-8 items-stretch" dir="ltr">
+          <div className="grid grid-cols-3 lg:grid-cols-3 gap-1.5 md:gap-8 items-stretch px-1 md:px-0" dir="ltr">
             {cards.map((card, i) => {
               // Mobile order: Meta(1)→first, Google(2)→second, TikTok(0)→third
               const mobileOrder = i === 1 ? 'order-first lg:order-none' : i === 2 ? 'order-2 lg:order-none' : 'order-3 lg:order-none';
               return (
               <div
                 key={i}
-                className={`bg-white rounded-2xl md:rounded-[2rem] p-3 md:p-10 ${card.shadowClass} ${card.borderClass} hover:shadow-xl hover:border-blue-200 transition-all relative overflow-hidden group text-center flex flex-col items-center h-full ${mobileOrder}`}
+                className={`bg-white rounded-2xl md:rounded-[2rem] p-2 py-4 md:p-10 ${card.shadowClass} ${card.borderClass} hover:shadow-xl hover:border-blue-200 transition-all relative overflow-hidden group text-center flex flex-col items-center h-full ${mobileOrder}`}
                 dir="rtl"
               >
                 <div className={`absolute top-0 right-0 w-16 md:w-32 h-16 md:h-32 bg-gradient-to-br ${card.gradientFrom} to-transparent rounded-bl-full -z-10`}></div>
                 <div className="mb-2 md:mb-8 flex justify-center w-full">
-                  <img src={card.logo} alt={card.logoAlt} className="h-12 md:h-20 object-contain" onError={(e) => { e.currentTarget.src = card.fallback; }} />
+                  <img src={card.logo} alt={card.logoAlt} className="h-16 md:h-20 object-contain" onError={(e) => { e.currentTarget.src = card.fallback; }} />
                 </div>
-                <p className="text-sm md:text-3xl font-semibold text-slate-900 mb-0.5 md:mb-2 text-center">שיווק ממומן</p>
-                <h3 className="text-base md:text-5xl font-black text-slate-900 mb-1 md:mb-4 text-center whitespace-nowrap">{card.title}</h3>
+                <p className="text-[0.95rem] leading-tight md:text-3xl font-semibold text-slate-900 mb-0.5 md:mb-2 text-center">שיווק ממומן</p>
+                <h3 className="text-[1.1rem] leading-tight md:text-5xl font-black text-slate-900 mb-1 md:mb-4 text-center whitespace-nowrap">{card.title}</h3>
                 <p className="hidden md:block text-lg md:text-xl text-slate-600 leading-relaxed font-medium text-center flex-grow">{card.desc}</p>
-                <div className={`mt-3 md:mt-8 h-1 w-8 md:w-12 ${card.barColor} rounded-full group-hover:w-[80%] transition-all duration-500 mx-auto`}></div>
+                <div className={`mt-2 md:mt-8 h-1 w-8 md:w-12 ${card.barColor} rounded-full group-hover:w-[80%] transition-all duration-500 mx-auto`}></div>
               </div>
               );
             })}
