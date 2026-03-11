@@ -25,6 +25,9 @@ import chessHeroBg from './assets/chess-hero-bg.png';
 import adsBg from './assets/ads-bg.png';
 import chessRookBlue from './assets/chess-rook-blue.png';
 import chessQueenWhite from './assets/chess-queen.png';
+import reviewImg1 from './assets/review_screenshot.png';
+import reviewImg2 from './assets/review_screenshot2.png';
+import reviewImg3 from './assets/review_screenshot3.png';
 
 const Logo = () => (
   <div className="flex items-center gap-2 -my-2 md:-my-3">
@@ -896,44 +899,11 @@ const FinalLeadSection = () => (
 );
 
 const Reviews = () => {
-  // Desktop pagination
-  const [page, setPage] = useState(0);
-  const [direction, setDirection] = useState(0);
-  
-  const reviews = [
-    { name: 'יוסי כהן', text: 'תוך חודש כבר ראינו תוצאות משמעותיות. מקצועיות ברמה אחרת.', stars: 5 },
-    { name: 'מיכל לוי', text: 'הצוות של דקל דיגיטל שינה לנו את העסק. לידים איכותיים בעלות נמוכה.', stars: 5 },
-    { name: 'אבי בן דוד', text: 'שקיפות מלאה, דוחות שבועיים ותוצאות שמדברות בעד עצמן.', stars: 5 },
-    { name: 'רונית שמעון', text: 'עבדנו עם כמה חברות שיווק לפני, אבל רק כאן הרגשנו שמישהו באמת מבין את העסק שלנו ומביא תוצאות.', stars: 5 },
-    { name: 'דני אברהם', text: 'הקמפיינים שלהם הביאו לנו לידים חמים שהפכו ללקוחות תוך ימים. ממליץ בחום.', stars: 5 },
-    { name: 'שירה גולדשטיין', text: 'הדוחות השבועיים נתנו לנו שקט נפשי. תמיד ידענו בדיוק מה קורה ולאן הולך התקציב.', stars: 5 },
-    { name: 'עמית רוזן', text: 'מאז שהתחלנו לעבוד עם דקל דיגיטל, המכירות עלו ב-40%. פשוט מדהים.', stars: 5 },
-    { name: 'נועה ברקוביץ', text: 'הגישה האישית והמקצועית עשו את כל ההבדל. הם חלק מהצוות שלנו.', stars: 5 },
-    { name: 'אלון מזרחי', text: 'קיבלנו לידים איכותיים בעלות נמוכה משמעותית ממה שהיה לנו קודם. שירות ברמה הכי גבוהה.', stars: 5 },
+  const screenshots = [
+    { src: reviewImg1 },
+    { src: reviewImg2 },
+    { src: reviewImg3 },
   ];
-
-  const totalPages = Math.ceil(reviews.length / 3);
-  const currentReviews = reviews.slice(page * 3, page * 3 + 3);
-
-  const goToPage = (newPage: number) => {
-    setDirection(newPage > page ? 1 : -1);
-    setPage(newPage);
-  };
-
-  // Mobile carousel
-  const { current, goTo, resetTimer, slideDir, onTouchStart, onTouchEnd } = useMobileCarousel(reviews.length);
-
-  const ReviewCard = ({ review, mobile = false }: { review: typeof reviews[0]; mobile?: boolean }) => (
-    <div className={`bg-white rounded-3xl shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-slate-100 text-center ${mobile ? 'p-8' : 'p-12'}`}>
-      <div className="flex gap-2 mb-6 justify-center">
-        {Array.from({ length: review.stars }).map((_, i) => (
-          <Star key={i} size={mobile ? 22 : 28} className="fill-yellow-400 text-yellow-400" />
-        ))}
-      </div>
-      <p className={`text-slate-700 leading-relaxed mb-8 ${mobile ? 'text-lg' : 'text-xl md:text-2xl'}`}>{review.text}</p>
-      <div className={`font-bold text-slate-900 ${mobile ? 'text-lg' : 'text-xl'}`}>{review.name}</div>
-    </div>
-  );
 
   return (
     <section id="reviews" className="py-24 bg-gradient-to-b from-[#F0F5FF] to-white relative overflow-hidden" tabIndex={-1}>
@@ -947,93 +917,55 @@ const Reviews = () => {
         {/* Desktop layout */}
         <div className="hidden md:block relative">
           <button
-            onClick={() => goToPage(Math.max(0, page - 1))}
-            disabled={page === 0}
-            className="absolute top-1/2 -translate-y-1/2 -right-6 z-20 w-12 h-12 rounded-full bg-white shadow-lg border border-slate-200 flex items-center justify-center text-slate-600 hover:text-blue-600 hover:shadow-xl transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+            /* onClick={() => {}} */
+            disabled
+            className="absolute top-1/2 -translate-y-1/2 -right-6 z-20 w-12 h-12 rounded-full bg-white shadow-lg border border-slate-200 flex items-center justify-center text-slate-600 disabled:opacity-30 disabled:cursor-not-allowed"
             aria-label="ביקורות קודמות"
           >
             <ChevronRight size={24} />
           </button>
           <button
-            onClick={() => goToPage(Math.min(totalPages - 1, page + 1))}
-            disabled={page === totalPages - 1}
-            className="absolute top-1/2 -translate-y-1/2 -left-6 z-20 w-12 h-12 rounded-full bg-white shadow-lg border border-slate-200 flex items-center justify-center text-slate-600 hover:text-blue-600 hover:shadow-xl transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+            /* onClick={() => {}} */
+            disabled
+            className="absolute top-1/2 -translate-y-1/2 -left-6 z-20 w-12 h-12 rounded-full bg-white shadow-lg border border-slate-200 flex items-center justify-center text-slate-600 disabled:opacity-30 disabled:cursor-not-allowed"
             aria-label="ביקורות הבאות"
           >
             <ChevronLeft size={24} />
           </button>
 
-          <motion.div
-            key={page}
-            initial={{ x: direction * 300, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: direction * -300, opacity: 0 }}
-            transition={{ duration: 0.4, ease: 'easeInOut' }}
-            className="grid grid-cols-3 gap-8"
-          >
-            {currentReviews.map((review, idx) => (
-              <ReviewCard key={idx} review={review} />
-            ))}
-          </motion.div>
-
-          <div className="flex justify-center gap-2 mt-8">
-            {Array.from({ length: totalPages }).map((_, i) => (
-              <button
-                key={i}
-                onClick={() => goToPage(i)}
-                className={`w-3 h-3 rounded-full transition-all ${i === page ? 'bg-blue-600 scale-110' : 'bg-slate-300 hover:bg-slate-400'}`}
-                aria-label={`עמוד ${i + 1}`}
-              />
+          <div className="grid grid-cols-3 gap-8">
+            {screenshots.map((s, idx) => (
+              <div key={idx} className="bg-white rounded-3xl shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-slate-100 overflow-hidden flex items-center justify-center p-4">
+                <img src={s.src} alt="ביקורת לקוח" className="w-full h-auto rounded-2xl object-contain" />
+              </div>
             ))}
           </div>
         </div>
 
-        {/* Mobile carousel */}
+        {/* Mobile layout */}
         <div className="md:hidden relative">
           <button
-            onClick={() => { goTo(current - 1, 'right'); resetTimer(); }}
-            className="absolute top-1/2 -translate-y-1/2 -right-1 z-20 w-10 h-10 rounded-full bg-white shadow-lg border border-slate-200 flex items-center justify-center text-slate-600 hover:text-blue-600 transition-all"
+            /* onClick={() => {}} */
+            disabled
+            className="absolute top-1/2 -translate-y-1/2 -right-1 z-20 w-10 h-10 rounded-full bg-white shadow-lg border border-slate-200 flex items-center justify-center text-slate-600 disabled:opacity-30 disabled:cursor-not-allowed"
             aria-label="קודם"
           >
             <ChevronRight size={20} />
           </button>
           <button
-            onClick={() => { goTo(current + 1, 'left'); resetTimer(); }}
-            className="absolute top-1/2 -translate-y-1/2 -left-1 z-20 w-10 h-10 rounded-full bg-white shadow-lg border border-slate-200 flex items-center justify-center text-slate-600 hover:text-blue-600 transition-all"
+            /* onClick={() => {}} */
+            disabled
+            className="absolute top-1/2 -translate-y-1/2 -left-1 z-20 w-10 h-10 rounded-full bg-white shadow-lg border border-slate-200 flex items-center justify-center text-slate-600 disabled:opacity-30 disabled:cursor-not-allowed"
             aria-label="הבא"
           >
             <ChevronLeft size={20} />
           </button>
 
-          <div
-            className="overflow-hidden mx-8 relative"
-            style={{ height: '280px' }}
-            onTouchStart={onTouchStart}
-            onTouchEnd={onTouchEnd}
-          >
-            <AnimatePresence initial={false} custom={slideDir}>
-              <motion.div
-                key={current}
-                custom={slideDir}
-                initial={{ x: slideDir === 'left' ? '100%' : '-100%' }}
-                animate={{ x: 0 }}
-                exit={{ x: slideDir === 'left' ? '-100%' : '100%' }}
-                transition={{ duration: 0.35, ease: 'easeInOut' }}
-                style={{ position: 'absolute', top: 0, left: 0, right: 0 }}
-              >
-                <ReviewCard review={reviews[current]} mobile />
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
-          <div className="flex justify-center gap-2 mt-6">
-            {reviews.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => { goTo(i); resetTimer(); }}
-                className={`w-2.5 h-2.5 rounded-full transition-all ${i === current ? 'bg-blue-600 scale-110' : 'bg-slate-300 hover:bg-slate-400'}`}
-                aria-label={`ביקורת ${i + 1}`}
-              />
+          <div className="flex flex-col gap-4 mx-8">
+            {screenshots.map((s, idx) => (
+              <div key={idx} className="bg-white rounded-3xl shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-slate-100 overflow-hidden flex items-center justify-center p-4">
+                <img src={s.src} alt="ביקורת לקוח" className="w-full h-auto rounded-2xl object-contain" />
+              </div>
             ))}
           </div>
         </div>
@@ -1186,4 +1118,5 @@ export default function App() {
     </div>
   );
 }
+
 
