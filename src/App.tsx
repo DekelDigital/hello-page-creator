@@ -25,6 +25,9 @@ import chessHeroBg from './assets/chess-hero-bg.png';
 import adsBg from './assets/ads-bg.png';
 import chessRookBlue from './assets/chess-rook-blue.png';
 import chessQueenWhite from './assets/chess-queen.png';
+import reviewImg1 from './assets/review_screenshot.png';
+import reviewImg2 from './assets/review_screenshot2.png';
+import reviewImg3 from './assets/review_screenshot3.png';
 
 const Logo = () => (
   <div className="flex items-center gap-2 -my-2 md:-my-3">
