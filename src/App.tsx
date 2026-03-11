@@ -1115,7 +1115,5 @@ export default function App() {
     </div>
   );
 }
-import reviewImg1 from './assets/review_screenshot.png';
-import reviewImg2 from './assets/review_screenshot2.png';
-import reviewImg3 from './assets/review_screenshot3.png';
+
 
