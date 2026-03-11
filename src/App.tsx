@@ -1004,7 +1004,7 @@ const Footer = () => {
               שיווק דיגיטלי שמביא תוצאות אמיתיות.
             </p>
             <div className="flex gap-4">
-              <a href="https://www.facebook.com/dekeldigital" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-blue-600 transition-colors">
+              <a href="https://www.facebook.com/profile.php?id=61587026532997" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-blue-600 transition-colors">
                 <Facebook size={24} />
               </a>
             </div>
