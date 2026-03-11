@@ -1043,10 +1043,6 @@ const Footer = () => {
                 <Mail size={22} className="flex-shrink-0" />
                 info@dekeldigital.co.il
               </a>
-              <a href="tel:+972500000000" className="flex items-center gap-3 text-slate-400 hover:text-white transition-colors text-xl">
-                <Phone size={22} className="flex-shrink-0" />
-                050-000-0000
-              </a>
               <div className="flex items-center gap-3 text-slate-400 text-xl">
                 <Clock size={22} className="flex-shrink-0" />
                 א׳–ה׳ 9:00–18:00
