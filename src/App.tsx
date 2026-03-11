@@ -557,7 +557,7 @@ const AdsCarousel = () => {
   const row2 = adImages.slice(7, 14);
 
   return (
-    <section id="ads" className="py-24 overflow-hidden relative" tabIndex={-1} <section id="ads" className="py-24 overflow-hidden relative" tabIndex={-1} style={{ background: '#F3F7FF' }}>>
+    <section id="ads" className="py-24 overflow-hidden relative" tabIndex={-1} style={{ background: '#F3F7FF' }}>>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 text-center relative z-10">
         <h2 className="text-5xl md:text-6xl font-black text-white mb-4">מודעות שעיצבנו לכם</h2>
