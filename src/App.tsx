@@ -1004,7 +1004,7 @@ const Footer = () => {
               שיווק דיגיטלי שמביא תוצאות אמיתיות.
             </p>
             <div className="flex gap-4">
-              <a href="https://www.facebook.com/dekeldigital" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-blue-600 transition-colors">
+              <a href="https://www.facebook.com/profile.php?id=61587026532997" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-blue-600 transition-colors">
                 <Facebook size={24} />
               </a>
             </div>
@@ -1042,10 +1042,6 @@ const Footer = () => {
               <a href="mailto:info@dekeldigital.co.il" className="flex items-center gap-3 text-slate-400 hover:text-white transition-colors text-xl">
                 <Mail size={22} className="flex-shrink-0" />
                 info@dekeldigital.co.il
-              </a>
-              <a href="tel:+972500000000" className="flex items-center gap-3 text-slate-400 hover:text-white transition-colors text-xl">
-                <Phone size={22} className="flex-shrink-0" />
-                050-000-0000
               </a>
               <div className="flex items-center gap-3 text-slate-400 text-xl">
                 <Clock size={22} className="flex-shrink-0" />
