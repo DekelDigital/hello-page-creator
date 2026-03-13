@@ -644,12 +644,12 @@ const LeadForm = ({ id }: { id: string }) => {
 
   if (status === 'success') {
     return (
-      <div className="bg-emerald-50 rounded-[2rem] p-12 text-center border border-emerald-100 h-full flex flex-col items-center justify-center">
-        <div className="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6">
+      <div className="bg-blue-50 rounded-[2rem] p-12 text-center border border-blue-100 h-full flex flex-col items-center justify-center">
+        <div className="w-20 h-20 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
           <CheckCircle2 size={40} />
         </div>
-        <h3 className="text-3xl font-bold text-emerald-900 mb-4">הפרטים התקבלו בהצלחה!</h3>
-        <p className="text-xl text-emerald-700">
+        <h3 className="text-3xl font-bold text-blue-900 mb-4">הפרטים התקבלו בהצלחה!</h3>
+        <p className="text-xl text-blue-700">
           נציג מטעמנו יחזור אליך בהקדם עם תוכנית פעולה.
         </p>
       </div>
