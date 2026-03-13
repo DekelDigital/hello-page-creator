@@ -604,10 +604,31 @@ const LeadForm = ({ id }: { id: string }) => {
     setStatus('submitting');
     
     const form = e.target as HTMLFormElement;
-    const name = (form.querySelector(`#${id}-name`) as HTMLInputElement).value;
-    const phone = (form.querySelector(`#${id}-phone`) as HTMLInputElement).value;
-    const email = (form.querySelector(`#${id}-email`) as HTMLInputElement).value;
-    const business = (form.querySelector(`#${id}-business`) as HTMLInputElement).value;
+    const name = (form.querySelector(`#${id}-name`) as HTMLInputElement).value.trim();
+    const phone = (form.querySelector(`#${id}-phone`) as HTMLInputElement).value.trim();
+    const email = (form.querySelector(`#${id}-email`) as HTMLInputElement).value.trim();
+    const business = (form.querySelector(`#${id}-business`) as HTMLInputElement).value.trim();
+
+    // Basic validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      alert('נא להזין כתובת אימייל תקינה');
+      setStatus('idle');
+      return;
+    }
+
+    const phoneRegex = /^[\d\-+() ]{7,15}$/;
+    if (!phoneRegex.test(phone)) {
+      alert('נא להזין מספר טלפון תקין');
+      setStatus('idle');
+      return;
+    }
+
+    if (name.length < 2) {
+      alert('נא להזין שם מלא');
+      setStatus('idle');
+      return;
+    }
 
     try {
       await fetch('https://hook.eu2.make.com/070bm6py44qy5j8f3nd89u593hq97xe3', {
