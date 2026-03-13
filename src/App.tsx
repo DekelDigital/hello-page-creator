@@ -599,14 +599,26 @@ const AdsCarousel = () => {
 const LeadForm = ({ id }: { id: string }) => {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('submitting');
     
-    // TODO: Connect to actual webhook/API
-    setTimeout(() => {
+    const form = e.target as HTMLFormElement;
+    const name = (form.querySelector(`#${id}-name`) as HTMLInputElement).value;
+    const phone = (form.querySelector(`#${id}-phone`) as HTMLInputElement).value;
+    const email = (form.querySelector(`#${id}-email`) as HTMLInputElement).value;
+    const business = (form.querySelector(`#${id}-business`) as HTMLInputElement).value;
+
+    try {
+      await fetch('https://hook.eu2.make.com/070bm6py44qy5j8f3nd89u593hq97xe3', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, phone, email, business }),
+      });
       setStatus('success');
-    }, 1500);
+    } catch {
+      setStatus('error');
+    }
   };
 
   if (status === 'success') {
