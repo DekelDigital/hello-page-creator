@@ -598,10 +598,11 @@ const AdsCarousel = () => {
 
 const LeadForm = ({ id }: { id: string }) => {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [errors, setErrors] = useState<{ name?: string; phone?: string; email?: string }>({});
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus('submitting');
+    const newErrors: typeof errors = {};
     
     const form = e.target as HTMLFormElement;
     const name = (form.querySelector(`#${id}-name`) as HTMLInputElement).value.trim();
@@ -609,27 +610,14 @@ const LeadForm = ({ id }: { id: string }) => {
     const email = (form.querySelector(`#${id}-email`) as HTMLInputElement).value.trim();
     const business = (form.querySelector(`#${id}-business`) as HTMLInputElement).value.trim();
 
-    // Basic validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      alert('נא להזין כתובת אימייל תקינה');
-      setStatus('idle');
-      return;
-    }
+    if (name.length < 2) newErrors.name = 'יש להזין שם מלא';
+    if (!/^[\d\-+() ]{7,15}$/.test(phone)) newErrors.phone = 'מספר טלפון לא תקין';
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) newErrors.email = 'כתובת אימייל לא תקינה';
 
-    const phoneRegex = /^[\d\-+() ]{7,15}$/;
-    if (!phoneRegex.test(phone)) {
-      alert('נא להזין מספר טלפון תקין');
-      setStatus('idle');
-      return;
-    }
+    setErrors(newErrors);
+    if (Object.keys(newErrors).length > 0) return;
 
-    if (name.length < 2) {
-      alert('נא להזין שם מלא');
-      setStatus('idle');
-      return;
-    }
-
+    setStatus('submitting');
     try {
       await fetch('https://hook.eu2.make.com/070bm6py44qy5j8f3nd89u593hq97xe3', {
         method: 'POST',
