@@ -598,10 +598,11 @@ const AdsCarousel = () => {
 
 const LeadForm = ({ id }: { id: string }) => {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [errors, setErrors] = useState<{ name?: string; phone?: string; email?: string }>({});
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus('submitting');
+    const newErrors: typeof errors = {};
     
     const form = e.target as HTMLFormElement;
     const name = (form.querySelector(`#${id}-name`) as HTMLInputElement).value.trim();
@@ -609,27 +610,14 @@ const LeadForm = ({ id }: { id: string }) => {
     const email = (form.querySelector(`#${id}-email`) as HTMLInputElement).value.trim();
     const business = (form.querySelector(`#${id}-business`) as HTMLInputElement).value.trim();
 
-    // Basic validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      alert('נא להזין כתובת אימייל תקינה');
-      setStatus('idle');
-      return;
-    }
+    if (name.length < 2) newErrors.name = 'יש להזין שם מלא';
+    if (!/^[\d\-+() ]{7,15}$/.test(phone)) newErrors.phone = 'מספר טלפון לא תקין';
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) newErrors.email = 'כתובת אימייל לא תקינה';
 
-    const phoneRegex = /^[\d\-+() ]{7,15}$/;
-    if (!phoneRegex.test(phone)) {
-      alert('נא להזין מספר טלפון תקין');
-      setStatus('idle');
-      return;
-    }
+    setErrors(newErrors);
+    if (Object.keys(newErrors).length > 0) return;
 
-    if (name.length < 2) {
-      alert('נא להזין שם מלא');
-      setStatus('idle');
-      return;
-    }
-
+    setStatus('submitting');
     try {
       await fetch('https://hook.eu2.make.com/070bm6py44qy5j8f3nd89u593hq97xe3', {
         method: 'POST',
@@ -702,9 +690,11 @@ const LeadForm = ({ id }: { id: string }) => {
                 id={`${id}-name`} 
                 required 
                 dir="rtl"
+                onChange={() => setErrors(prev => ({ ...prev, name: undefined }))}
                 className="w-full px-8 py-2.5 md:py-4 bg-white border-0 rounded-full focus:ring-4 focus:ring-blue-300 transition-all text-xl md:text-2xl text-slate-900 placeholder:text-slate-500 text-right md:text-center outline-none shadow-lg hover:shadow-xl hover:-translate-y-0.5 font-medium h-full"
                 placeholder="שם מלא"
               />
+              {errors.name && <p className="text-red-200 text-sm mt-1 text-right pr-4">{errors.name}</p>}
             </div>
             <div className="flex-1 min-w-[300px] max-w-[800px] w-full mx-auto xl:mx-0">
               <input 
@@ -712,9 +702,11 @@ const LeadForm = ({ id }: { id: string }) => {
                 id={`${id}-phone`} 
                 required 
                 dir="rtl"
+                onChange={() => setErrors(prev => ({ ...prev, phone: undefined }))}
                 className="w-full px-8 py-2.5 md:py-4 bg-white border-0 rounded-full focus:ring-4 focus:ring-blue-300 transition-all text-xl md:text-2xl text-slate-900 placeholder:text-slate-500 text-right md:text-center outline-none shadow-lg hover:shadow-xl hover:-translate-y-0.5 font-medium h-full"
                 placeholder="מספר טלפון"
               />
+              {errors.phone && <p className="text-red-200 text-sm mt-1 text-right pr-4">{errors.phone}</p>}
             </div>
             <div className="flex-1 min-w-[300px] max-w-[800px] w-full mx-auto xl:mx-0">
               <input 
@@ -722,9 +714,11 @@ const LeadForm = ({ id }: { id: string }) => {
                 id={`${id}-email`} 
                 required 
                 dir="rtl"
+                onChange={() => setErrors(prev => ({ ...prev, email: undefined }))}
                 className="w-full px-8 py-2.5 md:py-4 bg-white border-0 rounded-full focus:ring-4 focus:ring-blue-300 transition-all text-xl md:text-2xl text-slate-900 placeholder:text-slate-500 text-right md:text-center outline-none shadow-lg hover:shadow-xl hover:-translate-y-0.5 font-medium h-full"
                 placeholder="אימייל"
               />
+              {errors.email && <p className="text-red-200 text-sm mt-1 text-right pr-4">{errors.email}</p>}
             </div>
             <div className="flex-1 min-w-[300px] max-w-[800px] w-full mx-auto xl:mx-0">
               <input 
