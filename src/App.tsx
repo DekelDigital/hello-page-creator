@@ -604,10 +604,31 @@ const LeadForm = ({ id }: { id: string }) => {
     setStatus('submitting');
     
     const form = e.target as HTMLFormElement;
-    const name = (form.querySelector(`#${id}-name`) as HTMLInputElement).value;
-    const phone = (form.querySelector(`#${id}-phone`) as HTMLInputElement).value;
-    const email = (form.querySelector(`#${id}-email`) as HTMLInputElement).value;
-    const business = (form.querySelector(`#${id}-business`) as HTMLInputElement).value;
+    const name = (form.querySelector(`#${id}-name`) as HTMLInputElement).value.trim();
+    const phone = (form.querySelector(`#${id}-phone`) as HTMLInputElement).value.trim();
+    const email = (form.querySelector(`#${id}-email`) as HTMLInputElement).value.trim();
+    const business = (form.querySelector(`#${id}-business`) as HTMLInputElement).value.trim();
+
+    // Basic validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      alert('נא להזין כתובת אימייל תקינה');
+      setStatus('idle');
+      return;
+    }
+
+    const phoneRegex = /^[\d\-+() ]{7,15}$/;
+    if (!phoneRegex.test(phone)) {
+      alert('נא להזין מספר טלפון תקין');
+      setStatus('idle');
+      return;
+    }
+
+    if (name.length < 2) {
+      alert('נא להזין שם מלא');
+      setStatus('idle');
+      return;
+    }
 
     try {
       await fetch('https://hook.eu2.make.com/070bm6py44qy5j8f3nd89u593hq97xe3', {
@@ -623,12 +644,12 @@ const LeadForm = ({ id }: { id: string }) => {
 
   if (status === 'success') {
     return (
-      <div className="bg-emerald-50 rounded-[2rem] p-12 text-center border border-emerald-100 h-full flex flex-col items-center justify-center">
-        <div className="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6">
+      <div className="bg-blue-50 rounded-[2rem] p-12 text-center border border-blue-100 h-full flex flex-col items-center justify-center">
+        <div className="w-20 h-20 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
           <CheckCircle2 size={40} />
         </div>
-        <h3 className="text-3xl font-bold text-emerald-900 mb-4">הפרטים התקבלו בהצלחה!</h3>
-        <p className="text-xl text-emerald-700">
+        <h3 className="text-3xl font-bold text-blue-900 mb-4">הפרטים התקבלו בהצלחה!</h3>
+        <p className="text-xl text-blue-700">
           נציג מטעמנו יחזור אליך בהקדם עם תוכנית פעולה.
         </p>
       </div>
