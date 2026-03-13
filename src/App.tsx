@@ -1024,7 +1024,7 @@ const Footer = () => {
           
           {/* Brand Column */}
           <div>
-            <img src="/logo.png" alt="Dekel Digital" className="h-28 mb-6 brightness-0 invert" onError={(e) => {
+            <img src="/logo.png" alt="Dekel Digital" className="h-28 mb-3 brightness-0 invert" onError={(e) => {
               e.currentTarget.src = 'https://placehold.co/150x50/ffffff/1d4ed8?text=Dekel+Digital';
             }} />
             <p className="text-slate-400 text-2xl leading-relaxed mb-6">
