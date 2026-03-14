@@ -117,13 +117,23 @@ const Header = () => {
         {mobileMenuOpen && (
           <div className="md:hidden absolute top-full left-4 right-4 mt-2 bg-white rounded-2xl shadow-xl border border-slate-100 p-4 flex flex-col gap-4">
             {navLinks.map((link) => (
-              <button 
-                key={link.id} 
-                onClick={() => scrollTo(link.id)}
-                className="text-right text-slate-700 font-medium py-2 border-b border-slate-50 last:border-0"
-              >
-                {link.name}
-              </button>
+              'href' in link && link.href ? (
+                <a 
+                  key={link.id} 
+                  href={link.href}
+                  className="text-right text-slate-700 font-medium py-2 border-b border-slate-50 last:border-0"
+                >
+                  {link.name}
+                </a>
+              ) : (
+                <button 
+                  key={link.id} 
+                  onClick={() => scrollTo(link.id)}
+                  className="text-right text-slate-700 font-medium py-2 border-b border-slate-50 last:border-0"
+                >
+                  {link.name}
+                </button>
+              )
             ))}
             <button 
               onClick={() => scrollTo('contact')}
