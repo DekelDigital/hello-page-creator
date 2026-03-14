@@ -1063,13 +1063,23 @@ const Footer = () => {
             <h4 className="text-2xl font-bold text-white mb-6">ניווט מהיר</h4>
             <nav className="flex flex-col gap-3">
               {navLinks.map((link) => (
-                <button
-                  key={link.id}
-                  onClick={() => scrollTo(link.id)}
-                  className="text-slate-400 hover:text-white transition-colors text-right text-xl"
-                >
-                  {link.name}
-                </button>
+                'href' in link && link.href ? (
+                  <a
+                    key={link.id}
+                    href={link.href}
+                    className="text-slate-400 hover:text-white transition-colors text-right text-xl"
+                  >
+                    {link.name}
+                  </a>
+                ) : (
+                  <button
+                    key={link.id}
+                    onClick={() => scrollTo(link.id)}
+                    className="text-slate-400 hover:text-white transition-colors text-right text-xl"
+                  >
+                    {link.name}
+                  </button>
+                )
               ))}
             </nav>
           </div>
