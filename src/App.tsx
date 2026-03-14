@@ -1030,6 +1030,7 @@ const Footer = () => {
     { name: 'אודות', id: 'about' },
     { name: 'מה אנחנו עושים', id: 'services' },
     { name: 'תוצאות', id: 'results' },
+    { name: 'בלוג', id: 'blog', href: '/blog' },
     { name: 'דברו איתנו', id: 'contact' },
   ];
 
