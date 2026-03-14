@@ -64,7 +64,7 @@ const Header = () => {
     { name: 'מודעות', id: 'ads' },
     { name: 'תוצאות', id: 'results' },
     { name: 'ביקורות', id: 'reviews' },
-    { name: 'דברו איתנו', id: 'contact' },
+    { name: 'בלוג', id: 'blog', href: '/blog' },
   ];
 
   return (
