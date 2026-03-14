@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>בלוג דקל דיגיטל</title>
+    <link>https://www.dekeldigital.co.il/blog</link>
+    <description>תובנות על שיווק ממומן, ניהול קמפיינים וקריאייטיב שמביא לידים ומכירות</description>
+    <language>he</language>
+    <atom:link href="https://www.dekeldigital.co.il/rss.xml" rel="self" type="application/rss+xml"/>
+    <item><title>איך לבחור פלטפורמה לקמפיין ראשון</title><link>https://www.dekeldigital.co.il/blog/choosing-first-campaign-platform</link><pubDate>Tue, 10 Mar 2026 00:00:00 GMT</pubDate></item>
+    <item><title>למה לידים זולים לפעמים עולים ביוקר</title><link>https://www.dekeldigital.co.il/blog/quality-leads-vs-cheap-leads</link><pubDate>Sat, 07 Mar 2026 00:00:00 GMT</pubDate></item>
+    <item><title>Pmax בצורה נכונה</title><link>https://www.dekeldigital.co.il/blog/pmax-google-ads-guide</link><pubDate>Tue, 03 Mar 2026 00:00:00 GMT</pubDate></item>
+    <item><title>קמפיין חיפוש שממיר</title><link>https://www.dekeldigital.co.il/blog/converting-search-campaign</link><pubDate>Fri, 27 Feb 2026 00:00:00 GMT</pubDate></item>
+    <item><title>רימרקטינג שעובד</title><link>https://www.dekeldigital.co.il/blog/remarketing-that-works</link><pubDate>Sun, 22 Feb 2026 00:00:00 GMT</pubDate></item>
+    <item><title>קריאייטיב למודעות שמביא תוצאה</title><link>https://www.dekeldigital.co.il/blog/ad-creative-that-converts</link><pubDate>Wed, 18 Feb 2026 00:00:00 GMT</pubDate></item>
+    <item><title>7 טעויות נפוצות בניהול קמפיינים</title><link>https://www.dekeldigital.co.il/blog/common-campaign-mistakes</link><pubDate>Sat, 14 Feb 2026 00:00:00 GMT</pubDate></item>
+    <item><title>מה מודדים בקמפיינים</title><link>https://www.dekeldigital.co.il/blog/campaign-metrics-that-matter</link><pubDate>Tue, 10 Feb 2026 00:00:00 GMT</pubDate></item>
+    <item><title>דף נחיתה שממיר</title><link>https://www.dekeldigital.co.il/blog/landing-page-that-converts</link><pubDate>Thu, 05 Feb 2026 00:00:00 GMT</pubDate></item>
+    <item><title>מהלך פתיחה בקמפיין חדש</title><link>https://www.dekeldigital.co.il/blog/first-week-campaign-launch</link><pubDate>Fri, 30 Jan 2026 00:00:00 GMT</pubDate></item>
+    <item><title>גוגל אדס מול מטא אדס</title><link>https://www.dekeldigital.co.il/blog/google-ads-vs-meta-ads</link><pubDate>Sun, 25 Jan 2026 00:00:00 GMT</pubDate></item>
+    <item><title>הגדלת מכירות דרך אופטימיזציה</title><link>https://www.dekeldigital.co.il/blog/optimize-existing-campaign</link><pubDate>Tue, 20 Jan 2026 00:00:00 GMT</pubDate></item>
+  </channel>
+</rss>
