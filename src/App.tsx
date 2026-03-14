@@ -76,13 +76,23 @@ const Header = () => {
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <button 
-                key={link.id} 
-                onClick={() => scrollTo(link.id)}
-                className="text-slate-600 hover:text-blue-700 font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-md px-2 py-1"
-              >
-                {link.name}
-              </button>
+              'href' in link && link.href ? (
+                <a 
+                  key={link.id} 
+                  href={link.href}
+                  className="text-slate-600 hover:text-blue-700 font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-md px-2 py-1"
+                >
+                  {link.name}
+                </a>
+              ) : (
+                <button 
+                  key={link.id} 
+                  onClick={() => scrollTo(link.id)}
+                  className="text-slate-600 hover:text-blue-700 font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-md px-2 py-1"
+                >
+                  {link.name}
+                </button>
+              )
             ))}
           </nav>
 
