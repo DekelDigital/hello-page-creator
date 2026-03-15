@@ -607,7 +607,7 @@ ${inlineImg('Platform Strategy', 'אסטרטגיית שילוב פלטפורמו
     excerpt: 'לפני שמגדילים תקציב, צריך לוודא שהקמפיין הקיים עובד ב-100%. כך מאתרים ומתקנים בעיות.',
     date: '2026-01-20',
     author: 'דקל דיגיטל',
-    coverImage: cover('Campaign Optimization'),
+    coverImage: '/blog/campaign_optimization.png',
     seoTitle: 'הגדלת מכירות דרך אופטימיזציה | איך לשפר קמפיין קיים',
     seoDescription: 'מדריך לאופטימיזציה של קמפיינים קיימים. איך למצוא בעיות, לשפר ביצועים ולהגדיל מכירות בלי להגדיל תקציב.',
     content: `
