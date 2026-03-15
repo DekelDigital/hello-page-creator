@@ -22,6 +22,9 @@ const cover = (text: string) =>
 const inlineImg = (text: string, alt: string) =>
   `<img src="https://placehold.co/800x450/2563eb/ffffff?text=${encodeURIComponent(text)}&font=roboto" alt="${alt}" class="w-full rounded-2xl my-8" loading="lazy" />`;
 
+const blogImg = (filename: string, alt: string) =>
+  `<img src="/blog/${filename}" alt="${alt}" class="w-full rounded-2xl my-8" loading="lazy" />`;
+
 export const blogPosts: BlogPost[] = [
   {
     title: 'איך לבחור פלטפורמה לקמפיין ראשון: גוגל אדס מול מטא אדס מול טיקטוק אדס',
