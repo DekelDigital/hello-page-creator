@@ -427,7 +427,7 @@ ${inlineImg('Conversion Tracking', 'מעקב המרות בקמפיינים ממ�
     excerpt: 'דף נחיתה הוא המקום שבו קליקים הופכים ללקוחות. כך בונים דף שבאמת עובד.',
     date: '2026-02-05',
     author: 'דקל דיגיטל',
-    coverImage: cover('Landing Page'),
+    coverImage: '/blog/landing_page.png',
     seoTitle: 'דף נחיתה שממיר | עקרונות ליצירת דפי נחיתה אפקטיביים',
     seoDescription: 'מדריך לבניית דף נחיתה שממיר. עקרונות תוכן ועיצוב, מבנה נכון וטיפים מעשיים להגדלת המרות.',
     content: `
