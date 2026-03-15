@@ -377,7 +377,7 @@ ${inlineImg('Targeting', 'פילוח קהלים בקמפיינים ממומני�
     excerpt: 'קליקים, חשיפות ו-CTR זה לא מספיק. אילו מדדים באמת חשובים בניהול קמפיינים?',
     date: '2026-02-10',
     author: 'דקל דיגיטל',
-    coverImage: cover('Campaign Metrics'),
+    coverImage: '/blog/campaign_metrics.png',
     seoTitle: 'מדדי קמפיינים חשובים | מה מודדים ואיך מקבלים החלטות',
     seoDescription: 'אילו מדדים באמת חשובים בניהול קמפיינים ממומנים? מדריך מקצועי למדידה נכונה שמובילה להחלטות חכמות.',
     content: `
