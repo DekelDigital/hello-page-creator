@@ -32,7 +32,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: 'השוואה מעשית בין שלוש הפלטפורמות המובילות לשיווק ממומן, כדי שתדעו היכן להשקיע את התקציב הראשון שלכם.',
     date: '2026-03-10',
     author: 'דקל דיגיטל',
-    coverImage: cover('Google vs Meta vs TikTok'),
+    coverImage: '/blog/google_vs_meta_vs_tiktok.png',
     seoTitle: 'איך לבחור פלטפורמה לקמפיין ראשון | גוגל אדס, מטא אדס, טיקטוק אדס',
     seoDescription: 'השוואה מעשית בין גוגל אדס, מטא אדס וטיקטוק אדס. איזו פלטפורמה מתאימה לקמפיין הראשון שלכם? מדריך מקצועי מדקל דיגיטל.',
     content: `
