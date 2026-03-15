@@ -327,7 +327,7 @@ ${inlineImg('Testing Ads', 'בדיקת A/B לקריאייטיב במודעות')
     excerpt: 'טעויות שרוב המפרסמים עושים — וגורמות לתקציב לרדת לפח. איך נמנעים מהן?',
     date: '2026-02-14',
     author: 'דקל דיגיטל',
-    coverImage: cover('Campaign Mistakes'),
+    coverImage: '/blog/campaign_mistakes.png',
     seoTitle: '7 טעויות נפוצות בניהול קמפיינים | מדריך למניעת בזבוז תקציב',
     seoDescription: '7 טעויות נפוצות בניהול קמפיינים ממומנים שגורמות לבזבוז תקציב. מדריך מקצועי עם פתרונות מעשיים.',
     content: `
