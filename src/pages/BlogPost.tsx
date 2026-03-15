@@ -3,6 +3,7 @@ import { useParams, Navigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { blogPosts, calculateReadTime } from '../data/blogPosts';
 import BlogLeadForm from '../components/BlogLeadForm';
+import WhatsAppButton from '../components/WhatsAppButton';
 
 function formatDate(dateStr: string) {
   const d = new Date(dateStr);
