@@ -132,7 +132,7 @@ ${inlineImg('Landing Page', 'דף נחיתה שממיר עם טופס לידים
     excerpt: 'מדריך מעשי לקמפיין Performance Max בגוגל אדס — מתי להשתמש, איך להגדיר, ומה לא לעשות.',
     date: '2026-03-03',
     author: 'דקל דיגיטל',
-    coverImage: cover('Pmax Guide'),
+    coverImage: '/blog/campaign_optimization.png',
     seoTitle: 'מדריך Pmax בגוגל אדס | Performance Max בצורה נכונה',
     seoDescription: 'מה זה קמפיין Pmax? מתי להשתמש בו ואיך להגדיר אותו נכון כדי לא לבזבז תקציב. מדריך מקצועי מדקל דיגיטל.',
     content: `
