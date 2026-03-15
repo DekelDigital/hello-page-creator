@@ -482,7 +482,7 @@ ${inlineImg('CTA Button', 'כפתור קריאה לפעולה בולט בדף נ
     excerpt: 'השבוע הראשון של קמפיין חדש קובע את הטון לכל התקופה. כך מנהלים אותו נכון.',
     date: '2026-01-30',
     author: 'דקל דיגיטל',
-    coverImage: cover('Campaign Launch'),
+    coverImage: '/blog/campaign_launch.png',
     seoTitle: 'מהלך פתיחה בקמפיין חדש | מדריך לשבוע הראשון',
     seoDescription: 'מה עושים בשבוע הראשון של קמפיין ממומן חדש? מדריך שלב אחרי שלב להשקה מוצלחת.',
     content: `
