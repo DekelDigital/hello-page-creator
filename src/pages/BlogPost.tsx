@@ -195,6 +195,7 @@ export default function BlogPost() {
         </main>
 
         <BlogFooter />
+        <WhatsAppButton />
       </div>
     </>
   );
