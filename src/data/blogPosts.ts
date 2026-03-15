@@ -540,7 +540,7 @@ ${inlineImg('First Week Data', 'ניתוח נתונים בשבוע הראשון'
     excerpt: 'גוגל ומטא הן שתי ענקיות שונות. מתי כדאי לבחור כל אחת, ואיך משלבים ביניהן?',
     date: '2026-01-25',
     author: 'דקל דיגיטל',
-    coverImage: cover('Google vs Meta'),
+    coverImage: '/blog/google_vs_meta.png',
     seoTitle: 'גוגל אדס מול מטא אדס | מתי לבחור מה ואיך לשלב',
     seoDescription: 'השוואה מעמיקה בין שיווק ממומן בגוגל לשיווק ממומן במטא. יתרונות, חסרונות, ומתי כל פלטפורמה מתאימה.',
     content: `
