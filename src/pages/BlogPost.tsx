@@ -3,6 +3,7 @@ import { useParams, Navigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { blogPosts, calculateReadTime } from '../data/blogPosts';
 import BlogLeadForm from '../components/BlogLeadForm';
+import WhatsAppButton from '../components/WhatsAppButton';
 
 function formatDate(dateStr: string) {
   const d = new Date(dateStr);
@@ -18,6 +19,11 @@ const BlogHeader = () => (
         </a>
         <nav className="hidden md:flex items-center gap-8" dir="rtl">
           <a href="/" className="text-slate-600 hover:text-blue-700 font-medium transition-colors">דף הבית</a>
+          <a href="/#about" className="text-slate-600 hover:text-blue-700 font-medium transition-colors">אודות</a>
+          <a href="/#services" className="text-slate-600 hover:text-blue-700 font-medium transition-colors">מה אנחנו עושים</a>
+          <a href="/#ads" className="text-slate-600 hover:text-blue-700 font-medium transition-colors">מודעות</a>
+          <a href="/#results" className="text-slate-600 hover:text-blue-700 font-medium transition-colors">תוצאות</a>
+          <a href="/#reviews" className="text-slate-600 hover:text-blue-700 font-medium transition-colors">ביקורות</a>
           <a href="/blog" className="text-blue-700 font-bold transition-colors">בלוג</a>
         </nav>
         <a href="/#contact" className="hidden md:inline-flex items-center justify-center px-8 py-3.5 border border-transparent text-lg font-bold rounded-full text-white bg-blue-700 hover:bg-blue-800 transition-all shadow-md">
@@ -189,6 +195,7 @@ export default function BlogPost() {
         </main>
 
         <BlogFooter />
+        <WhatsAppButton />
       </div>
     </>
   );
