@@ -1097,9 +1097,9 @@ const Footer = () => {
           <div>
             <h4 className="text-2xl font-bold text-white mb-6">פרטי התקשורת</h4>
             <div className="flex flex-col gap-4">
-              <a href="mailto:info@dekeldigital.co.il" className="flex items-center gap-3 text-slate-400 hover:text-white transition-colors text-xl">
+              <a href="mailto:contact@dekeldigital.co.il" className="flex items-center gap-3 text-slate-400 hover:text-white transition-colors text-xl">
                 <Mail size={22} className="flex-shrink-0" />
-                info@dekeldigital.co.il
+                contact@dekeldigital.co.il
               </a>
               <div className="flex items-center gap-3 text-slate-400 text-xl">
                 <Clock size={22} className="flex-shrink-0" />
