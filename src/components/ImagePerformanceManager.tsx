@@ -108,18 +108,22 @@ export default function ImagePerformanceManager() {
 
     void Promise.all(priorityImages.map(warmImage));
 
-    let timeoutId: number | undefined;
+    let timeoutId: ReturnType<typeof setTimeout> | undefined;
     let idleId: number | undefined;
 
     const scheduleCache = () => {
-      if ('requestIdleCallback' in window) {
-        idleId = window.requestIdleCallback(() => {
+      const requestIdle = (globalThis as typeof globalThis & {
+        requestIdleCallback?: (callback: IdleRequestCallback) => number;
+      }).requestIdleCallback;
+
+      if (requestIdle) {
+        idleId = requestIdle(() => {
           void cacheImages();
         });
         return;
       }
 
-      timeoutId = window.setTimeout(() => {
+      timeoutId = setTimeout(() => {
         void cacheImages();
       }, 800);
     };
@@ -127,9 +131,12 @@ export default function ImagePerformanceManager() {
     scheduleCache();
 
     return () => {
-      if (timeoutId) window.clearTimeout(timeoutId);
-      if (idleId && 'cancelIdleCallback' in window) {
-        window.cancelIdleCallback(idleId);
+      if (timeoutId) clearTimeout(timeoutId);
+      const cancelIdle = (globalThis as typeof globalThis & {
+        cancelIdleCallback?: (handle: number) => void;
+      }).cancelIdleCallback;
+      if (idleId && cancelIdle) {
+        cancelIdle(idleId);
       }
     };
   }, []);
