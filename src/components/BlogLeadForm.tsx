@@ -34,8 +34,8 @@ export default function BlogLeadForm({ compact }: BlogLeadFormProps) {
 
   return (
     <div className={`bg-white border border-slate-200 rounded-2xl shadow-lg ${compact ? 'p-4' : 'p-8'}`} dir="rtl">
-      <h3 className={`font-bold text-slate-900 mb-2 ${compact ? 'text-xl' : 'text-2xl'}`}>
-        משאירים פרטים ואנחנו חוזרים עם כיוון ברור
+      <h3 className={`font-bold text-slate-900 mb-2 text-center ${compact ? 'text-xl' : 'text-2xl'}`}>
+        השאירו פרטים ונחזור אליכם
       </h3>
       <form onSubmit={handleSubmit} className="flex flex-col gap-3 mt-4">
         <input
