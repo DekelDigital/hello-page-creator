@@ -73,7 +73,7 @@ export default function BlogLeadForm({ compact }: BlogLeadFormProps) {
           disabled={loading}
           className="w-full py-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-lg transition-colors disabled:opacity-60"
         >
-          {loading ? 'שולח...' : 'בואו נעשה את המהלך הבא'}
+          {loading ? 'שולח...' : 'אני רוצה שיווק'}
         </button>
       </form>
     </div>
