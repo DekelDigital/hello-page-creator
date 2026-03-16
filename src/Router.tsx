@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import App from './App';
+import ImagePerformanceManager from './components/ImagePerformanceManager';
 import Hello from './pages/Hello';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import AccessibilityStatement from './pages/AccessibilityStatement';
@@ -11,6 +12,7 @@ export default function Router() {
   return (
     <HelmetProvider>
       <BrowserRouter>
+        <ImagePerformanceManager />
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/hello" element={<Hello />} />

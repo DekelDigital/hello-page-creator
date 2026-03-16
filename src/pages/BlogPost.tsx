@@ -154,7 +154,7 @@ export default function BlogPost() {
                     [&_ul]:pr-6 [&_ul]:mb-4 [&_li]:text-lg [&_li]:text-slate-700 [&_li]:mb-2
                     [&_strong]:text-slate-900
                     [&_img]:rounded-2xl [&_img]:my-8"
-                  dangerouslySetInnerHTML={{ __html: window.innerWidth < 1024 ? restContent : post.content }}
+                  dangerouslySetInnerHTML={{ __html: window.innerWidth < 1024 ? restContent : contentWithoutInlineImage }}
                 />
 
                 {/* Mobile lead form at bottom */}
