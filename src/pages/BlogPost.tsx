@@ -60,11 +60,12 @@ export default function BlogPost() {
 
   const readTime = calculateReadTime(post.content);
   const related = blogPosts.filter(p => p.slug !== slug).slice(0, 3);
+  const contentWithoutInlineImage = post.content.replace(/<img\b[^>]*src="\/blog\/[^\"]+"[^>]*>\s*/i, '');
 
   // Extract first paragraph for mobile form placement
-  const contentParts = post.content.split('</h2>');
+  const contentParts = contentWithoutInlineImage.split('</h2>');
   const firstSection = contentParts.length > 1 ? contentParts[0] + '</h2>' + contentParts[1].split('<h2>')[0] : '';
-  const restContent = contentParts.length > 1 ? '<h2>' + contentParts.slice(1).map((p, i) => i > 0 ? p : p.split('<h2>').slice(1).join('<h2>')).join('</h2>') : post.content;
+  const restContent = contentParts.length > 1 ? '<h2>' + contentParts.slice(1).map((p, i) => i > 0 ? p : p.split('<h2>').slice(1).join('<h2>')).join('</h2>') : contentWithoutInlineImage;
 
   const jsonLd = {
     "@context": "https://schema.org",
