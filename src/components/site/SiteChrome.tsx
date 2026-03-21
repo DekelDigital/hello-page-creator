@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, Mail, Clock, Facebook, MessageCircle } from 'lucide-react';
-import { LogoPicture } from '../LogoPicture';
 
 export type SiteNavVariant = 'home' | 'inner';
 
 const Logo = () => (
   <div className="flex items-center gap-2 -my-2 md:-my-3">
-    <LogoPicture
-      variant="header"
+    <img
+      src="/logo.png"
       alt="Dekel Digital Logo"
       className="h-20 md:h-24 w-auto object-contain"
       width={96}
       height={96}
-      fetchPriority="high"
+      decoding="async"
       onError={(e) => {
         e.currentTarget.src = 'https://placehold.co/150x50/1d4ed8/ffffff?text=Dekel+Digital';
       }}
@@ -242,8 +241,8 @@ export function SiteFooter({ variant }: { variant: SiteNavVariant }) {
         <div className="py-16 grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 text-right md:items-start" dir="rtl">
           <div className="md:-mt-[1.68rem]">
             <Link to="/" className="inline-block">
-              <LogoPicture
-                variant="footer"
+              <img
+                src="/logo.png"
                 alt="Dekel Digital"
                 className="h-28 w-auto mb-0.5 brightness-0 invert object-contain"
                 width={112}

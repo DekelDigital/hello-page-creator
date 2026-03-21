@@ -5,7 +5,6 @@ import { blogPosts, calculateReadTime, dashesToHyphen } from '../data/blogPosts'
 import BlogLeadForm from '../components/BlogLeadForm';
 import WhatsAppButton from '../components/WhatsAppButton';
 import { SiteFooter } from '../components/site/SiteChrome';
-import { LogoPicture } from '../components/LogoPicture';
 
 function formatDate(dateStr: string) {
   const d = new Date(dateStr);
@@ -17,7 +16,7 @@ const BlogHeader = () => (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="flex items-center justify-between bg-white/90 backdrop-blur-md shadow-sm border border-slate-200/50 rounded-full px-6 py-2">
         <a href="/" className="flex items-center gap-2 -my-2 md:-my-3">
-          <LogoPicture variant="blog" alt="דקל דיגיטל" className="h-20 md:h-24 w-auto object-contain" width={96} height={96} decoding="async" />
+          <img src="/logo.png" alt="דקל דיגיטל" className="h-20 md:h-24 w-auto object-contain" width={96} height={96} decoding="async" />
         </a>
         <nav className="hidden md:flex items-center gap-8" dir="rtl">
           <a href="/" className="text-[17px] md:text-[18px] leading-snug text-slate-600 hover:text-blue-700 font-medium transition-colors">

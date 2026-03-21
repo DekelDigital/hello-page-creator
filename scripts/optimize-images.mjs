@@ -137,30 +137,12 @@ async function chessPiecesResponsive() {
   }
 }
 
-/** מובייל: 240w + דחיסה חזקה יותר — פחות בתים ל-LCP */
 async function nextMoveResponsive() {
   const src = join(root, 'public', 'next_move.png');
   if (!existsSync(src)) return;
-  for (const w of [240, 360, 720, 1200]) {
+  for (const w of [360, 720, 1200]) {
     const dest = join(root, 'public', `next_move-${w}.webp`);
-    await sharp(src).resize({ width: w, withoutEnlargement: true }).webp({ quality: 72 }).toFile(dest);
-    console.log('wrote', dest);
-  }
-}
-
-/** לוגו: WebP רספונסיבי במקום PNG 870px — חוסך ~20KiB+ במובייל */
-async function logoWebp() {
-  const src = join(root, 'public', 'logo.png');
-  if (!existsSync(src)) {
-    console.warn('[optimize-images] skip logo: public/logo.png missing');
-    return;
-  }
-  for (const w of [192, 256]) {
-    const dest = join(root, 'public', `logo-${w}.webp`);
-    await sharp(src)
-      .resize({ width: w, height: w, fit: 'inside', withoutEnlargement: true })
-      .webp({ quality: 88 })
-      .toFile(dest);
+    await sharp(src).resize({ width: w, withoutEnlargement: true }).webp({ quality: 78 }).toFile(dest);
     console.log('wrote', dest);
   }
 }
@@ -189,7 +171,6 @@ async function main() {
   await blogCovers();
   await publicWebpCompanion();
   await nextMoveResponsive();
-  await logoWebp();
   await platformLogosSmall();
 }
 

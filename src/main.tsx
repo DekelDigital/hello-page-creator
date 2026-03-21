@@ -1,6 +1,6 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import './heebo-subset.css';
+import '@fontsource-variable/heebo/wght.css';
 import './index.css';
 import Router from './Router';
 

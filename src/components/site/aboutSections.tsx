@@ -52,7 +52,7 @@ export function AboutSection({ hideMainHeading, contactFormId = 'contact' }: Abo
               <picture>
                 <source
                   type="image/webp"
-                  srcSet="/next_move-240.webp 240w, /next_move-360.webp 360w, /next_move-720.webp 720w, /next_move-1200.webp 1200w"
+                  srcSet="/next_move-360.webp 360w, /next_move-720.webp 720w, /next_move-1200.webp 1200w"
                   sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 600px"
                 />
                 <img
@@ -97,8 +97,8 @@ export function AboutSection({ hideMainHeading, contactFormId = 'contact' }: Abo
                 <picture>
                   <source
                     type="image/webp"
-                    srcSet="/next_move-240.webp 240w, /next_move-360.webp 360w, /next_move-720.webp 720w, /next_move-1200.webp 1200w"
-                    sizes="(max-width: 640px) min(90vw, 400px), (max-width: 1024px) min(90vw, 400px), 400px"
+                    srcSet="/next_move-360.webp 360w, /next_move-720.webp 720w, /next_move-1200.webp 1200w"
+                    sizes="(max-width: 640px) 90vw, (max-width: 1024px) 90vw, 400px"
                   />
                   <img
                     src="/next_move.png"
