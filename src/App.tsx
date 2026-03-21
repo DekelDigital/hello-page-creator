@@ -3,9 +3,12 @@ import { ChevronRight, ChevronLeft } from 'lucide-react';
 import { PageHelmet } from './seo/PageHelmet';
 import { homePageSeo } from './seo/pageMeta';
 import ChessHero from './components/ChessHero';
-import reviewImg1 from './assets/review_screenshot.png';
-import reviewImg2 from './assets/review_screenshot2.png';
-import reviewImg3 from './assets/review_screenshot3.png';
+import reviewImg1w from './assets/review_screenshot.webp';
+import reviewImg1p from './assets/review_screenshot.png';
+import reviewImg2w from './assets/review_screenshot2.webp';
+import reviewImg2p from './assets/review_screenshot2.png';
+import reviewImg3w from './assets/review_screenshot3.webp';
+import reviewImg3p from './assets/review_screenshot3.png';
 import LeadForm from './components/site/LeadForm';
 import { AboutSection, AboutStrategySection } from './components/site/aboutSections';
 import ServicesSection from './components/site/servicesSection';
@@ -15,9 +18,9 @@ import { SiteHeader, SiteFooter, FloatingCTA } from './components/site/SiteChrom
 
 const Reviews = () => {
   const screenshots = [
-    { src: reviewImg1 },
-    { src: reviewImg2 },
-    { src: reviewImg3 },
+    { webp: reviewImg1w, png: reviewImg1p },
+    { webp: reviewImg2w, png: reviewImg2p },
+    { webp: reviewImg3w, png: reviewImg3p },
   ];
 
   return (
@@ -50,7 +53,18 @@ const Reviews = () => {
           <div className="grid grid-cols-3 gap-8">
             {screenshots.map((s, idx) => (
               <div key={idx} className="bg-white rounded-3xl shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-slate-100 overflow-hidden flex items-center justify-center p-4">
-                <img src={s.src} alt="ביקורת לקוח" className="w-full h-auto rounded-2xl object-contain" />
+                <picture>
+                  <source srcSet={s.webp} type="image/webp" />
+                  <img
+                    src={s.png}
+                    alt="ביקורת לקוח"
+                    className="w-full h-auto rounded-2xl object-contain"
+                    width={943}
+                    height={746}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
               </div>
             ))}
           </div>
@@ -77,7 +91,18 @@ const Reviews = () => {
           <div className="flex flex-col gap-4 mx-8">
             {screenshots.map((s, idx) => (
               <div key={idx} className="bg-white rounded-3xl shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-slate-100 overflow-hidden flex items-center justify-center p-4">
-                <img src={s.src} alt="ביקורת לקוח" className="w-full h-auto rounded-2xl object-contain" />
+                <picture>
+                  <source srcSet={s.webp} type="image/webp" />
+                  <img
+                    src={s.png}
+                    alt="ביקורת לקוח"
+                    className="w-full h-auto rounded-2xl object-contain"
+                    width={943}
+                    height={746}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
               </div>
             ))}
           </div>
@@ -89,7 +114,7 @@ const Reviews = () => {
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-slate-50 selection:bg-blue-200 selection:text-blue-900" style={{ fontFamily: '"Heebo", sans-serif' }}>
+    <div className="min-h-screen bg-slate-50 selection:bg-blue-200 selection:text-blue-900">
       <PageHelmet
         title={homePageSeo.title}
         description={homePageSeo.description}

@@ -49,11 +49,17 @@ export function AboutSection({ hideMainHeading, contactFormId = 'contact' }: Abo
             <div className="relative w-[140%] flex justify-center">
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-400/40 rounded-full blur-[90px] animate-pulse-slow z-0"></div>
 
-              <img
-                src="/next_move.png"
-                alt="Next Move Chess"
-                className="relative z-10 w-full h-auto drop-shadow-[0_20px_40px_rgba(37,99,235,0.2)]"
-              />
+              <picture>
+                <source srcSet="/next_move.webp" type="image/webp" />
+                <img
+                  src="/next_move.png"
+                  alt="Next Move Chess"
+                  className="relative z-10 w-full h-auto drop-shadow-[0_20px_40px_rgba(37,99,235,0.2)]"
+                  width={1536}
+                  height={1024}
+                  decoding="async"
+                />
+              </picture>
             </div>
           </motion.div>
 
@@ -84,11 +90,17 @@ export function AboutSection({ hideMainHeading, contactFormId = 'contact' }: Abo
             <div className="lg:hidden w-full relative flex justify-center items-center mb-8">
               <div className="relative w-full max-w-[400px] flex justify-center">
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-blue-400/30 rounded-full blur-[70px] animate-pulse-slow z-0"></div>
-                <img
-                  src="/next_move.png"
-                  alt="Next Move Chess"
-                  className="relative z-10 w-full h-auto drop-shadow-[0_15px_30px_rgba(37,99,235,0.2)]"
-                />
+                <picture>
+                  <source srcSet="/next_move.webp" type="image/webp" />
+                  <img
+                    src="/next_move.png"
+                    alt="Next Move Chess"
+                    className="relative z-10 w-full h-auto drop-shadow-[0_15px_30px_rgba(37,99,235,0.2)]"
+                    width={1536}
+                    height={1024}
+                    decoding="async"
+                  />
+                </picture>
               </div>
             </div>
 

@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useAnimationControls } from 'motion/react';
-import chessRookBlue from '../../assets/chess-rook-blue.png';
-import chessQueenWhite from '../../assets/chess-queen.png';
+import chessRookBlueWebp from '../../assets/chess-rook-blue.webp';
+import chessRookBluePng from '../../assets/chess-rook-blue.png';
+import chessQueenWebp from '../../assets/chess-queen.webp';
+import chessQueenPng from '../../assets/chess-queen.png';
 
 type ServicesSectionProps = {
   /** בדף פנימי - מצמצם ריווח עליון מתחת לכותרת הדף */
@@ -145,32 +147,56 @@ export default function ServicesSection({
       tabIndex={-1}
     >
       <div className="absolute inset-0 pointer-events-none hidden md:block" style={{ zIndex: 20 }}>
-        <motion.img
-          src={chessRookBlue}
-          alt=""
+        <motion.div
           className="chess-piece-rook absolute"
           style={{
             width: 'clamp(120px, 18vw, 280px)',
             bottom: '5%',
             left: '50%',
             filter: 'drop-shadow(0 12px 24px rgba(0,0,0,0.15))',
+            willChange: 'transform',
           }}
           initial={skipMotion ? { x: '-300%', opacity: 0.85, scale: 1, rotate: -2 } : { x: '-60%', opacity: 0.9, scale: 1.15, rotate: 0 }}
           animate={rookControls}
-        />
-        <motion.img
-          src={chessQueenWhite}
-          alt=""
+        >
+          <picture>
+            <source srcSet={chessRookBlueWebp} type="image/webp" />
+            <img
+              src={chessRookBluePng}
+              alt=""
+              width={522}
+              height={1024}
+              className="w-full h-auto"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
+        </motion.div>
+        <motion.div
           className="chess-piece-queen absolute"
           style={{
             width: 'clamp(110px, 16vw, 260px)',
             bottom: '12%',
             left: '50%',
             filter: 'drop-shadow(0 12px 24px rgba(0,0,0,0.12))',
+            willChange: 'transform',
           }}
           initial={skipMotion ? { x: '210%', opacity: 0.8, scale: 1, rotate: 3 } : { x: '-40%', opacity: 0.9, scale: 1.15, rotate: 0 }}
           animate={queenControls}
-        />
+        >
+          <picture>
+            <source srcSet={chessQueenWebp} type="image/webp" />
+            <img
+              src={chessQueenPng}
+              alt=""
+              width={522}
+              height={1024}
+              className="w-full h-auto"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
+        </motion.div>
       </div>
 
       <div className="relative" style={{ zIndex: 10 }}>
@@ -191,12 +217,25 @@ export default function ServicesSection({
                 >
                   <div className={`absolute top-0 right-0 w-16 md:w-32 h-16 md:h-32 bg-gradient-to-br ${card.gradientFrom} to-transparent rounded-bl-full -z-10`}></div>
                   <div className="mb-2 md:mb-8 flex justify-center w-full">
-                    <img src={card.logo} alt={card.logoAlt} className="h-16 md:h-20 object-contain" onError={(e) => { e.currentTarget.src = card.fallback; }} />
+                    <img
+                      src={card.logo}
+                      alt={card.logoAlt}
+                      className="h-16 md:h-20 object-contain"
+                      width={256}
+                      height={256}
+                      loading="lazy"
+                      decoding="async"
+                      onError={(e) => {
+                        e.currentTarget.src = card.fallback;
+                      }}
+                    />
                   </div>
                   <p className="text-[0.95rem] leading-tight md:text-3xl font-semibold text-slate-900 mb-0.5 md:mb-2 text-center">שיווק ממומן</p>
                   <h3 className="text-[1.1rem] leading-tight md:text-5xl font-black text-slate-900 mb-1 md:mb-4 text-center whitespace-nowrap">{card.title}</h3>
                   <p className="hidden md:block text-lg md:text-xl text-slate-600 leading-relaxed font-medium text-center flex-grow">{card.desc}</p>
-                  <div className={`mt-2 md:mt-8 h-1 w-8 md:w-12 ${card.barColor} rounded-full group-hover:w-[80%] transition-all duration-500 mx-auto`}></div>
+                  <div
+                    className={`mt-2 md:mt-8 h-1 w-8 md:w-12 ${card.barColor} rounded-full origin-center mx-auto group-hover:scale-x-[8] transition-transform duration-500`}
+                  ></div>
                 </div>
               );
             })}

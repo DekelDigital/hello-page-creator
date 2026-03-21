@@ -1,5 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
+import '@fontsource-variable/heebo/wght.css';
+import './index.css';
 import Router from './Router';
 
 createRoot(document.getElementById('root')!).render(

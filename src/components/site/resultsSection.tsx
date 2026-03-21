@@ -2,6 +2,38 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
 
+function CaseStudyImg({
+  src,
+  alt,
+  className,
+  style,
+  onError,
+}: {
+  src: string;
+  alt: string;
+  className?: string;
+  style?: React.CSSProperties;
+  onError?: React.ReactEventHandler<HTMLImageElement>;
+}) {
+  const webp = src.replace(/\.(png|jpe?g|jfif|jpeg)$/i, '.webp');
+  return (
+    <picture>
+      <source srcSet={webp} type="image/webp" />
+      <img
+        src={src}
+        alt={alt}
+        className={className}
+        style={style}
+        loading="lazy"
+        decoding="async"
+        width={1200}
+        height={800}
+        onError={onError}
+      />
+    </picture>
+  );
+}
+
 function useMobileCarousel(total: number, autoInterval = 3000) {
   const [current, setCurrent] = useState(0);
   const [dragging, setDragging] = useState(false);
@@ -107,11 +139,10 @@ export default function ResultsSection({ hideIntro }: ResultsSectionProps) {
                   </div>
                 </div>
                 <div className="flex-1 bg-slate-50 p-5">
-                  <img
+                  <CaseStudyImg
                     src={study.image}
                     alt={study.title}
                     className="w-full h-auto object-contain rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-slate-200/50"
-                    loading="lazy"
                     onError={(e) => {
                       e.currentTarget.src = `https://placehold.co/700x500/f1f5f9/94a3b8?text=Screenshot+${idx + 1}`;
                     }}
@@ -162,7 +193,7 @@ export default function ResultsSection({ hideIntro }: ResultsSectionProps) {
                     <h3 className="text-lg font-black text-slate-900">{caseStudies[current].title}</h3>
                     <div className="flex items-baseline gap-1.5 bg-blue-50 rounded-2xl px-3 py-1.5 border border-blue-100">
                       <span className="text-lg font-black text-blue-600">{caseStudies[current].leads}</span>
-                      <span className="text-xs font-bold text-blue-500">לידים</span>
+                      <span className="text-xs font-bold text-blue-700">לידים</span>
                     </div>
                   </div>
                   <div className="bg-slate-50 p-3">
@@ -182,7 +213,7 @@ export default function ResultsSection({ hideIntro }: ResultsSectionProps) {
             </AnimatePresence>
           </div>
 
-          <div className="flex justify-center gap-2 mt-6">
+          <div className="flex justify-center gap-1 mt-6">
             {caseStudies.map((_, i) => (
               <button
                 key={i}
@@ -191,9 +222,13 @@ export default function ResultsSection({ hideIntro }: ResultsSectionProps) {
                   goTo(i);
                   resetTimer();
                 }}
-                className={`w-2.5 h-2.5 rounded-full transition-all ${i === current ? 'bg-blue-400 scale-110' : 'bg-white/30 hover:bg-white/50'}`}
+                className="min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-full"
                 aria-label={`תוצאה ${i + 1}`}
-              />
+              >
+                <span
+                  className={`w-2.5 h-2.5 rounded-full transition-all ${i === current ? 'bg-blue-400 scale-110' : 'bg-white/30 hover:bg-white/50'}`}
+                />
+              </button>
             ))}
           </div>
         </div>

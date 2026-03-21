@@ -57,7 +57,7 @@ export default function BlogPost() {
 
   const readTime = calculateReadTime(post.content);
   const related = blogPosts.filter(p => p.slug !== slug).slice(0, 3);
-  const contentWithoutInlineImage = post.content.replace(/<img\b[^>]*src="\/blog\/[^\"]+"[^>]*>\s*/i, '');
+  const contentWithoutInlineImage = post.content.replace(/<picture>[\s\S]*?<\/picture>\s*/i, '');
 
   // Extract first paragraph for mobile form placement
   const contentParts = contentWithoutInlineImage.split('</h2>');
@@ -87,13 +87,13 @@ export default function BlogPost() {
         <link rel="canonical" href={`https://www.dekeldigital.co.il/blog/${post.slug}`} />
         <meta property="og:title" content={post.seoTitle} />
         <meta property="og:description" content={post.seoDescription} />
-        <meta property="og:image" content={post.coverImage} />
+        <meta property="og:image" content={`https://www.dekeldigital.co.il${post.coverImage}`} />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={`https://www.dekeldigital.co.il/blog/${post.slug}`} />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
 
-      <div className="min-h-screen bg-slate-50" style={{ fontFamily: '"Heebo", sans-serif' }}>
+      <div className="min-h-screen bg-slate-50">
         <BlogHeader />
 
         <main className="pt-32 pb-20" dir="rtl">
@@ -122,11 +122,17 @@ export default function BlogPost() {
                   <span>{readTime} דק׳ קריאה</span>
                 </div>
 
-                <img
-                  src={post.coverImage}
-                  alt={dashesToHyphen(post.title)}
-                  className="w-full rounded-2xl mb-10 aspect-video object-cover"
-                />
+                <picture>
+                  <source srcSet={post.coverImage} type="image/webp" />
+                  <img
+                    src={post.coverImage.replace(/\.webp$/i, '.png')}
+                    alt={dashesToHyphen(post.title)}
+                    className="w-full rounded-2xl mb-10 aspect-video object-cover"
+                    width={1200}
+                    height={675}
+                    decoding="async"
+                  />
+                </picture>
 
                 {/* Mobile lead form after intro */}
                 <div className="lg:hidden mb-10">
@@ -170,7 +176,18 @@ export default function BlogPost() {
                         className="group bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition-all overflow-hidden"
                       >
                         <div className="aspect-video overflow-hidden">
-                          <img src={r.coverImage} alt={dashesToHyphen(r.title)} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                          <picture>
+                            <source srcSet={r.coverImage} type="image/webp" />
+                            <img
+                              src={r.coverImage.replace(/\.webp$/i, '.png')}
+                              alt={dashesToHyphen(r.title)}
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                              loading="lazy"
+                              decoding="async"
+                              width={1200}
+                              height={675}
+                            />
+                          </picture>
                         </div>
                         <div className="p-4">
                           <h3 className="font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug">{dashesToHyphen(r.title)}</h3>

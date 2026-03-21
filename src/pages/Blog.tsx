@@ -60,7 +60,7 @@ export default function Blog() {
         breadcrumbItems={blogPageSeo.breadcrumbItems}
       />
 
-      <div className="min-h-screen bg-slate-50" style={{ fontFamily: '"Heebo", sans-serif' }}>
+      <div className="min-h-screen bg-slate-50">
         <BlogHeader />
         
         <main className="pt-32 pb-20" dir="rtl">
@@ -84,12 +84,18 @@ export default function Blog() {
                   className="group bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col"
                 >
                   <div className="aspect-video overflow-hidden">
-                    <img
-                      src={post.coverImage}
-                      alt={dashesToHyphen(post.title)}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      loading="lazy"
-                    />
+                    <picture>
+                      <source srcSet={post.coverImage} type="image/webp" />
+                      <img
+                        src={post.coverImage.replace(/\.webp$/i, '.png')}
+                        alt={dashesToHyphen(post.title)}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                        decoding="async"
+                        width={1200}
+                        height={675}
+                      />
+                    </picture>
                   </div>
                   <div className="p-6 flex flex-col flex-1">
                     <h2 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors leading-snug">

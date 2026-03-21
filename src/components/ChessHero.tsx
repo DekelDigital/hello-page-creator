@@ -1,9 +1,13 @@
 import React, { useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion, useAnimationControls, useScroll, useTransform } from 'motion/react';
 import { ArrowLeft } from 'lucide-react';
-import chessHeroBg from '../assets/chess-hero-bg.png';
-import chessKnight from '../assets/chess-knight.png';
-import chessKing from '../assets/chess-king.png';
+import chessHeroBgWebp from '../assets/chess-hero-bg.webp';
+import chessHeroBgPng from '../assets/chess-hero-bg.png';
+import chessKnightWebp from '../assets/chess-knight.webp';
+import chessKnightPng from '../assets/chess-knight.png';
+import chessKingWebp from '../assets/chess-king.webp';
+import chessKingPng from '../assets/chess-king.png';
 
 const ChessHero = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -15,36 +19,37 @@ const ChessHero = () => {
     offset: ['start start', 'end start'],
   });
 
-  // Pieces fly upward as user scrolls past hero
   const piecesY = useTransform(scrollYProgress, [0.3, 1], [0, -400]);
   const piecesOpacity = useTransform(scrollYProgress, [0.3, 0.8], [1, 0]);
 
   useEffect(() => {
     const runEntry = async () => {
-      // Knight enters first
-      knightControls.start({
-        y: 0,
-        opacity: 1,
-        transition: { duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] },
-      }).then(() => {
-        knightControls.start({
-          y: [0, -38, 0],
-          transition: { duration: 4, repeat: Infinity, ease: 'easeInOut' },
-        });
-      });
-
-      // King enters 180ms later
-      setTimeout(() => {
-        kingControls.start({
+      await knightControls
+        .start({
           y: 0,
           opacity: 1,
           transition: { duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] },
-        }).then(() => {
-          kingControls.start({
-            y: [0, -32, 0],
-            transition: { duration: 4.5, repeat: Infinity, ease: 'easeInOut' },
+        })
+        .then(() => {
+          knightControls.start({
+            y: [0, -38, 0],
+            transition: { duration: 4, repeat: Infinity, ease: 'easeInOut' },
           });
         });
+
+      setTimeout(() => {
+        kingControls
+          .start({
+            y: 0,
+            opacity: 1,
+            transition: { duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] },
+          })
+          .then(() => {
+            kingControls.start({
+              y: [0, -32, 0],
+              transition: { duration: 4.5, repeat: Infinity, ease: 'easeInOut' },
+            });
+          });
       }, 180);
     };
 
@@ -57,16 +62,19 @@ const ChessHero = () => {
 
   return (
     <section ref={sectionRef} className="relative min-h-screen flex items-center justify-center overflow-hidden" dir="rtl">
-      {/* Background image */}
+      <Helmet>
+        <link rel="preload" as="image" href={chessHeroBgWebp} />
+      </Helmet>
+
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${chessHeroBg})` }}
+        style={{
+          backgroundImage: `url(${chessHeroBgWebp}), url(${chessHeroBgPng})`,
+        }}
       />
 
-      {/* Light overlay for text readability */}
       <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-transparent to-white/60 pointer-events-none" />
 
-      {/* Sparkle particles */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {Array.from({ length: 20 }).map((_, i) => (
           <motion.div
@@ -90,36 +98,55 @@ const ChessHero = () => {
         ))}
       </div>
 
-      {/* Chess pieces overlay with scroll parallax */}
       <motion.div className="absolute inset-0 pointer-events-none z-[8]" style={{ y: piecesY, opacity: piecesOpacity }}>
-        {/* Knight - left side */}
-        <motion.img
-          src={chessKnight}
-          alt=""
+        <motion.div
           className="absolute left-[15%] bottom-[8%] w-[400px] lg:w-[420px] md:w-[300px] sm:w-[180px] max-sm:w-[140px] max-sm:opacity-70 md:opacity-90"
           style={{
             filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.3)) drop-shadow(0 0 30px rgba(59,130,246,0.15))',
             transform: 'rotate(5deg)',
+            willChange: 'transform',
           }}
           initial={{ y: 200, opacity: 0 }}
           animate={knightControls}
-        />
+        >
+          <picture>
+            <source srcSet={chessKnightWebp} type="image/webp" />
+            <img
+              src={chessKnightPng}
+              alt=""
+              width={968}
+              height={1430}
+              className="w-full h-auto max-w-full"
+              fetchPriority="high"
+              decoding="async"
+            />
+          </picture>
+        </motion.div>
 
-        {/* King - right side */}
-        <motion.img
-          src={chessKing}
-          alt=""
+        <motion.div
           className="absolute right-[8%] bottom-[6%] w-[420px] lg:w-[450px] md:w-[320px] sm:w-[200px] max-sm:w-[160px] max-sm:opacity-65 md:opacity-90"
           style={{
             filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.25)) drop-shadow(0 0 25px rgba(255,255,255,0.2))',
             transform: 'rotate(-6deg)',
+            willChange: 'transform',
           }}
           initial={{ y: 200, opacity: 0 }}
           animate={kingControls}
-        />
+        >
+          <picture>
+            <source srcSet={chessKingWebp} type="image/webp" />
+            <img
+              src={chessKingPng}
+              alt=""
+              width={1076}
+              height={1788}
+              className="w-full h-auto max-w-full"
+              decoding="async"
+            />
+          </picture>
+        </motion.div>
       </motion.div>
 
-      {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 pb-24 sm:pt-24 lg:pt-32 lg:pb-32">
         <motion.h1
           className="text-5xl sm:text-6xl lg:text-[5rem] font-black leading-[1.1] mb-4 tracking-tight"
@@ -175,7 +202,6 @@ const ChessHero = () => {
         </motion.p>
       </div>
 
-      {/* Bottom fade to next section */}
       <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#F0F5FF] to-transparent pointer-events-none z-[5]" />
     </section>
   );

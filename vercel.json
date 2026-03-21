@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "dekeldigital.co.il" }],
+      "destination": "https://www.dekeldigital.co.il/:path*",
+      "permanent": true
+    }
+  ]
+}

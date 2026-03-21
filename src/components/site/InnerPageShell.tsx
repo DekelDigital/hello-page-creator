@@ -15,11 +15,7 @@ type Props = {
 
 export default function InnerPageShell({ title, subtitle, seo, children, hidePageHeading }: Props) {
   return (
-    <div
-      className="min-h-screen bg-slate-50 selection:bg-blue-200 selection:text-blue-900"
-      style={{ fontFamily: '"Heebo", sans-serif' }}
-      dir="rtl"
-    >
+    <div className="min-h-screen bg-slate-50 selection:bg-blue-200 selection:text-blue-900" dir="rtl">
       <PageHelmet
         title={seo.title}
         description={seo.description}

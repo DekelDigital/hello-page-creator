@@ -10,6 +10,9 @@ const Logo = () => (
       src="/logo.png"
       alt="Dekel Digital Logo"
       className="h-20 md:h-24 object-contain"
+      width={870}
+      height={870}
+      decoding="async"
       onError={(e) => {
         e.currentTarget.src = 'https://placehold.co/150x50/1d4ed8/ffffff?text=Dekel+Digital';
       }}
@@ -228,7 +231,7 @@ export function SiteFooter({ variant }: { variant: SiteNavVariant }) {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const linkClass = 'text-slate-400 hover:text-white transition-colors text-right text-xl';
+  const linkClass = 'text-slate-300 hover:text-white transition-colors text-right text-xl';
 
   return (
     <footer className="bg-slate-900 text-white relative overflow-hidden">
@@ -242,12 +245,15 @@ export function SiteFooter({ variant }: { variant: SiteNavVariant }) {
                 src="/logo.png"
                 alt="Dekel Digital"
                 className="h-28 mb-0.5 brightness-0 invert"
+                width={870}
+                height={870}
+                decoding="async"
                 onError={(e) => {
                   e.currentTarget.src = 'https://placehold.co/150x50/ffffff/1d4ed8?text=Dekel+Digital';
                 }}
               />
             </Link>
-            <p className="text-slate-400 text-lg md:text-xl leading-snug mb-2">
+            <p className="text-slate-300 text-lg md:text-xl leading-snug mb-2">
               דקל דיגיטל - שיווק דיגיטלי
               <br />
               שמביא תוצאות אמיתיות.
@@ -258,14 +264,15 @@ export function SiteFooter({ variant }: { variant: SiteNavVariant }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-blue-600 transition-colors"
+                aria-label="עמוד הפייסבוק של דקל דיגיטל"
               >
-                <Facebook size={24} />
+                <Facebook size={24} aria-hidden />
               </a>
             </div>
           </div>
 
           <div>
-            <h4 className="text-2xl font-bold text-white mb-6">ניווט מהיר</h4>
+            <h2 className="text-2xl font-bold text-white mb-6">ניווט מהיר</h2>
             <nav className="flex flex-col gap-3">
               {variant === 'home' ? (
                 <>
@@ -314,32 +321,32 @@ export function SiteFooter({ variant }: { variant: SiteNavVariant }) {
           </div>
 
           <div>
-            <h4 className="text-2xl font-bold text-white mb-6">תנאים ומדיניות</h4>
+            <h2 className="text-2xl font-bold text-white mb-6">תנאים ומדיניות</h2>
             <div className="flex flex-col gap-3">
-              <a href="/privacy" className="text-slate-400 hover:text-white transition-colors text-xl">
+              <a href="/privacy" className="text-slate-300 hover:text-white transition-colors text-xl">
                 מדיניות פרטיות
               </a>
-              <a href="/accessibility" className="text-slate-400 hover:text-white transition-colors text-xl">
+              <a href="/accessibility" className="text-slate-300 hover:text-white transition-colors text-xl">
                 הצהרת נגישות
               </a>
             </div>
           </div>
 
           <div>
-            <h4 className="text-2xl font-bold text-white mb-6">פרטי התקשורת</h4>
+            <h2 className="text-2xl font-bold text-white mb-6">פרטי התקשורת</h2>
             <div className="flex flex-col gap-4">
               <Link
                 to="/contact"
-                className="flex items-center gap-3 text-slate-400 hover:text-white transition-colors text-xl"
+                className="flex items-center gap-3 text-slate-300 hover:text-white transition-colors text-xl"
               >
                 <MessageCircle size={22} className="flex-shrink-0" />
                 יצירת קשר
               </Link>
-              <a href="mailto:contact@dekeldigital.co.il" className="flex items-center gap-3 text-slate-400 hover:text-white transition-colors text-xl">
+              <a href="mailto:contact@dekeldigital.co.il" className="flex items-center gap-3 text-slate-300 hover:text-white transition-colors text-xl">
                 <Mail size={22} className="flex-shrink-0" />
                 contact@dekeldigital.co.il
               </a>
-              <div className="flex items-center gap-3 text-slate-400 text-xl">
+              <div className="flex items-center gap-3 text-slate-300 text-xl">
                 <Clock size={22} className="flex-shrink-0" />
                 א׳-ה׳ 9:00-18:00
               </div>
@@ -348,7 +355,7 @@ export function SiteFooter({ variant }: { variant: SiteNavVariant }) {
         </div>
 
         <div className="border-t border-slate-800 py-8 text-center">
-          <p className="text-slate-500 text-lg">© {new Date().getFullYear()} Dekel Digital. כל הזכויות שמורות.</p>
+          <p className="text-slate-300 text-lg">© {new Date().getFullYear()} Dekel Digital. כל הזכויות שמורות.</p>
         </div>
       </div>
     </footer>

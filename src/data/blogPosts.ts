@@ -27,8 +27,10 @@ const cover = (text: string) =>
 const inlineImg = (text: string, alt: string) =>
   `<img src="https://placehold.co/800x450/2563eb/ffffff?text=${encodeURIComponent(text)}&font=roboto" alt="${alt}" class="w-full rounded-2xl my-8" loading="lazy" />`;
 
-const blogImg = (filename: string, alt: string) =>
-  `<img src="/blog/${filename}" alt="${alt}" class="w-full rounded-2xl my-8" loading="lazy" />`;
+const blogImg = (filename: string, alt: string) => {
+  const base = filename.replace(/\.[^.]+$/, '');
+  return `<picture><source srcset="/blog/${base}.webp" type="image/webp" /><img src="/blog/${filename}" alt="${alt}" class="w-full rounded-2xl my-8" loading="lazy" decoding="async" width="1200" height="675" /></picture>`;
+};
 
 export const blogPosts: BlogPost[] = [
   {
@@ -37,7 +39,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: 'השוואה מעשית בין שלוש הפלטפורמות המובילות לשיווק ממומן, כדי שתדעו היכן להשקיע את התקציב הראשון שלכם.',
     date: '2026-03-10',
     author: 'דקל דיגיטל',
-    coverImage: '/blog/google_vs_meta_vs_tiktok.png',
+    coverImage: '/blog/google_vs_meta_vs_tiktok.webp',
     seoTitle: 'איך לבחור פלטפורמה נכונה לקמפיין | גוגל אדס, מטא אדס, טיקטוק אדס',
     seoDescription: 'השוואה מעשית בין גוגל אדס, מטא אדס וטיקטוק אדס. איזו פלטפורמה מתאימה לקמפיין הראשון שלכם? מדריך מקצועי מדקל דיגיטל.',
     content: `
@@ -90,7 +92,7 @@ ${blogImg('google_vs_meta_vs_tiktok.png', 'השוואה בין גוגל אדס �
     excerpt: 'עלות לליד נמוכה לא תמיד אומרת הצלחה. כך מבדילים בין לידים שמתכלים ללידים שמביאים מכירות.',
     date: '2026-03-07',
     author: 'דקל דיגיטל',
-    coverImage: '/blog/quality_leads.png',
+    coverImage: '/blog/quality_leads.webp',
     seoTitle: 'לידים איכותיים מול לידים זולים | איך מייצרים לידים שמוכרים',
     seoDescription: 'למה עלות לליד נמוכה יכולה להטעות? מדריך מקצועי ליצירת לידים איכותיים שמביאים מכירות אמיתיות. דקל דיגיטל.',
     content: `
@@ -181,7 +183,7 @@ ${blogImg('pmax.png', 'מדריך Pmax בגוגל אדס')}
     excerpt: 'איך בונים קמפיין חיפוש בגוגל אדס שמביא פניות אמיתיות ולא סתם קליקים? מבנה, מילות מפתח וקריאייטיב.',
     date: '2026-02-27',
     author: 'דקל דיגיטל',
-    coverImage: '/blog/search_campaign.png',
+    coverImage: '/blog/search_campaign.webp',
     seoTitle: 'קמפיין חיפוש שממיר בגוגל אדס | מדריך מקצועי',
     seoDescription: 'מדריך לבניית קמפיין חיפוש ממיר בגוגל אדס. מבנה נכון, מילות מפתח, כוונת חיפוש ומודעות שמביאות פניות אמיתיות.',
     content: `
@@ -273,7 +275,7 @@ ${blogImg('remarketing.png', 'רימרקטינג שמחזיר לקוחות לס�
     excerpt: 'לייקים זה נחמד, אבל מה שחשוב זה המרות. כך יוצרים קריאייטיב למודעות שמביא פניות ומכירות.',
     date: '2026-02-18',
     author: 'דקל דיגיטל',
-    coverImage: '/blog/creative_ads.png',
+    coverImage: '/blog/creative_ads.webp',
     seoTitle: 'קריאייטיב למודעות שממיר | מדריך ליצירת מודעות אפקטיביות',
     seoDescription: 'איך ליצור קריאייטיב למודעות שמביא תוצאות ולא רק אינטראקציות? מדריך מקצועי עם דוגמאות ועקרונות.',
     content: `
@@ -368,7 +370,7 @@ ${blogImg('campaign_mistakes.png', 'טעויות נפוצות בניהול קמ�
     excerpt: 'קליקים, חשיפות ו-CTR זה לא מספיק. אילו מדדים באמת חשובים בניהול קמפיינים?',
     date: '2026-02-10',
     author: 'דקל דיגיטל',
-    coverImage: '/blog/campaign_metrics.png',
+    coverImage: '/blog/campaign_metrics.webp',
     seoTitle: 'מדדי קמפיינים חשובים | מה מודדים ואיך מקבלים החלטות',
     seoDescription: 'אילו מדדים באמת חשובים בניהול קמפיינים ממומנים? מדריך מקצועי למדידה נכונה שמובילה להחלטות חכמות.',
     content: `
@@ -469,7 +471,7 @@ ${blogImg('landing_page.png', 'דף נחיתה שממיר עם טופס לידי
     excerpt: 'השבוע הראשון של קמפיין חדש קובע את הטון לכל התקופה. כך מנהלים אותו נכון.',
     date: '2026-01-30',
     author: 'דקל דיגיטל',
-    coverImage: '/blog/campaign_launch.png',
+    coverImage: '/blog/campaign_launch.webp',
     seoTitle: 'מהלך פתיחה בקמפיין חדש | מדריך לשבוע הראשון',
     seoDescription: 'מה עושים בשבוע הראשון של קמפיין ממומן חדש? מדריך שלב אחרי שלב להשקה מוצלחת.',
     content: `
@@ -525,7 +527,7 @@ ${blogImg('campaign_launch.png', 'השקת קמפיין ממומן חדש')}
     excerpt: 'גוגל ומטא הן שתי ענקיות שונות. מתי כדאי לבחור כל אחת, ואיך משלבים ביניהן?',
     date: '2026-01-25',
     author: 'דקל דיגיטל',
-    coverImage: '/blog/google_vs_meta.png',
+    coverImage: '/blog/google_vs_meta.webp',
     seoTitle: 'גוגל אדס מול מטא אדס | מתי לבחור מה ואיך לשלב',
     seoDescription: 'השוואה מעמיקה בין שיווק ממומן בגוגל לשיווק ממומן במטא. יתרונות, חסרונות, ומתי כל פלטפורמה מתאימה.',
     content: `
@@ -590,7 +592,7 @@ ${blogImg('google_vs_meta.png', 'השוואה בין גוגל אדס למטא א
     excerpt: 'לפני שמגדילים תקציב, צריך לוודא שהקמפיין הקיים עובד ב-100%. כך מאתרים ומתקנים בעיות.',
     date: '2026-01-20',
     author: 'דקל דיגיטל',
-    coverImage: '/blog/campaign_optimization.png',
+    coverImage: '/blog/campaign_optimization.webp',
     seoTitle: 'הגדלת מכירות דרך אופטימיזציה | איך לשפר קמפיין קיים',
     seoDescription: 'מדריך לאופטימיזציה של קמפיינים קיימים. איך למצוא בעיות, לשפר ביצועים ולהגדיל מכירות בלי להגדיל תקציב.',
     content: `
