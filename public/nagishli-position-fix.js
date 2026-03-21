@@ -3,7 +3,7 @@
  * Inline !important beats that so the FAB keeps padding from the viewport edge.
  */
 (function () {
-  /* וואטסאפ ~76px רוחב, FAB נגישות 56px — +10px מיישר מרכזים; ערכים תואמים ל-index.html */
+  /* וואטסאפ ~76px רוחב, FAB נגישות 56px - +10px מיישר מרכזים; ערכים תואמים ל-index.html */
   var bottom = 'calc(0.75rem + env(safe-area-inset-bottom, 0px))';
   var left = 'calc(10px + env(safe-area-inset-left, 0px))';
 

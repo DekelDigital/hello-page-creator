@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { blogPosts, calculateReadTime, dashesToHyphen } from '../data/blogPosts';
 import WhatsAppButton from '../components/WhatsAppButton';
+import { SiteFooter } from '../components/site/SiteChrome';
 
 const BlogHeader = () => (
   <header className="fixed top-0 left-0 right-0 z-50 py-3">
@@ -11,38 +12,34 @@ const BlogHeader = () => (
           <img src="/logo.png" alt="דקל דיגיטל" className="h-20 md:h-24 object-contain" />
         </a>
         <nav className="hidden md:flex items-center gap-8" dir="rtl">
-          <a href="/" className="text-slate-600 hover:text-blue-700 font-medium transition-colors">דף הבית</a>
-          <a href="/#about" className="text-slate-600 hover:text-blue-700 font-medium transition-colors">אודות</a>
-          <a href="/#services" className="text-slate-600 hover:text-blue-700 font-medium transition-colors">מה אנחנו עושים</a>
-          <a href="/#ads" className="text-slate-600 hover:text-blue-700 font-medium transition-colors">מודעות</a>
-          <a href="/#results" className="text-slate-600 hover:text-blue-700 font-medium transition-colors">תוצאות</a>
-          <a href="/#reviews" className="text-slate-600 hover:text-blue-700 font-medium transition-colors">ביקורות</a>
-          <a href="/blog" className="text-blue-700 font-bold transition-colors">בלוג</a>
+          <a href="/" className="text-[17px] md:text-[18px] leading-snug text-slate-600 hover:text-blue-700 font-medium transition-colors">
+            דף הבית
+          </a>
+          <a href="/about" className="text-[17px] md:text-[18px] leading-snug text-slate-600 hover:text-blue-700 font-medium transition-colors">
+            אודות
+          </a>
+          <a href="/campaigns" className="text-[17px] md:text-[18px] leading-snug text-slate-600 hover:text-blue-700 font-medium transition-colors">
+            ניהול קמפיינים
+          </a>
+          <a href="/ads" className="text-[17px] md:text-[18px] leading-snug text-slate-600 hover:text-blue-700 font-medium transition-colors">
+            מודעות
+          </a>
+          <a href="/results" className="text-[17px] md:text-[18px] leading-snug text-slate-600 hover:text-blue-700 font-medium transition-colors">
+            תוצאות
+          </a>
+          <a href="/#reviews" className="text-[17px] md:text-[18px] leading-snug text-slate-600 hover:text-blue-700 font-medium transition-colors">
+            ביקורות
+          </a>
+          <a href="/blog" className="text-[17px] md:text-[18px] leading-snug text-blue-700 font-bold transition-colors">
+            בלוג
+          </a>
         </nav>
-        <a href="/#contact" className="hidden md:inline-flex items-center justify-center px-8 py-3.5 border border-transparent text-lg font-bold rounded-full text-white bg-blue-700 hover:bg-blue-800 transition-all shadow-md">
+        <a href="/contact" className="hidden md:inline-flex items-center justify-center px-8 py-3.5 border border-transparent text-lg font-bold rounded-full text-white bg-blue-700 hover:bg-blue-800 transition-all shadow-md">
           אני רוצה שיווק
         </a>
       </div>
     </div>
   </header>
-);
-
-const BlogFooter = () => (
-  <footer className="bg-slate-900 text-white py-12">
-    <div className="max-w-7xl mx-auto px-4 text-center">
-      <a href="/">
-        <img src="/logo.png" alt="דקל דיגיטל" className="h-20 mx-auto mb-4 brightness-0 invert" />
-      </a>
-      <p className="text-slate-400 text-lg mb-4">שיווק דיגיטלי שמביא תוצאות אמיתיות.</p>
-      <div className="flex justify-center gap-6 text-slate-400 text-base" dir="rtl">
-        <a href="/" className="hover:text-white transition-colors">דף הבית</a>
-        <a href="/blog" className="hover:text-white transition-colors">בלוג</a>
-        <a href="/privacy" className="hover:text-white transition-colors">מדיניות פרטיות</a>
-        <a href="/accessibility" className="hover:text-white transition-colors">הצהרת נגישות</a>
-      </div>
-      <p className="text-slate-500 mt-8">© {new Date().getFullYear()} Dekel Digital. כל הזכויות שמורות.</p>
-    </div>
-  </footer>
 );
 
 function formatDate(dateStr: string) {
@@ -118,7 +115,7 @@ export default function Blog() {
           </div>
         </main>
 
-        <BlogFooter />
+        <SiteFooter variant="inner" />
         <WhatsAppButton />
       </div>
     </>

@@ -27,7 +27,7 @@ export default function BlogLeadForm({ compact }: BlogLeadFormProps) {
     return (
       <div className={`bg-blue-50 border border-blue-200 rounded-2xl ${compact ? 'p-4' : 'p-8'} text-center`}>
         <p className="text-2xl font-bold text-blue-700 mb-2">קיבלנו! 🎯</p>
-        <p className="text-lg text-slate-600">נחזור אליכם בהקדם עם כיוון ברור.</p>
+        <p className="text-lg text-slate-600">דקל דיגיטל יחזרו אליכם בהקדם.</p>
       </div>
     );
   }
@@ -37,6 +37,9 @@ export default function BlogLeadForm({ compact }: BlogLeadFormProps) {
       <h3 className={`font-bold text-slate-900 mb-2 text-center ${compact ? 'text-xl' : 'text-2xl'}`}>
         השאירו פרטים ונחזור אליכם
       </h3>
+      <p className={`text-slate-600 text-center mb-1 ${compact ? 'text-sm' : 'text-base'}`}>
+        משאירים פרטים - דקל דיגיטל דואגים לכל השאר
+      </p>
       <form onSubmit={handleSubmit} className="flex flex-col gap-3 mt-4">
         <input
           type="text"
