@@ -3,11 +3,22 @@ import { Helmet } from 'react-helmet-async';
 import { motion, useAnimationControls, useScroll, useTransform } from 'motion/react';
 import { ArrowLeft } from 'lucide-react';
 import chessHeroBgWebp from '../assets/chess-hero-bg.webp';
-import chessHeroBgPng from '../assets/chess-hero-bg.png';
-import chessKnightWebp from '../assets/chess-knight.webp';
+import chessKnight160 from '../assets/chess-knight-160.webp';
+import chessKnight280 from '../assets/chess-knight-280.webp';
+import chessKnight420 from '../assets/chess-knight-420.webp';
+import chessKnight840 from '../assets/chess-knight-840.webp';
 import chessKnightPng from '../assets/chess-knight.png';
-import chessKingWebp from '../assets/chess-king.webp';
+import chessKing160 from '../assets/chess-king-160.webp';
+import chessKing280 from '../assets/chess-king-280.webp';
+import chessKing450 from '../assets/chess-king-450.webp';
+import chessKing900 from '../assets/chess-king-900.webp';
 import chessKingPng from '../assets/chess-king.png';
+
+const knightSrcSet = `${chessKnight160} 160w, ${chessKnight280} 280w, ${chessKnight420} 420w, ${chessKnight840} 840w`;
+const knightSizes = '(max-width: 639px) 140px, (max-width: 767px) 180px, (max-width: 1023px) 300px, 420px';
+
+const kingSrcSet = `${chessKing160} 160w, ${chessKing280} 280w, ${chessKing450} 450w, ${chessKing900} 900w`;
+const kingSizes = '(max-width: 639px) 160px, (max-width: 767px) 200px, (max-width: 1023px) 320px, 450px';
 
 const ChessHero = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -64,12 +75,14 @@ const ChessHero = () => {
     <section ref={sectionRef} className="relative min-h-screen flex items-center justify-center overflow-hidden" dir="rtl">
       <Helmet>
         <link rel="preload" as="image" href={chessHeroBgWebp} />
+        <link rel="preload" as="image" href={chessKing160} media="(max-width: 640px)" />
+        <link rel="preload" as="image" href={chessKing900} media="(min-width: 641px)" />
       </Helmet>
 
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url(${chessHeroBgWebp}), url(${chessHeroBgPng})`,
+          backgroundImage: `url(${chessHeroBgWebp})`,
         }}
       />
 
@@ -110,14 +123,13 @@ const ChessHero = () => {
           animate={knightControls}
         >
           <picture>
-            <source srcSet={chessKnightWebp} type="image/webp" />
+            <source type="image/webp" srcSet={knightSrcSet} sizes={knightSizes} />
             <img
               src={chessKnightPng}
               alt=""
               width={968}
               height={1430}
               className="w-full h-auto max-w-full"
-              fetchPriority="high"
               decoding="async"
             />
           </picture>
@@ -134,13 +146,14 @@ const ChessHero = () => {
           animate={kingControls}
         >
           <picture>
-            <source srcSet={chessKingWebp} type="image/webp" />
+            <source type="image/webp" srcSet={kingSrcSet} sizes={kingSizes} />
             <img
               src={chessKingPng}
               alt=""
               width={1076}
               height={1788}
               className="w-full h-auto max-w-full"
+              fetchPriority="high"
               decoding="async"
             />
           </picture>

@@ -106,6 +106,7 @@ export default function ServicesSection({
   const cards = [
     {
       logo: '/tiktok_logo.png',
+      logoWebp: '/img/logos/tiktok-128.webp',
       logoAlt: 'TikTok Ads',
       fallback: 'https://placehold.co/100x100/000000/ffffff?text=TikTok',
       title: 'TikTok Ads',
@@ -117,6 +118,7 @@ export default function ServicesSection({
     },
     {
       logo: '/meta_logo.png',
+      logoWebp: '/img/logos/meta-128.webp',
       logoAlt: 'Meta Ads',
       fallback: 'https://placehold.co/100x100/1877f2/ffffff?text=Meta',
       title: 'Meta Ads',
@@ -128,6 +130,7 @@ export default function ServicesSection({
     },
     {
       logo: '/google ads logo.png',
+      logoWebp: '/img/logos/google-ads-128.webp',
       logoAlt: 'Google Ads',
       fallback: 'https://placehold.co/100x100/ea4335/ffffff?text=Google',
       title: 'Google Ads',
@@ -217,18 +220,21 @@ export default function ServicesSection({
                 >
                   <div className={`absolute top-0 right-0 w-16 md:w-32 h-16 md:h-32 bg-gradient-to-br ${card.gradientFrom} to-transparent rounded-bl-full -z-10`}></div>
                   <div className="mb-2 md:mb-8 flex justify-center w-full">
-                    <img
-                      src={card.logo}
-                      alt={card.logoAlt}
-                      className="h-16 md:h-20 object-contain"
-                      width={256}
-                      height={256}
-                      loading="lazy"
-                      decoding="async"
-                      onError={(e) => {
-                        e.currentTarget.src = card.fallback;
-                      }}
-                    />
+                    <picture>
+                      <source srcSet={card.logoWebp} type="image/webp" />
+                      <img
+                        src={card.logo}
+                        alt={card.logoAlt}
+                        className="h-16 md:h-20 w-auto object-contain"
+                        width={128}
+                        height={128}
+                        loading="lazy"
+                        decoding="async"
+                        onError={(e) => {
+                          e.currentTarget.src = card.fallback;
+                        }}
+                      />
+                    </picture>
                   </div>
                   <p className="text-[0.95rem] leading-tight md:text-3xl font-semibold text-slate-900 mb-0.5 md:mb-2 text-center">שיווק ממומן</p>
                   <h3 className="text-[1.1rem] leading-tight md:text-5xl font-black text-slate-900 mb-1 md:mb-4 text-center whitespace-nowrap">{card.title}</h3>

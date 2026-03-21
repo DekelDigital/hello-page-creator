@@ -50,7 +50,11 @@ export function AboutSection({ hideMainHeading, contactFormId = 'contact' }: Abo
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-400/40 rounded-full blur-[90px] animate-pulse-slow z-0"></div>
 
               <picture>
-                <source srcSet="/next_move.webp" type="image/webp" />
+                <source
+                  type="image/webp"
+                  srcSet="/next_move-360.webp 360w, /next_move-720.webp 720w, /next_move-1200.webp 1200w"
+                  sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 600px"
+                />
                 <img
                   src="/next_move.png"
                   alt="Next Move Chess"
@@ -91,7 +95,11 @@ export function AboutSection({ hideMainHeading, contactFormId = 'contact' }: Abo
               <div className="relative w-full max-w-[400px] flex justify-center">
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-blue-400/30 rounded-full blur-[70px] animate-pulse-slow z-0"></div>
                 <picture>
-                  <source srcSet="/next_move.webp" type="image/webp" />
+                  <source
+                    type="image/webp"
+                    srcSet="/next_move-360.webp 360w, /next_move-720.webp 720w, /next_move-1200.webp 1200w"
+                    sizes="(max-width: 640px) 90vw, (max-width: 1024px) 90vw, 400px"
+                  />
                   <img
                     src="/next_move.png"
                     alt="Next Move Chess"

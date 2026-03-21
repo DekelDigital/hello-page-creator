@@ -9,9 +9,9 @@ const Logo = () => (
     <img
       src="/logo.png"
       alt="Dekel Digital Logo"
-      className="h-20 md:h-24 object-contain"
-      width={870}
-      height={870}
+      className="h-20 md:h-24 w-auto object-contain"
+      width={96}
+      height={96}
       decoding="async"
       onError={(e) => {
         e.currentTarget.src = 'https://placehold.co/150x50/1d4ed8/ffffff?text=Dekel+Digital';
@@ -244,9 +244,9 @@ export function SiteFooter({ variant }: { variant: SiteNavVariant }) {
               <img
                 src="/logo.png"
                 alt="Dekel Digital"
-                className="h-28 mb-0.5 brightness-0 invert"
-                width={870}
-                height={870}
+                className="h-28 w-auto mb-0.5 brightness-0 invert object-contain"
+                width={112}
+                height={112}
                 decoding="async"
                 onError={(e) => {
                   e.currentTarget.src = 'https://placehold.co/150x50/ffffff/1d4ed8?text=Dekel+Digital';

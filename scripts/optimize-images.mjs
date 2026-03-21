@@ -116,11 +116,62 @@ async function publicWebpCompanion() {
   }
 }
 
+/** גדלים לפי viewport למובייל (Lighthouse) */
+async function chessPiecesResponsive() {
+  const assetsDir = join(root, 'src', 'assets');
+  const pieces = [
+    { base: 'chess-knight', widths: [160, 280, 420, 840] },
+    { base: 'chess-king', widths: [160, 280, 450, 900] },
+  ];
+  for (const { base, widths } of pieces) {
+    const src = join(assetsDir, `${base}.png`);
+    if (!existsSync(src)) continue;
+    for (const w of widths) {
+      const dest = join(assetsDir, `${base}-${w}.webp`);
+      await sharp(src)
+        .resize({ width: w, withoutEnlargement: true })
+        .webp({ quality: 78 })
+        .toFile(dest);
+      console.log('wrote', dest);
+    }
+  }
+}
+
+async function nextMoveResponsive() {
+  const src = join(root, 'public', 'next_move.png');
+  if (!existsSync(src)) return;
+  for (const w of [360, 720, 1200]) {
+    const dest = join(root, 'public', `next_move-${w}.webp`);
+    await sharp(src).resize({ width: w, withoutEnlargement: true }).webp({ quality: 78 }).toFile(dest);
+    console.log('wrote', dest);
+  }
+}
+
+async function platformLogosSmall() {
+  const outDir = join(root, 'public', 'img', 'logos');
+  mkdirSync(outDir, { recursive: true });
+  const files = [
+    ['meta', 'meta_logo.png'],
+    ['tiktok', 'tiktok_logo.png'],
+    ['google-ads', 'google ads logo.png'],
+  ];
+  for (const [slug, name] of files) {
+    const src = join(root, 'public', name);
+    if (!existsSync(src)) continue;
+    const dest = join(outDir, `${slug}-128.webp`);
+    await sharp(src).resize({ width: 128, height: 128, fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } }).webp({ quality: 85 }).toFile(dest);
+    console.log('wrote', dest);
+  }
+}
+
 async function main() {
   await chessAndBundled();
+  await chessPiecesResponsive();
   await adsResponsive();
   await blogCovers();
   await publicWebpCompanion();
+  await nextMoveResponsive();
+  await platformLogosSmall();
 }
 
 main().catch((e) => {
