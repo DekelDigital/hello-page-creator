@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams, Navigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { blogPosts, calculateReadTime } from '../data/blogPosts';
+import { blogPosts, calculateReadTime, dashesToHyphen } from '../data/blogPosts';
 import BlogLeadForm from '../components/BlogLeadForm';
 import WhatsAppButton from '../components/WhatsAppButton';
 
@@ -70,7 +70,7 @@ export default function BlogPost() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "headline": post.title,
+    "headline": dashesToHyphen(post.title),
     "datePublished": post.date,
     "author": { "@type": "Organization", "name": post.author },
     "image": post.coverImage,
@@ -107,14 +107,14 @@ export default function BlogPost() {
               <span>›</span>
               <a href="/blog" className="hover:text-blue-600 transition-colors">בלוג</a>
               <span>›</span>
-              <span className="text-slate-700">{post.title}</span>
+              <span className="text-slate-700">{dashesToHyphen(post.title)}</span>
             </nav>
 
             <div className="flex flex-col lg:flex-row gap-12">
               {/* Article Content */}
               <article className="flex-1 min-w-0">
                 <h1 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 leading-tight">
-                  {post.title}
+                  {dashesToHyphen(post.title)}
                 </h1>
 
                 <div className="flex items-center gap-4 text-slate-500 text-base mb-8">
@@ -127,7 +127,7 @@ export default function BlogPost() {
 
                 <img
                   src={post.coverImage}
-                  alt={post.title}
+                  alt={dashesToHyphen(post.title)}
                   className="w-full rounded-2xl mb-10 aspect-video object-cover"
                 />
 
@@ -173,10 +173,10 @@ export default function BlogPost() {
                         className="group bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition-all overflow-hidden"
                       >
                         <div className="aspect-video overflow-hidden">
-                          <img src={r.coverImage} alt={r.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                          <img src={r.coverImage} alt={dashesToHyphen(r.title)} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                         </div>
                         <div className="p-4">
-                          <h3 className="font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug">{r.title}</h3>
+                          <h3 className="font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug">{dashesToHyphen(r.title)}</h3>
                           <p className="text-sm text-slate-500 mt-2">{formatDate(r.date)}</p>
                         </div>
                       </a>

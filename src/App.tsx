@@ -1103,7 +1103,7 @@ const Footer = () => {
               </a>
               <div className="flex items-center gap-3 text-slate-400 text-xl">
                 <Clock size={22} className="flex-shrink-0" />
-                א׳–ה׳ 9:00–18:00
+                א׳-ה׳ 9:00-18:00
               </div>
             </div>
           </div>
@@ -1138,7 +1138,7 @@ const FloatingCTA = () => {
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 left-6 z-50 rounded-full flex items-center justify-center"
+      className="floating-whatsapp fixed bottom-6 left-6 z-50 rounded-full flex items-center justify-center"
       aria-label="שלחו הודעה בוואטסאפ"
     >
       {/* Pulsing rings */}

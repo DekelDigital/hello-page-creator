@@ -8,7 +8,7 @@ export default function WhatsAppButton() {
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 left-6 z-50 rounded-full flex items-center justify-center"
+      className="floating-whatsapp fixed bottom-6 left-6 z-50 rounded-full flex items-center justify-center"
       aria-label="שלחו הודעה בוואטסאפ"
     >
       <span className="absolute w-[88px] h-[88px] rounded-full bg-[#25D366]/30 animate-[wa-ping_2s_ease-out_infinite]"></span>

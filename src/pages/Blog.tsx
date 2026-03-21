@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { blogPosts, calculateReadTime } from '../data/blogPosts';
+import { blogPosts, calculateReadTime, dashesToHyphen } from '../data/blogPosts';
 import WhatsAppButton from '../components/WhatsAppButton';
 
 const BlogHeader = () => (
@@ -91,14 +91,14 @@ export default function Blog() {
                   <div className="aspect-video overflow-hidden">
                     <img
                       src={post.coverImage}
-                      alt={post.title}
+                      alt={dashesToHyphen(post.title)}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
                     />
                   </div>
                   <div className="p-6 flex flex-col flex-1">
                     <h2 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors leading-snug">
-                      {post.title}
+                      {dashesToHyphen(post.title)}
                     </h2>
                     <div className="flex items-center gap-3 text-sm text-slate-500 mb-3">
                       <span>{formatDate(post.date)}</span>
