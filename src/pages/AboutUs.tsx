@@ -3,14 +3,11 @@ import { AboutSection, AboutStrategySection } from '../components/site/aboutSect
 import LeadForm from '../components/site/LeadForm';
 import { SeoAfterFormSection } from '../components/site/SeoAfterFormSection';
 import { aboutSeoAfterForm } from '../content/seoAboutAfterForm';
+import { aboutPageSeo } from '../seo/pageMeta';
 
 export default function AboutUs() {
   return (
-    <InnerPageShell
-      title="מי אנחנו"
-      description="דקל דיגיטל: ניסיון בניהול קמפיינים ממומנים, לידים מדויקים ושקיפות מלאה. הכירו את הצוות והגישה שלנו."
-      metaTitle="מי אנחנו | Dekel Digital"
-    >
+    <InnerPageShell title="מי אנחנו" seo={aboutPageSeo}>
       <AboutSection hideMainHeading contactFormId="contact" />
       <AboutStrategySection />
       <LeadForm id="contact" />

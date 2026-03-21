@@ -1,5 +1,6 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import { PageHelmet } from '../seo/PageHelmet';
+import { blogPageSeo } from '../seo/pageMeta';
 import { blogPosts, calculateReadTime, dashesToHyphen } from '../data/blogPosts';
 import WhatsAppButton from '../components/WhatsAppButton';
 import { SiteFooter } from '../components/site/SiteChrome';
@@ -52,15 +53,12 @@ export default function Blog() {
 
   return (
     <>
-      <Helmet>
-        <title>בלוג דקל דיגיטל | תובנות על שיווק ממומן וניהול קמפיינים</title>
-        <meta name="description" content="תובנות על שיווק ממומן, ניהול קמפיינים וקריאייטיב שמביא לידים ומכירות. מדריכים מקצועיים מדקל דיגיטל." />
-        <link rel="canonical" href="https://www.dekeldigital.co.il/blog" />
-        <meta property="og:title" content="בלוג דקל דיגיטל | תובנות על שיווק ממומן" />
-        <meta property="og:description" content="תובנות על שיווק ממומן, ניהול קמפיינים וקריאייטיב שמביא לידים ומכירות." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.dekeldigital.co.il/blog" />
-      </Helmet>
+      <PageHelmet
+        title={blogPageSeo.title}
+        description={blogPageSeo.description}
+        canonicalPath={blogPageSeo.canonicalPath}
+        breadcrumbItems={blogPageSeo.breadcrumbItems}
+      />
 
       <div className="min-h-screen bg-slate-50" style={{ fontFamily: '"Heebo", sans-serif' }}>
         <BlogHeader />

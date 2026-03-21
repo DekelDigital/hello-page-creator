@@ -1,8 +1,16 @@
 import { Link } from 'react-router-dom';
+import { PageHelmet } from '../seo/PageHelmet';
+import { accessibilityPageSeo } from '../seo/pageMeta';
 
 export default function AccessibilityStatement() {
   return (
     <div className="min-h-screen bg-white text-right" dir="rtl">
+      <PageHelmet
+        title={accessibilityPageSeo.title}
+        description={accessibilityPageSeo.description}
+        canonicalPath={accessibilityPageSeo.canonicalPath}
+        breadcrumbItems={accessibilityPageSeo.breadcrumbItems}
+      />
       <div className="max-w-3xl mx-auto px-4 py-16">
         <Link to="/" className="text-blue-600 hover:underline mb-8 inline-block">← חזרה לעמוד הראשי</Link>
         <h1 className="text-4xl font-bold mb-8">הצהרת נגישות</h1>

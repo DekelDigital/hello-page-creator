@@ -1,8 +1,16 @@
 import { Link } from 'react-router-dom';
+import { PageHelmet } from '../seo/PageHelmet';
+import { privacyPageSeo } from '../seo/pageMeta';
 
 export default function PrivacyPolicy() {
   return (
     <div className="min-h-screen bg-white text-right" dir="rtl">
+      <PageHelmet
+        title={privacyPageSeo.title}
+        description={privacyPageSeo.description}
+        canonicalPath={privacyPageSeo.canonicalPath}
+        breadcrumbItems={privacyPageSeo.breadcrumbItems}
+      />
       <div className="max-w-3xl mx-auto px-4 py-16">
         <Link to="/" className="text-blue-600 hover:underline mb-8 inline-block">← חזרה לעמוד הראשי</Link>
         <h1 className="text-4xl font-bold mb-8">מדיניות פרטיות</h1>

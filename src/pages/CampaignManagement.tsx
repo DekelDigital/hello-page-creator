@@ -3,14 +3,11 @@ import ServicesSection from '../components/site/servicesSection';
 import LeadForm from '../components/site/LeadForm';
 import { SeoAfterFormSection } from '../components/site/SeoAfterFormSection';
 import { campaignsSeoAfterForm } from '../content/seoCampaignsAfterForm';
+import { campaignsPageSeo } from '../seo/pageMeta';
 
 export default function CampaignManagement() {
   return (
-    <InnerPageShell
-      hidePageHeading
-      description="ניהול קמפיינים ממומנים בדקל דיגיטל: TikTok Ads, Meta Ads ו-Google Ads. השאירו פרטים לייעוץ."
-      metaTitle="ניהול קמפיינים | Dekel Digital"
-    >
+    <InnerPageShell hidePageHeading seo={campaignsPageSeo}>
       <ServicesSection
         compactTop
         sectionTitle="ניהול קמפיינים"

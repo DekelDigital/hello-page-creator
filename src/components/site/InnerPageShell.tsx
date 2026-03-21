@@ -1,37 +1,31 @@
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import { PageHelmet } from '../../seo/PageHelmet';
+import type { PageSeoConfig } from '../../seo/pageMeta';
 import { SiteHeader, SiteFooter, FloatingCTA } from './SiteChrome';
 
 type Props = {
   title?: string;
   subtitle?: string;
-  description?: string;
-  metaTitle?: string;
+  /** SEO: כותרת, תיאור, canonical, BreadcrumbList JSON-LD */
+  seo: PageSeoConfig;
   children: React.ReactNode;
   /** רק כפתור חזרה - בלי כותרת/תיאור בראש הדף */
   hidePageHeading?: boolean;
 };
 
-export default function InnerPageShell({
-  title,
-  subtitle,
-  description,
-  metaTitle,
-  children,
-  hidePageHeading,
-}: Props) {
-  const pageTitle = metaTitle ?? (title ? `${title} | Dekel Digital` : 'Dekel Digital');
-
+export default function InnerPageShell({ title, subtitle, seo, children, hidePageHeading }: Props) {
   return (
     <div
       className="min-h-screen bg-slate-50 selection:bg-blue-200 selection:text-blue-900"
       style={{ fontFamily: '"Heebo", sans-serif' }}
       dir="rtl"
     >
-      <Helmet>
-        <title>{pageTitle}</title>
-        {description ? <meta name="description" content={description} /> : null}
-      </Helmet>
+      <PageHelmet
+        title={seo.title}
+        description={seo.description}
+        canonicalPath={seo.canonicalPath}
+        breadcrumbItems={seo.breadcrumbItems}
+      />
       <SiteHeader variant="inner" />
       <main className="pt-24 md:pt-28">
         <div

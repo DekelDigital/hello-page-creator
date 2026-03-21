@@ -1,5 +1,7 @@
 import React from 'react';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
+import { PageHelmet } from './seo/PageHelmet';
+import { homePageSeo } from './seo/pageMeta';
 import ChessHero from './components/ChessHero';
 import reviewImg1 from './assets/review_screenshot.png';
 import reviewImg2 from './assets/review_screenshot2.png';
@@ -88,6 +90,12 @@ const Reviews = () => {
 export default function App() {
   return (
     <div className="min-h-screen bg-slate-50 selection:bg-blue-200 selection:text-blue-900" style={{ fontFamily: '"Heebo", sans-serif' }}>
+      <PageHelmet
+        title={homePageSeo.title}
+        description={homePageSeo.description}
+        canonicalPath={homePageSeo.canonicalPath}
+        breadcrumbItems={homePageSeo.breadcrumbItems}
+      />
       <SiteHeader variant="home" />
       <main>
         <ChessHero />

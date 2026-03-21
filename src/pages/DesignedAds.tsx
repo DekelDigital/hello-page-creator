@@ -3,14 +3,14 @@ import AdsCarouselSection from '../components/site/adsCarouselSection';
 import LeadForm from '../components/site/LeadForm';
 import { SeoAfterFormSection } from '../components/site/SeoAfterFormSection';
 import { adsSeoAfterForm } from '../content/seoAdsAfterForm';
+import { adsPageSeo } from '../seo/pageMeta';
 
 export default function DesignedAds() {
   return (
     <InnerPageShell
       title="מודעות שעיצבנו לכם"
       subtitle="קריאייטיבים שנועדו לעצור גלילה ולהניע לפעולה"
-      description="גלריית מודעות וקריאייטיבים מדקל דיגיטל. רוצים גם לעסק שלכם? השאירו פרטים."
-      metaTitle="מודעות שעיצבנו לכם | Dekel Digital"
+      seo={adsPageSeo}
     >
       <AdsCarouselSection hideIntro />
       <LeadForm id="contact" />
