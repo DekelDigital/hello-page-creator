@@ -13,6 +13,8 @@ const logos = [
   { src: hillel, alt: 'הלל פינוי דירות' },
 ];
 
+const marqueeLogos = [...logos, ...logos, ...logos, ...logos];
+
 const ClientsMarquee: React.FC = () => {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
@@ -40,21 +42,21 @@ const ClientsMarquee: React.FC = () => {
 
       <div className="flex overflow-hidden group" dir="ltr">
         <div className={`flex w-max gap-12 md:gap-20 ${prefersReducedMotion ? 'pause-animation' : 'animate-scroll-left'}`}>
-            {[...logos, ...logos].map((logo, idx) => (
-              <div
-                key={idx}
-                className="w-40 md:w-56 h-20 md:h-24 flex-shrink-0 flex items-center justify-center"
-                aria-hidden={idx >= logos.length ? 'true' : undefined}
-              >
-                <img
-                  src={logo.src}
-                  alt={logo.alt}
-                  className="max-h-16 md:max-h-20 max-w-full w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-            ))}
+          {[...marqueeLogos, ...marqueeLogos].map((logo, idx) => (
+            <div
+              key={idx}
+              className="w-40 md:w-56 h-20 md:h-24 flex-shrink-0 flex items-center justify-center"
+              aria-hidden={idx >= marqueeLogos.length ? 'true' : undefined}
+            >
+              <img
+                src={logo.src}
+                alt={logo.alt}
+                className="max-h-16 md:max-h-20 max-w-full w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          ))}
         </div>
       </div>
     </section>
