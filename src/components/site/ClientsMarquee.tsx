@@ -1,9 +1,9 @@
 import React from 'react';
-import tzvi from '@/assets/clients/tzvi-yehezkeli.png';
-import tal from '@/assets/clients/tal-ben-gigi.png';
-import west from '@/assets/clients/west-garden.png';
-import bazelet from '@/assets/clients/bazelet.png';
-import hillel from '@/assets/clients/hillel-pinui.png';
+import tzvi from '../../assets/clients/tzvi-yehezkeli.png';
+import tal from '../../assets/clients/tal-ben-gigi.png';
+import west from '../../assets/clients/west-garden.png';
+import bazelet from '../../assets/clients/bazelet.png';
+import hillel from '../../assets/clients/hillel-pinui.png';
 
 const logos = [
   { src: tzvi, alt: 'צבי יחזקאלי' },
