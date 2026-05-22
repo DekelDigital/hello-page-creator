@@ -15,6 +15,7 @@ import ServicesSection from './components/site/servicesSection';
 import AdsCarouselSection from './components/site/adsCarouselSection';
 import ResultsSection from './components/site/resultsSection';
 import { SiteHeader, SiteFooter, FloatingCTA } from './components/site/SiteChrome';
+import ClientsMarquee from './components/site/ClientsMarquee';
 
 const Reviews = () => {
   const screenshots = [
@@ -124,6 +125,7 @@ export default function App() {
       <SiteHeader variant="home" />
       <main>
         <ChessHero />
+        <ClientsMarquee />
         <AboutSection />
         <ServicesSection />
         <AboutStrategySection />
