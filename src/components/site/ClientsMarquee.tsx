@@ -43,7 +43,7 @@ const ClientsMarquee: React.FC = () => {
       <div className="flex overflow-hidden group" dir="ltr">
         <div
           className={`flex w-max gap-16 md:gap-24 ${prefersReducedMotion ? 'pause-animation' : 'animate-scroll-left'}`}
-          style={{ animationDuration: '60s' }}
+          style={{ animationDuration: '80s' }}
         >
           {[...marqueeLogos, ...marqueeLogos].map((logo, idx) => (
             <div
